@@ -1,0 +1,111 @@
+/*
+Template Name: Cineflix
+File: Layout CSS
+Author: TemplatesOnWeb
+Author URI: https://www.templateonweb.com/
+Licence: <a href="https://www.templateonweb.com/license">Website Template Licence</a>
+*/
+
+/*********************center_h****************/
+.carousel-caption{
+background-color: rgba(0,0,0,.5)!important;
+bottom:0;
+left:0;
+color:#fff;
+width:100%;
+height:100%;
+padding: 240px 140px 0px 140px;
+text-align:center;
+ }
+.carousel-caption p{
+width:60%;
+ }
+
+/*********************center_h_end****************/
+
+/*********************spec****************/
+#spec {
+background-image: url(../img/3.jpg);
+}
+
+/*********************spec_end****************/
+
+/*********************choose****************/
+.choose_1r span{
+font-size:120px; 
+ }
+.choose_1r{
+padding-top:50px; 
+ }
+#choose {
+background-image: url(../img/2.jpg);
+}
+/*********************choose_end****************/
+
+
+@media screen and (max-width : 767px){
+.center_home img{
+min-height:380px; 
+ }
+.carousel-caption{
+padding:15px!important;
+ }
+.carousel-caption p{
+width:100%;
+text-align:left;
+font-size:14px;
+ }
+.carousel-caption .font_50{
+font-size:22px;
+ }
+.spec_1l {
+margin-top:8px;
+margin-bottom:8px; 
+ }
+.choose_1l {
+text-align:center; 
+ }
+.choose_1l br{
+display:none;
+ }
+ }
+
+
+@media (min-width:576px) and (max-width:767px) {
+.carousel-caption{
+padding:20px!important;
+ }
+.carousel-caption p{
+font-size:15px;
+ }
+.carousel-caption .font_50{
+font-size:32px;
+ }
+.choose_1l {
+text-align:left; 
+ }
+ }
+ 
+@media (min-width:768px) and (max-width:991px) {
+.center_home img{
+min-height:600px; 
+ }
+.carousel-caption p{
+width:80%;
+ }
+.carousel-caption{
+padding: 140px 140px 0px 140px;
+ }
+ }
+
+@media (min-width:992px) and (max-width:1200px) {
+.center_home img{
+min-height:700px; 
+ }
+ }
+@media (min-width:1201px) and (max-width:1310px) {
+
+ }
+
+
+

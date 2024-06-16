@@ -1,0 +1,141 @@
+/*
+Template Name: Cineflix
+File: Layout CSS
+Author: TemplatesOnWeb
+Author URI: https://www.templateonweb.com/
+Licence: <a href="https://www.templateonweb.com/license">Website Template Licence</a>
+*/
+
+/*********************about****************/
+.blog_1r2 ul li a {
+padding: 5px 12px;
+background: #f9f5e8;
+display: block;
+margin: 3px 2px 3px 0;
+font-size: 15px;
+transition: 0.3s;
+}
+.blog_1r2 ul li a:hover {
+background:#a1915b;
+color:#fff;
+}
+
+/*********************about_end****************/
+
+
+@media screen and (max-width : 767px){
+.manage_1r{
+margin-top:15px; 
+ }
+.client_1i {
+margin-top:8px;
+margin-bottom:8px; 
+ }
+.about_h_1  p{
+text-align:left; 
+ }
+.docu_1i {
+text-align:center; 
+margin-top:8px!important;
+margin-bottom:8px!important; 
+ }
+.blog_1i{
+margin-top:8px;
+margin-bottom:8px; 
+ }
+.blog_1i h4{
+text-align:center; 
+ }
+.blog_1r{
+margin-top:15px;  
+ }
+.blog_1r2 {
+text-align:center; 
+ }
+.blog_1dt2  h3{
+text-align:center;  
+ }
+.blog_1dt3  h3{
+text-align:center;   
+ }
+.blog_1dt3ir {
+text-align:center;
+margin-top:15px;  
+ }
+.blog_1dt3ir p {
+text-align:left;
+ }
+.blog_1dt4{
+text-align:center;   
+ }
+.contact_1ril{
+margin-top:10px; 
+ }
+.cons_1i{
+margin-top:10px; 
+ }
+.team_dt1l{
+text-align:center;
+ }
+.team_dt1m{
+margin-top:15px;
+margin-bottom:15px;
+text-align:center; 
+ }
+.team_dt1m p{
+text-align:left; 
+ }
+.login_1r{
+margin-top:15px;
+ }
+.login_1rir{
+margin-top:15px; 
+ }
+ }
+
+
+@media (min-width:576px) and (max-width:767px) {
+.blog_1dt3ir {
+text-align:left;
+margin-top:0;  
+ }
+
+ }
+ 
+@media (min-width:768px) and (max-width:991px) {
+.docu_1i {
+padding-left:0px!important; 
+padding-right:0px!important; 
+ }
+.docu_1il span{
+font-size:20px!important; 
+ }
+.docu_1ir h4{
+font-size:16px; 
+ }
+.docu_1ir p{
+font-size:14px; 
+ }
+.team_dt1m h2{
+font-size:18px;  
+ }
+.team_dt1m h5{
+font-size:14px;  
+ }
+.team_dt1m p{
+font-size:13px;  
+ }
+ }
+
+@media (min-width:992px) and (max-width:1200px) {
+.docu_1i {
+padding-left:0px!important; 
+padding-right:0px!important; 
+ }
+ }
+@media (min-width:1201px) and (max-width:1310px) {
+
+ }
+
+
+
