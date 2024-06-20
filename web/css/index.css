@@ -1,4 +1,7 @@
 
+
+
+
 /*********************center_h****************/
 .carousel-caption{
 background-color: rgba(0,0,0,.5)!important;
@@ -101,6 +104,16 @@ min-height:700px;
  }
 
 
+/*********************Login button****************/ 
+ .btn-book-a-table:focus {
+  font-size: 14px;
+  color: #fff;
+  background: var(--color-primary);
+  padding: 8px 20px;
+  margin-left: 30px;
+  border-radius: 50px;
+  transition: 0.3s;
+}
 
 /*CREDIT
 Template Name: Cineflix

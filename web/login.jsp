@@ -29,7 +29,7 @@
                 <h2>Login</h2>
                 <div class="input-field">
                     <input type="text" required>
-                    <label>Enter your email</label>
+                    <label>Enter your email or username</label>
                 </div>
                 <div class="input-field">
                     <input type="password" required>
@@ -40,22 +40,18 @@
                         <input type="checkbox" id="remember">
                         <p>Remember me</p>
                     </label>
-                    <a href="#">Forgot password?</a>
+                    <a href="forgot_password.jsp">Forgot password?</a>
                 </div>
                 <button type="submit">Log In</button>
                 <div class="register">
-                    <p>Don't have an account? <a href="#">Register</a></p>
+                    <p>Don't have an account? <a href="register.jsp">Register</a></p>
                 </div>
             </form>
             </br>
         </div>
             
         </section>
-        <section>
-            <div>
-               
-            </div>
-        </section>
+       
     </body>
 
 
