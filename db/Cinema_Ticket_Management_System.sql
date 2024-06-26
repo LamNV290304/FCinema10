@@ -51,7 +51,7 @@ CREATE TABLE run_time(
 	run_time_id INT PRIMARY KEY NOT NULL,
 	schedule_id INT,
 	movie_id INT NOT NULL,
-	run_time INT NOT NULL;
+	run_time INT NOT NULL,
 	FOREIGN KEY (schedule_id) REFERENCES schedule(schedule_id)
 );
 
@@ -70,7 +70,7 @@ CREATE TABLE users (
     user_id INT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
-	String role(5) NOT NULL,
+	role VARCHAR(10) NOT NULL,
     fullname VARCHAR(255),
     birthday DATE,
     gender INT,
