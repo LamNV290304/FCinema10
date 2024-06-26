@@ -1,16 +1,11 @@
--- CREATE DATABASE 
+-- CREATE DATABASE
 CREATE DATABASE CINEMA_TICKET_MANAGEMENT_SYSTEM
 GO
 
 DROP DATABASE CINEMA_TICKET_MANAGEMENT_SYSTEM
 
 --CREATE TABLE 
--- Table: admin
-CREATE TABLE admin (
-    admin_id INT PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-);
+
 
 
 -- Table: cinemas
@@ -45,18 +40,25 @@ CREATE TABLE movies (
 CREATE TABLE schedule (
     schedule_id INT PRIMARY KEY,
     movie_id INT NOT NULL,
-    room_id INT NOT NULL,
-    schedule_date DATE NOT NULL,
+    room_id INT NOT NULL,  
+	schedule_date DATE NOT NULL,
     schedule_start TIME NOT NULL,
     schedule_end TIME NOT NULL,
     FOREIGN KEY (movie_id) REFERENCES movies(movie_id),
     FOREIGN KEY (room_id) REFERENCES room(room_id)
 );
+CREATE TABLE run_time(
+	run_time_id INT PRIMARY KEY NOT NULL,
+	schedule_id INT,
+	movie_id INT NOT NULL,
+	run_time INT NOT NULL;
+	FOREIGN KEY (schedule_id) REFERENCES schedule(schedule_id)
+);
+
 
 -- Table: seats
 CREATE TABLE seats (
-    seat_id INT PRIMARY KEY,
-    seat_type VARCHAR(255) NOT NULL,
+    seat_id INT PRIMARY KEY,    
     room_id INT NOT NULL,
     row CHAR(1) NOT NULL,
     number INT NOT NULL,
@@ -68,11 +70,11 @@ CREATE TABLE users (
     user_id INT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
-	String role(5) NOT NULL;
-    fullname VARCHAR(255) NOT NULL,
+	String role(5) NOT NULL,
+    fullname VARCHAR(255),
     birthday DATE,
     gender INT,
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255),
     city VARCHAR(255),
     phone VARCHAR(50)
 );
@@ -85,27 +87,28 @@ CREATE TABLE booking (
     user_id INT NOT NULL,
     schedule_id INT NOT NULL,
     seat_id INT NOT NULL,
-    price DECIMAL(10, 2) NOT NULL,
-    seat_status VARCHAR(255) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id),
     FOREIGN KEY (schedule_id) REFERENCES schedule(schedule_id),
     FOREIGN KEY (seat_id) REFERENCES seats(seat_id)
 );
 
--- Table: employee
-CREATE TABLE employee (
-    employee_id INT PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    avatar VARCHAR(255),
-    fullname VARCHAR(255) NOT NULL,
-    birthday DATE,
-    gender CHAR(1),
-    email VARCHAR(255) NOT NULL,
-    city VARCHAR(255),
-    phone VARCHAR(50)
+--table: booking detail
+CREATE TABLE booking_detail (
+    booking__detail_id INT PRIMARY KEY,
+    booking_id INT,
+    schedule_id INT NOT NULL,
+    seat_id INT NOT NULL,
+	room_id INT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
 );
 
+
+create table Food (
+	food_id int identity(1, 1) primary key,
+	food_name nvarchar(50) not null,
+	describe nvarchar(100) not null,
+	price int not null
+);
 
 -- INSERT DATA TO DATABASE
 INSERT INTO cinemas (cinema_id, cinema_name, cinema_address)
@@ -130,10 +133,13 @@ VALUES
     (18,'F Ha Long', 'Ha Long'),
     (19,'F Ninh Binh', 'Ninh Binh'),
     (20,'F Lao Cai', 'Lao Cai');
+--INSERT ADMIN
+INSERT INTO users(user_id,username,password,role)
+VALUES(1,'admin1','root1','admin'),
+	  (2,'admin2','root2','admin'),
+	  (3,'admin3','root3','admin');
+--INSERT EMPLOYEE
+INSERT INTO users(user_id,username,password,role)
+VALUES(1,'employee01','123456789','Employee'),
+	
 
-INSERT INTO admin(admin_id,username,password)
-VALUES(1,'admin1','root1'),
-	  (2,'admin2','root2'),
-	  (3,'admin3','root3');
-
-SELECT * FR

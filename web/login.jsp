@@ -43,15 +43,18 @@
                     <a href="forgot_password.jsp">Forgot password?</a>
                 </div>
                 <button type="submit">Log In</button>
-                <div class="register">
-                    <p>Don't have an account? <a href="register.jsp">Register</a></p>
+                <div class="login">
+                        <p style="color: white">Don't have an account? <a href="register.jsp">Register</a></p>
                 </div>
             </form>
-            </br>
+            
         </div>
             
         </section>
        
+        
+        
+        
     </body>
 
 
