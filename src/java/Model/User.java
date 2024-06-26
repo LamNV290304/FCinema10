@@ -21,8 +21,9 @@ public class User {
     private String city;
     private String phone;
     private String point;
+    private String role;
 
-    public User(int user_id, String username, String password, String avatar, String fullname, String birthday, String gender, String email, String city, String phone, String point) {
+    public User(int user_id, String username, String password, String avatar, String fullname, String birthday, String gender, String email, String city, String phone, String point, String role) {
         this.user_id = user_id;
         this.username = username;
         this.password = password;
@@ -34,6 +35,7 @@ public class User {
         this.city = city;
         this.phone = phone;
         this.point = point;
+        this.role = role;
     }
 
     public User() {
@@ -49,6 +51,14 @@ public class User {
 
     public String getUsername() {
         return username;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public void setUsername(String username) {
@@ -129,7 +139,8 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "user_id=" + user_id + ", username=" + username + ", password=" + password + ", avatar=" + avatar + ", fullname=" + fullname + ", birthday=" + birthday + ", gender=" + gender + ", email=" + email + ", city=" + city + ", phone=" + phone + ", point=" + point + '}';
+        return "User{" + "user_id=" + user_id + ", username=" + username + ", password=" + password + ", avatar=" + avatar + ", fullname=" + fullname + ", birthday=" + birthday + ", gender=" + gender + ", email=" + email + ", city=" + city + ", phone=" + phone + ", point=" + point + ", role=" + role + '}';
     }
+
     
 }

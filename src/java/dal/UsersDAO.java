@@ -4,7 +4,7 @@
  */
 package dal;
 
-import Model.Admin;
+import Model.User;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.HashMap;
@@ -14,19 +14,20 @@ import java.util.Map;
  *
  * @author Dokkuhai
  */
-public class EmployeeDAO extends DBContext{
-    public Map<Integer, Admin> getAllEmployee(){
-        Map<Integer, Admin> list = new HashMap<>();
+public class UsersDAO extends DBContext{
+    public Map<Integer, User> getAllUsers(){
+        Map<Integer, User> list = new HashMap<>();
         try {
-            String sql = "Select * from admin";
+            String sql = "Select * from users";
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()){
-                Admin a = new Admin();
-                a.setAdmin_id(rs.getInt("admin_id"));
-                a.setUsername(rs.getString("username"));
-                a.setPassword(rs.getString("password"));
-                list.put(a.getAdmin_id(), a);
+                User u = new User();
+                u.setUser_id(rs.getInt("user_id"));
+                u.setUsername(rs.getString("username"));
+                u.setPassword(rs.getString("password"));
+                u.setRole(rs.getString("role"));
+                list.put(u.getUser_id(), u);
             }
             rs.close();
             st.close();
@@ -38,10 +39,11 @@ public class EmployeeDAO extends DBContext{
     }
     
     public static void main(String[] args){
-        AdminDAO aDao = new AdminDAO();
-        Map<Integer,Admin> list = aDao.getAllAdmin();
+        UsersDAO uDao = new UsersDAO();
+        Map<Integer,User> list = uDao.getAllUsers();
         for (int id : list.keySet()){
             System.out.println(list.get(id));
         }
    }
 }
+   

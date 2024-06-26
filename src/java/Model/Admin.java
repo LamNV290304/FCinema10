@@ -7,8 +7,10 @@ package Model;
 /**
  *  Date: 14/06/2024
  *  Author: Nguyễn Việt Lâm
- *  Purpose: Model Admin
+ *  Purpose:Create Model Admin
  */
+//------------------------------------------
+
 public class Admin {
     private int admin_id;
     private String username;
