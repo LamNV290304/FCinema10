@@ -140,6 +140,6 @@ VALUES(1,'admin1','root1','admin'),
 	  (3,'admin3','root3','admin');
 --INSERT EMPLOYEE
 INSERT INTO users(user_id,username,password,role)
-VALUES(1,'employee01','123456789','Employee'),
+VALUES(4,'employee01','123456789','Employee');
 	
 
