@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>REGISTER</title>
         <link href="css/bootstrap.min.css" rel="stylesheet" >
-        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="/css/login.css">
         <link href="css/font-awesome.min.css" rel="stylesheet" >
         <link href="css/global.css" rel="stylesheet">
         <link href="css/about.css" rel="stylesheet">

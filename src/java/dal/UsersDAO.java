@@ -65,7 +65,7 @@ public class UsersDAO extends DBContext {
         }
         return list;
     }
-
+//-----------------------------------------------------------------
     public User checkLogin(String username, String password) {
         try {
             UsersDAO uDao = new UsersDAO();
@@ -81,7 +81,7 @@ public class UsersDAO extends DBContext {
         }
         return null;
     }
-
+//------------------------------------------------------------------------
     public static void main(String[] args) {
         UsersDAO uDao = new UsersDAO();
         Map<Integer, User> list = uDao.getAllUsers();

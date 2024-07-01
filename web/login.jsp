@@ -27,6 +27,12 @@
         <div class="wrapper">
             <form action="Login" method="post">
                 <h2>Login</h2>
+                
+                <%
+                     String error = (String) request.getAttribute("error");
+    
+                     String username = request.getParameter("username");
+                %>
                 <div class="input-field">
                     <input type="text" name="username" required>
                     <label>Enter your email or username</label>
