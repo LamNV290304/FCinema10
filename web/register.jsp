@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>REGISTER</title>
         <link href="css/bootstrap.min.css" rel="stylesheet" >
-        <link rel="stylesheet" href="/css/login.css">
+        <link rel="stylesheet" href="css/login.css">
         <link href="css/font-awesome.min.css" rel="stylesheet" >
         <link href="css/global.css" rel="stylesheet">
         <link href="css/about.css" rel="stylesheet">
@@ -30,7 +30,7 @@
                     <h2>Register</h2>
                     <div class="input-field">
                         <input type="text" name="fullname" required>
-                        <label>Enter your name *</label>
+                        <label>Enter your full name *</label>
                     </div>
 
                     <div class="input-field">
@@ -57,8 +57,9 @@
                         <label>Re-type your password *</label>
                     </div>
                     <div class="input-field">
-                        <br><label for="r-birthday">Date of Birth<span>*</span></label>
-                      <input type="date" id="birthday" name="birthday" required>
+                         <input type="text" name="birthday" required>
+                        <label for="r-birthday">Date of Birth</label>
+                       
                     </div>
                     <div>
                     <label for="r-fname" class="gender-title">

@@ -1,8 +1,10 @@
 
 
-
-
-
+<%-- 
+    Document   : login
+    Created on : Jun 20, 2024, 3:57:20 AM
+    Author     : Dokkuhai
+--%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,8 +32,6 @@
                 
                 <%
                      String error = (String) request.getAttribute("error");
-    
-                     String username = request.getParameter("username");
                 %>
                 <div class="input-field">
                     <input type="text" name="username" required>
@@ -48,8 +48,8 @@
                     </label>
                     <a href="forgot_password.jsp">Forgot password?</a>
                 </div>
-                <button type="submit">Log In</button>
-                <div class="login">
+                <button type="submi">Log In</button>
+                <div class="register">
                         <p style="color: white">Don't have an account? <a href="register.jsp">Register</a></p>
                 </div>
             </form>
@@ -61,5 +61,6 @@
 
 
 </html>
+
 
 <!-- Credit: www.codingnepalweb.com -->

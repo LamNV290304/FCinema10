@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package Controller;
+package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -83,9 +83,10 @@ public class Register extends HttpServlet {
             String phoneNumber = request.getParameter("phoneNumber");
             String email = request.getParameter("email");
             String birthDay = request.getParameter("birthday");
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
             Date begin = dateFormat.parse(birthDay);
             String gender = request.getParameter("r-gender");
+            String role = "user";
             
             
             

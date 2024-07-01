@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package Controller;
+package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -55,6 +55,7 @@ public class Login extends HttpServlet {
         
         if (userLoad.checkLogin(username, password) != null){
             //...................
+            request.getRequestDispatcher("index.html").forward(request, response);
         } else {
             // Gửi lỗi nếu có lỗi, lấy lỗi ở bên kia đi bạn hiền
             error = "Sai tài khoản hoặc mật khẩu";
