@@ -25,14 +25,14 @@
     <body>
         <section id="login">
         <div class="wrapper">
-            <form action="#">
+            <form action="Login" method="post">
                 <h2>Login</h2>
                 <div class="input-field">
-                    <input type="text" required>
+                    <input type="text" name="username" required>
                     <label>Enter your email or username</label>
                 </div>
                 <div class="input-field">
-                    <input type="password" required>
+                    <input type="password" name="password" required>
                     <label>Enter your password</label>
                 </div>
                 <div class="forget">
@@ -51,10 +51,6 @@
         </div>
             
         </section>
-       
-        
-        
-        
     </body>
 
 

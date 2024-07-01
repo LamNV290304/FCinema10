@@ -29,35 +29,31 @@
                 <form action="#">
                     <h2>Register</h2>
                     <div class="input-field">
-                        <input type="text" required>
+                        <input type="text" name="fullname" required>
                         <label>Enter your name *</label>
                     </div>
 
                     <div class="input-field">
-                        <input type="text" required>
+                        <input type="text" name="phoneNumber" required>
                         <label>Enter your phone number *</label>
                     </div>
                     <div class="input-field">
-                        <input type="text" required>
+                        <input type="text" name="email" required>
                         <label>Enter your email *</label>
                     </div>
 
                     <div class="input-field">
-                        <input type="text" required>
+                        <input type="text" name="username" required>
                         <label>Enter your username *</label>
                     </div>
                     
                     <div class="input-field">
-                        
-                        <input type="password" required>
+                        <input type="password" name="password" required>
                         <label>Enter your password *</label>
-                         
                     </div>
 
                     <div class="input-field">
-                        
-                        
-                        <input type="password" required>
+                        <input type="password" name="re_password" required>
                         <label>Re-type your password *</label>
                     </div>
                     <div class="input-field">
@@ -67,12 +63,12 @@
                     <div>
                     <label for="r-fname" class="gender-title">
                         <span class="sp-gender" style="color: white">Gender</span><span>*</span> 
-                        <input type="radio" name="r-gender" id="male-gender" value="1" style=""> Male                     
-                        <input type="radio" name="r-gender" id="female-gender" value="2" style="color: white"> Female
+                        <input type="radio" name="r-gender" id="male-gender" value="Male" style=""> Male                     
+                        <input type="radio" name="r-gender" id="female-gender" value="Female" style="color: white"> Female
                      </label>
                     </div>
                     <div class="input-field">
-                        <input type="text" required>
+                        <input type="text" name="location" required>
                         <label>Location *</label>
                     </div>
                     
@@ -81,9 +77,8 @@
                         <p style="color: white">Already have an account? <a href="login.jsp">Login</a></p>
                     </div>
                 </form>
-                </br>
+                <br>
             </div>
-
         </section>
 
     </body>

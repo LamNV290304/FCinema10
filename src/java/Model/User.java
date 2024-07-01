@@ -4,6 +4,8 @@
  */
 package Model;
 
+import java.util.Date;
+
 /**
  *  Date: 14/06/2024
  *  Author: Nguyễn Việt Lâm
@@ -15,15 +17,14 @@ public class User {
     private String password;
     private String avatar;
     private String fullname;
-    private String birthday;
+    private Date birthday;
     private String gender;
     private String email;
     private String city;
     private String phone;
-    private String point;
     private String role;
 
-    public User(int user_id, String username, String password, String avatar, String fullname, String birthday, String gender, String email, String city, String phone, String point, String role) {
+    public User(int user_id, String username, String password, String avatar, String fullname, Date birthday, String gender, String email, String city, String phone, String point, String role) {
         this.user_id = user_id;
         this.username = username;
         this.password = password;
@@ -34,7 +35,6 @@ public class User {
         this.email = email;
         this.city = city;
         this.phone = phone;
-        this.point = point;
         this.role = role;
     }
 
@@ -89,11 +89,11 @@ public class User {
         this.fullname = fullname;
     }
 
-    public String getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
@@ -129,17 +129,10 @@ public class User {
         this.phone = phone;
     }
 
-    public String getPoint() {
-        return point;
-    }
-
-    public void setPoint(String point) {
-        this.point = point;
-    }
 
     @Override
     public String toString() {
-        return "User{" + "user_id=" + user_id + ", username=" + username + ", password=" + password + ", avatar=" + avatar + ", fullname=" + fullname + ", birthday=" + birthday + ", gender=" + gender + ", email=" + email + ", city=" + city + ", phone=" + phone + ", point=" + point + ", role=" + role + '}';
+        return "User{" + "user_id=" + user_id + ", username=" + username + ", password=" + password + ", avatar=" + avatar + ", fullname=" + fullname + ", birthday=" + birthday + ", gender=" + gender + ", email=" + email + ", city=" + city + ", phone=" + phone + ", role=" + role + '}';
     }
 
     

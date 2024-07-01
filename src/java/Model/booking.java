@@ -7,12 +7,33 @@ package Model;
 /**
  *  Date: 14/06/2024
  *  Author: Nguyễn Việt Lâm
- *  Purpose: Model booking
+ *  Purpose: Model booking 
  */
 public class booking {
-    private String booking_id;
+    private int bookingId;
     private int user_id;
-    private int schedule_id;
-    private float price;
-    private boolean seatStatus;
+
+    public booking() {
+    }
+
+    public booking(int bookingId, int user_id) {
+        this.bookingId = bookingId;
+        this.user_id = user_id;
+    }
+
+    public int getBookingId() {
+        return bookingId;
+    }
+
+    public void setBookingId(int bookingId) {
+        this.bookingId = bookingId;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
 }

@@ -10,7 +10,7 @@ DROP DATABASE CINEMA_TICKET_MANAGEMENT_SYSTEM
 
 -- Table: cinemas
 CREATE TABLE cinemas (
-    cinema_id INT PRIMARY KEY,
+    cinema_id INT identity(1, 1) PRIMARY KEY,
     cinema_name VARCHAR(255) NOT NULL,
     cinema_address VARCHAR(255) NOT NULL
 );
@@ -25,7 +25,7 @@ CREATE TABLE room (
 
 -- Table: movies
 CREATE TABLE movies (
-    movie_id INT PRIMARY KEY,
+    movie_id INT identity(1, 1) PRIMARY KEY,
     movie_name VARCHAR(255) NOT NULL,
     movie_description TEXT,
     movie_trailer VARCHAR(255),
@@ -67,13 +67,14 @@ CREATE TABLE seats (
 
 -- Table: users
 CREATE TABLE users (
-    user_id INT PRIMARY KEY,
+    user_id INT identity(1, 1) PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
+	avatar varchar(255),
 	role VARCHAR(10) NOT NULL,
-    fullname VARCHAR(255),
+    fullname nVARCHAR(255),
     birthday DATE,
-    gender INT,
+    gender nvarchar,
     email VARCHAR(255),
     city VARCHAR(255),
     phone VARCHAR(50)
@@ -111,35 +112,38 @@ create table Food (
 );
 
 -- INSERT DATA TO DATABASE
-INSERT INTO cinemas (cinema_id, cinema_name, cinema_address)
+INSERT INTO cinemas (cinema_name, cinema_address)
 VALUES
-    (1, 'F Ha Noi', 'Ha Noi'),
-    (2, 'F Ho Chi Minh', 'Ho Chi Minh City'),
-    (3, 'F Da Nang', 'Da Nang'),
-    (4, 'F Hai Phong', 'Hai Phong'),
-    (5, 'F Can Tho', 'Can Tho'),
-    (6, 'F Nha Trang', 'Nha Trang'),
-    (7, 'F Hue', 'Hue'),
-    (8, 'F Vung Tau', 'Vung Tau'),
-    (9, 'F Quy Nhon', 'Quy Nhon'),
-    (10,'F Phan Thiet', 'Phan Thiet'),
-    (11,'F Pleiku', 'Pleiku'),
-    (12,'F Rach Gia', 'Rach Gia'),
-    (13,'F My Tho', 'My Tho'),
-    (14,'F Buon Ma Thuot', 'Buon Ma Thuot'),
-    (15,'F Thai Nguyen', 'Thai Nguyen'),
-    (16,'F Thanh Hoa', 'Thanh Hoa'),
-    (17,'F Vinh', 'Vinh'),
-    (18,'F Ha Long', 'Ha Long'),
-    (19,'F Ninh Binh', 'Ninh Binh'),
-    (20,'F Lao Cai', 'Lao Cai');
+    ('F Ha Noi', 'Ha Noi'),
+    ('F Ho Chi Minh', 'Ho Chi Minh City'),
+    ('F Da Nang', 'Da Nang'),
+    ('F Hai Phong', 'Hai Phong'),
+    ('F Can Tho', 'Can Tho'),
+    ('F Nha Trang', 'Nha Trang'),
+    ('F Hue', 'Hue'),
+    ('F Vung Tau', 'Vung Tau'),
+    ('F Quy Nhon', 'Quy Nhon'),
+    ('F Phan Thiet', 'Phan Thiet'),
+    ('F Pleiku', 'Pleiku'),
+    ('F Rach Gia', 'Rach Gia'),
+    ('F My Tho', 'My Tho'),
+    ('F Buon Ma Thuot', 'Buon Ma Thuot'),
+    ('F Thai Nguyen', 'Thai Nguyen'),
+    ('F Thanh Hoa', 'Thanh Hoa'),
+    ('F Vinh', 'Vinh'),
+    ('F Ha Long', 'Ha Long'),
+    ('F Ninh Binh', 'Ninh Binh'),
+    ('F Lao Cai', 'Lao Cai');
 --INSERT ADMIN
-INSERT INTO users(user_id,username,password,role)
-VALUES(1,'admin1','root1','admin'),
-	  (2,'admin2','root2','admin'),
-	  (3,'admin3','root3','admin');
+INSERT INTO users(username,password,role)
+VALUES('admin1','root1','admin'),
+	  ('admin2','root2','admin'),
+	  ('admin3','root3','admin');
 --INSERT EMPLOYEE
-INSERT INTO users(user_id,username,password,role)
-VALUES(1,'employee01','123456789','Employee'),
+INSERT INTO users(username,password,role)
+VALUES('employee01','123456789','Employee')
+
+INSERT INTO users(username,password,role)
+VALUES('user1','123456789','user')
 	
 
