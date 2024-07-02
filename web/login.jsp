@@ -14,14 +14,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>LOGIN</title>
         <link href="css/bootstrap.min.css" rel="stylesheet" >
-        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="assets/css/login.css">
         <link href="css/font-awesome.min.css" rel="stylesheet" >
-        <link href="css/global.css" rel="stylesheet">
-        <link href="css/about.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
+
 
     </head>   
     <body>

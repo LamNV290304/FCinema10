@@ -72,6 +72,11 @@ public class Register extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+      /**
+     * Ktra nếu email hoặc username đã tốn tại trong db thì làm cái alert để chuyển sang login hoặc hiện lỗi cx đc
+     *
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -83,9 +88,11 @@ public class Register extends HttpServlet {
             String phoneNumber = request.getParameter("phoneNumber");
             String email = request.getParameter("email");
             String birthDay = request.getParameter("birthday");
+            //Để ý giúp bạn phân
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
             Date begin = dateFormat.parse(birthDay);
             String gender = request.getParameter("r-gender");
+            //Mặc định role sẽ là user, nếu thêm nhân viên thì sẽ xử lý trong jsp khác
             String role = "user";
             
             
