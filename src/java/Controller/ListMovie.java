@@ -4,23 +4,48 @@
  */
 package Controller;
 
+import Model.movies;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import Model.*;
-import dal.UsersDAO;
-import jakarta.servlet.http.HttpSession;
+import dal.MovieDAO;
 import java.util.Map;
 
 /**
- *  Date: 03/07/2024
- *  Author: Nguyễn Việt Lâm
- *  Purpose: Chức năng login
+ *
+ * @author LAM
  */
-public class Login extends HttpServlet {
+public class ListMovie extends HttpServlet {
+
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ListMovie</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ListMovie at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
+    }
+
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -32,7 +57,14 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
+        //lấy dữ liệu từ database
+        MovieDAO loadMovie = new MovieDAO();
+        Map<Integer, movies> listMovies = loadMovie.getAllMovies();
+        
+        //gửi sang view
+        request.setAttribute("listMovies", listMovies);
+        request.getRequestDispatcher(".......").forward(request, response);
     }
 
     /**
@@ -46,31 +78,7 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        //lấy thông tin từ file JSP
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-
-        UsersDAO userLoad = new UsersDAO(); //Load các đối tượng từ database
-
-        HttpSession session = request.getSession(); //tạo một session
-
-        String error = null;
-        if (userLoad.checkLogin(username, password) != null) {
-            User customer = userLoad.getUserByUsername(username);//lấy customer theo username
-            //gán các attribute vào trong session
-            session.setAttribute("username", username);
-            session.setAttribute("password", password);
-            session.setAttribute("role", customer.getRole());
-            
-            //gửi đến trang khác
-            response.sendRedirect("ListMovie");
-        } else {
-            // Gửi lỗi nếu có lỗi, lấy lỗi ở bên kia đi bạn hiền
-            error = "Sai tài khoản hoặc mật khẩu";
-            request.setAttribute("error", error);
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        }
+        processRequest(request, response);
     }
 
     /**

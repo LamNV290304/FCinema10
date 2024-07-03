@@ -16,10 +16,14 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Model.User;
+import dal.UsersDAO;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
- *
- * @author LAM
+ *  Date: 03/07/2024
+ *  Author: Nguyễn Việt Lâm
+ *  Purpose: Chức năng đăng kí
  */
 public class Register extends HttpServlet {
 
@@ -49,7 +53,7 @@ public class Register extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+   
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -76,23 +80,80 @@ public class Register extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
+            //khai báo chưa thông báo lỗi
+            String error = null;
+            
+            //lấy dữ liệu từ JSP
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             String rePassword = request.getParameter("re_password");
+            String avatar = "";
             String fullName = request.getParameter("fullname");
-            String phoneNumber = request.getParameter("phoneNumber");
-            String email = request.getParameter("email");
+            
+            //birthday/ xử lí dữ liệu ngày sinh
             String birthDay = request.getParameter("birthday");
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            Date begin = dateFormat.parse(birthDay);
+            Date birth = dateFormat.parse(birthDay);
+            
             String gender = request.getParameter("r-gender");
+            String email = request.getParameter("email");
+            String city = request.getParameter("location");
+            String phoneNumber = request.getParameter("phoneNumber");
+            String role = "user"; // role mặc đinh là user
             
+            //Kiểm tra xem người dùng nhập đúng chưa
+            if (password.equals(rePassword)){ //xác nhận mật khẩu
+                error = "Mật khẩu không trùng khớp";
+                request.setAttribute("error", error);
+                throw new Exception();
+            }
+            if (containsInvalidCharacters(phoneNumber)){//kiểm tra số điện thoại
+                error = "Nhập không hợp lệ";
+                request.setAttribute("error", error);
+                throw new Exception();
+            }
+            if (isValidEmail(email)){//kiểm trả thư điện tử
+                error = "Email không hợp lệ";
+                request.setAttribute("error", error);
+                throw new Exception();
+            }
             
+            //Thêm người dùng vào cơ sở dữ liệu
+            User user = new User(0, username, password, avatar, fullName, birth, gender, email, city, phoneNumber, role);
+            UsersDAO loadUser = new UsersDAO();
+            loadUser.addUser(user);
             
-        } catch (ParseException ex) {
-            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            //trả lỗi về trang đăng kí
+            request.getRequestDispatcher("register.jsp").forward(request, response);
         }
 
+    }
+    
+    //Sử dụng biểu thức chính quy để kiểm tra định dạng email
+    public static boolean isValidEmail(String email) {
+        // Biểu thức chính quy để kiểm tra định dạng email
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        Pattern pattern = Pattern.compile(emailRegex);
+        if (email == null) {
+            return false;
+        }
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+    
+    //kiểm tra xem trong chuối có kí tự hay không
+    public boolean containsInvalidCharacters(String phoneNumber) {
+        // Duyệt qua từng ký tự trong phoneNumber
+        for (int i = 0; i < phoneNumber.length(); i++) {
+            char ch = phoneNumber.charAt(i);
+            // Nếu ký tự không phải là số, trả về true
+            if (!Character.isDigit(ch)) {
+                return false;
+            }
+        }
+        // Nếu tất cả ký tự đều là số, trả về false
+        return true;
     }
 
     /**
@@ -103,6 +164,6 @@ public class Register extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }

@@ -4,6 +4,8 @@
  */
 package Model;
 
+import java.util.Date;
+
 /**
  *  Date: 14/06/2024
  *  Author: Nguyễn Việt Lâm
@@ -16,12 +18,12 @@ public class movies {
     private String movieTrailer;
     private String movieCens;
     private String movieGenres;
-    private String movieRelease;
+    private Date movieRelease;
     private String movieLenght;
     private String movieFormat;
     private String moviePoster;
 
-    public movies(int movie_id, String movieName, String movieDescription, String movieTrailer, String movieCens, String movieGenres, String movieRelease, String movieLenght, String movieFormat, String moviePoster) {
+    public movies(int movie_id, String movieName, String movieDescription, String movieTrailer, String movieCens, String movieGenres, Date movieRelease, String movieLenght, String movieFormat, String moviePoster) {
         this.movie_id = movie_id;
         this.movieName = movieName;
         this.movieDescription = movieDescription;
@@ -85,11 +87,11 @@ public class movies {
         this.movieGenres = movieGenres;
     }
 
-    public String getMovieRelease() {
+    public Date getMovieRelease() {
         return movieRelease;
     }
 
-    public void setMovieRelease(String movieRelease) {
+    public void setMovieRelease(Date movieRelease) {
         this.movieRelease = movieRelease;
     }
 

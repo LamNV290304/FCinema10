@@ -26,7 +26,7 @@
     <body>
         <section id="login">
             <div class="wrapper">
-                <form action="#">
+                <form action="Register" method="post">
                     <h2>Register</h2>
                     <div class="input-field">
                         <input type="text" name="fullname" required>
