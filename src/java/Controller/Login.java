@@ -61,17 +61,15 @@ public class Login extends HttpServlet {
             session.setAttribute("username", username);
             session.setAttribute("password", password);
             session.setAttribute("role", customer.getRole());
-        
-            //gửi đến trang khác
-            response.sendRedirect("ListMovie");
-        }
-          else {
-                // Gửi lỗi nếu có lỗi, lấy lỗi ở bên kia đi bạn hiền
-                error = "Sai tài khoản hoặc mật khẩu";
-                request.setAttribute("error", error);
-                request.getRequestDispatcher("login.jsp").forward(request, response);
-            }
-        }
 
-    
+            //gửi đến trang khác
+            response.sendRedirect("index.html");
+        } else {
+            // Gửi lỗi nếu có lỗi, lấy lỗi ở bên kia đi bạn hiền
+            error = "Sai tài khoản hoặc mật khẩu";
+            request.setAttribute("error", error);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        }
+    }
+
 }

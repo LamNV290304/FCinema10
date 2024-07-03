@@ -1,7 +1,7 @@
 -- CREATE DATABASE
 CREATE DATABASE CINEMA_TICKET_MANAGEMENT_SYSTEM
 GO
-USE CINEMA_TICKET_MANAGEMENT_SYSTEM
+
 DROP DATABASE CINEMA_TICKET_MANAGEMENT_SYSTEM
 
 --CREATE TABLE 
@@ -26,6 +26,7 @@ CREATE TABLE room (
 -- Table: movies
 CREATE TABLE movies (
     movie_id INT identity(1, 1) PRIMARY KEY,
+	movie_poster varchar(255),
     movie_name VARCHAR(255) NOT NULL,
     movie_description TEXT,
     movie_trailer VARCHAR(255),
