@@ -59,12 +59,12 @@ public class UsersDAO extends DBContext {
                 u.setPassword(rs.getString("password"));
                 u.setRole(rs.getString("role"));
                 u.setBirthday(rs.getDate("birthday"));
-                u.setCity(rs.getNString("city"));
+                u.setCity(rs.getString("city"));
                 u.setEmail(rs.getString("email"));
                 u.setFullname(rs.getNString("fullname"));
                 u.setGender(rs.getString("gender"));
                 u.setPhone(rs.getString("phone"));
-                u.setAvatar(rs.getString("avatar"));
+//                u.setAvatar(rs.getString("avatar"));
                 list.put(u.getUser_id(), u);
             }
         } catch (Exception e) {
@@ -72,7 +72,6 @@ public class UsersDAO extends DBContext {
         }
         return list;
     }
-
     
     //kiểm tra  xem login có hợp lệ hay không
     public User checkLogin(String username, String password) {

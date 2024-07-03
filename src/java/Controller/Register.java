@@ -76,6 +76,11 @@ public class Register extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+      /**
+     * Ktra nếu email hoặc username đã tốn tại trong db thì làm cái alert để chuyển sang login hoặc hiện lỗi cx đc
+     *
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -100,6 +105,7 @@ public class Register extends HttpServlet {
             String city = request.getParameter("location");
             String phoneNumber = request.getParameter("phoneNumber");
             String role = "user"; // role mặc đinh là user
+
             
             //Kiểm tra xem người dùng nhập đúng chưa
             if (password.equals(rePassword)){ //xác nhận mật khẩu

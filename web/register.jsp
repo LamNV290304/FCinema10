@@ -30,7 +30,7 @@
                     <h2>Register</h2>
                     <div class="input-field">
                         <input type="text" name="fullname" required>
-                        <label>Enter your name *</label>
+                        <label>Enter your full name *</label>
                     </div>
 
                     <div class="input-field">
@@ -57,8 +57,9 @@
                         <label>Re-type your password *</label>
                     </div>
                     <div class="input-field">
-                        <br><label for="r-birthday">Date of Birth<span>*</span></label>
-                      <input type="date" id="birthday" name="birthday" required>
+                         <input type="text" name="birthday" required>
+                        <label for="r-birthday">Date of Birth</label>
+                       
                     </div>
                     <div>
                     <label for="r-fname" class="gender-title">

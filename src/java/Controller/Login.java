@@ -16,11 +16,10 @@ import jakarta.servlet.http.HttpSession;
 import java.util.Map;
 
 /**
- *  Date: 03/07/2024
- *  Author: Nguyễn Việt Lâm
- *  Purpose: Chức năng login
+ * Date: 03/07/2024 Author: Nguyễn Việt Lâm Purpose: Chức năng login
  */
 public class Login extends HttpServlet {
+
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -62,25 +61,21 @@ public class Login extends HttpServlet {
             session.setAttribute("username", username);
             session.setAttribute("password", password);
             session.setAttribute("role", customer.getRole());
-            
+        
             //gửi đến trang khác
             response.sendRedirect("ListMovie");
-        } else {
-            // Gửi lỗi nếu có lỗi, lấy lỗi ở bên kia đi bạn hiền
-            error = "Sai tài khoản hoặc mật khẩu";
-            request.setAttribute("error", error);
-            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
-    }
+            if (userLoad.checkLogin(username, password) != null) {
+                //...................
+                //chuyển hướng về index nhé, các chức năng sẽ có 1 trang panel xử lý riêng
+                // Kiểm tra user có trong db xong thì nhờ thêm ktra role nhé, tạm thời cứ chuyển hết về index, nếu có chuyển trang khác thì tính tiếp
+            } else {
+                // Gửi lỗi nếu có lỗi, lấy lỗi ở bên kia đi bạn hiền
+                error = "Sai tài khoản hoặc mật khẩu";
+                request.setAttribute("error", error);
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+            }
+        }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+    
 }
