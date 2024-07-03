@@ -97,7 +97,7 @@ public class Register extends HttpServlet {
             
             //birthday/ xử lí dữ liệu ngày sinh
             String birthDay = request.getParameter("birthday");
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
             Date birth = dateFormat.parse(birthDay);
             
             String gender = request.getParameter("r-gender");

@@ -65,11 +65,7 @@ public class Login extends HttpServlet {
             //gửi đến trang khác
             response.sendRedirect("ListMovie");
         }
-            if (userLoad.checkLogin(username, password) != null) {
-                //...................
-                //chuyển hướng về index nhé, các chức năng sẽ có 1 trang panel xử lý riêng
-                // Kiểm tra user có trong db xong thì nhờ thêm ktra role nhé, tạm thời cứ chuyển hết về index, nếu có chuyển trang khác thì tính tiếp
-            } else {
+          else {
                 // Gửi lỗi nếu có lỗi, lấy lỗi ở bên kia đi bạn hiền
                 error = "Sai tài khoản hoặc mật khẩu";
                 request.setAttribute("error", error);
