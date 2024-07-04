@@ -34,7 +34,7 @@ CREATE TABLE movies (
     movie_genres VARCHAR(255),
     movie_release DATE,
     movie_length INT,
-    movie_format VARCHAR(255)
+    movie_director VARCHAR(255)
 );
 
 -- Table: schedule
@@ -146,5 +146,7 @@ VALUES('employee01','123456789','Employee')
 
 INSERT INTO users(username,password,role)
 VALUES('user1','123456789','user')
+
+
 	
 
