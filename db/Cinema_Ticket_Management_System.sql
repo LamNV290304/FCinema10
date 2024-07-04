@@ -1,7 +1,7 @@
 -- CREATE DATABASE
 CREATE DATABASE CINEMA_TICKET_MANAGEMENT_SYSTEM
 GO
-
+USE CINEMA_TICKET_MANAGEMENT_SYSTEM
 DROP DATABASE CINEMA_TICKET_MANAGEMENT_SYSTEM
 
 --CREATE TABLE 
@@ -30,10 +30,10 @@ CREATE TABLE movies (
     movie_name VARCHAR(255) NOT NULL,
     movie_description TEXT,
     movie_trailer VARCHAR(255),
-    movie_cens VARCHAR(255),
+    movie_actress VARCHAR(255),
     movie_genres VARCHAR(255),
     movie_release DATE,
-    movie_length INT,
+    movie_length VARCHAR(255),
     movie_director VARCHAR(255)
 );
 
@@ -113,28 +113,19 @@ create table Food (
 );
 
 -- INSERT DATA TO DATABASE
-INSERT INTO cinemas (cinema_id,cinema_name, cinema_address)
+INSERT INTO cinemas (cinema_name, cinema_address)
 VALUES
-    (1,'F Ha Noi', 'Ha Noi'),
-    (2,'F Ho Chi Minh', 'Ho Chi Minh City'),
-    (3,'F Da Nang', 'Da Nang'),
-    (4,'F Hai Phong', 'Hai Phong'),
-    (5,'F Can Tho', 'Can Tho'),
-    (6,'F Nha Trang', 'Nha Trang'),
-    (7,'F Hue', 'Hue'),
-    (8,'F Vung Tau', 'Vung Tau'),
-    (9,'F Quy Nhon', 'Quy Nhon'),
-    (10,'F Phan Thiet', 'Phan Thiet'),
-    (11,'F Pleiku', 'Pleiku'),
-    (12,'F Rach Gia', 'Rach Gia'),
-    (13,'F My Tho', 'My Tho'),
-    (14,'F Buon Ma Thuot', 'Buon Ma Thuot'),
-    (15,'F Thai Nguyen', 'Thai Nguyen'),
-    (16,'F Thanh Hoa', 'Thanh Hoa'),
-    (17,'F Vinh', 'Vinh'),
-    (18,'F Ha Long', 'Ha Long'),
-    (19,'F Ninh Binh', 'Ninh Binh'),
-    (20,'F Lao Cai', 'Lao Cai');
+    ('F Ha Noi', 'Ha Noi'),
+    ('F Ho Chi Minh', 'Ho Chi Minh City'),
+    ('F Da Nang', 'Da Nang'),
+    ('F Hai Phong', 'Hai Phong'),
+    ('F Can Tho', 'Can Tho'),
+    ('F Nha Trang', 'Nha Trang'),
+    ('F Hue', 'Hue'),
+    ('F Hai Duong', 'Hai Duong'),
+	('F Hung Yen', 'Hung Yen');
+
+
 --INSERT ADMIN
 INSERT INTO users(username,password,role)
 VALUES('admin1','root1','admin'),

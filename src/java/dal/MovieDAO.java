@@ -4,6 +4,7 @@
  */
 package dal;
 
+import Model.User;
 import Model.movies;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -26,13 +27,14 @@ public class MovieDAO extends DBContext{
                 movies movie = new movies();
                 movie.setMovie_id(rs.getInt("movie_id"));
                 movie.setMoviePoster(rs.getString("movie_poster"));
-                movie.setMovieName(rs.getNString("movie_name"));
-                movie.setMovieDescription(rs.getNString("movie_description"));
-                movie.setMovieTrailer(rs.getString(rs.getString("movie_trailer")));
-                movie.setMovieCens(rs.getString("movie_cens"));
-                movie.setMovieGenres(rs.getNString("movie_genres"));
+                movie.setMovieName(rs.getString("movie_name"));
+                movie.setMovieDescription(rs.getString("movie_description"));
+                movie.setMovieTrailer(rs.getString("movie_trailer"));
+                movie.setMovieActress(rs.getString("movie_actress"));
+                movie.setMovieGenres(rs.getString("movie_genres"));
                 movie.setMovieRelease(rs.getDate("movie_release"));
-                movie.setMovieFormat(rs.getString("movie_format"));
+                movie.setMovieLength(rs.getString("movie_length"));
+                movie.setMovieDirector(rs.getString("movie_director"));
                 listMovies.put(movie.getMovie_id(), movie);
             }
         } catch (Exception e) {
@@ -41,5 +43,14 @@ public class MovieDAO extends DBContext{
         return listMovies;
     }
     
+    
+    public static void main(String[] args) {
+        MovieDAO mDao = new MovieDAO();
+        Map<Integer, movies> list = mDao.getAllMovies();
+
+        for (int id : list.keySet()) {
+            System.out.println(list.get(id));
+        }
+    }
     
 }

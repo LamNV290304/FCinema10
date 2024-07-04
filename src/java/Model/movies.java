@@ -16,23 +16,23 @@ public class movies {
     private String movieName;
     private String movieDescription;
     private String movieTrailer;
-    private String movieCens;
+    private String movieActress;
     private String movieGenres;
     private Date movieRelease;
-    private String movieLenght;
-    private String movieFormat;
+    private String movieLength;
+    private String movieDirector;
     private String moviePoster;
 
-    public movies(int movie_id, String movieName, String movieDescription, String movieTrailer, String movieCens, String movieGenres, Date movieRelease, String movieLenght, String movieFormat, String moviePoster) {
+    public movies(int movie_id, String movieName, String movieDescription, String movieTrailer, String movieActress, String movieGenres, Date movieRelease, String movieLength, String movieDirector, String moviePoster) {
         this.movie_id = movie_id;
         this.movieName = movieName;
         this.movieDescription = movieDescription;
         this.movieTrailer = movieTrailer;
-        this.movieCens = movieCens;
+        this.movieActress = movieActress;
         this.movieGenres = movieGenres;
         this.movieRelease = movieRelease;
-        this.movieLenght = movieLenght;
-        this.movieFormat = movieFormat;
+        this.movieLength = movieLength;
+        this.movieDirector = movieDirector;
         this.moviePoster = moviePoster;
     }
 
@@ -71,12 +71,12 @@ public class movies {
         this.movieTrailer = movieTrailer;
     }
 
-    public String getMovieCens() {
-        return movieCens;
+    public String getMovieActress() {
+        return movieActress;
     }
 
-    public void setMovieCens(String movieCens) {
-        this.movieCens = movieCens;
+    public void setMovieActress(String movieActress) {
+        this.movieActress = movieActress;
     }
 
     public String getMovieGenres() {
@@ -95,21 +95,23 @@ public class movies {
         this.movieRelease = movieRelease;
     }
 
-    public String getMovieLenght() {
-        return movieLenght;
+    public String getMovieLength() {
+        return movieLength;
     }
 
-    public void setMovieLenght(String movieLenght) {
-        this.movieLenght = movieLenght;
+    public void setMovieLength(String movieLength) {
+        this.movieLength = movieLength;
     }
 
-    public String getMovieFormat() {
-        return movieFormat;
+    public String getMovieDirector() {
+        return movieDirector;
     }
 
-    public void setMovieFormat(String movieFormat) {
-        this.movieFormat = movieFormat;
+    public void setMovieDirector(String movieDirector) {
+        this.movieDirector = movieDirector;
     }
+
+
 
     public String getMoviePoster() {
         return moviePoster;
@@ -121,8 +123,10 @@ public class movies {
 
     @Override
     public String toString() {
-        return "movies{" + "movie_id=" + movie_id + ", movieName=" + movieName + ", movieDescription=" + movieDescription + ", movieTrailer=" + movieTrailer + ", movieCens=" + movieCens + ", movieGenres=" + movieGenres + ", movieRelease=" + movieRelease + ", movieLenght=" + movieLenght + ", movieFormat=" + movieFormat + ", moviePoster=" + moviePoster + '}';
+        return "movies{" + "movie_id=" + movie_id + ", movieName=" + movieName + ", movieDescription=" + movieDescription + ", movieTrailer=" + movieTrailer + ", movieActress=" + movieActress + ", movieGenres=" + movieGenres + ", movieRelease=" + movieRelease + ", movieLength=" + movieLength + ", movieDirector=" + movieDirector + ", moviePoster=" + moviePoster + '}';
     }
+
+ 
     
     
     
