@@ -11,14 +11,14 @@ package Model;
  */
 public class booking {
     private int bookingId;
-    private int user_id;
+    private User user;
 
     public booking() {
     }
 
-    public booking(int bookingId, int user_id) {
+    public booking(int bookingId, User user) {
         this.bookingId = bookingId;
-        this.user_id = user_id;
+        this.user = user;
     }
 
     public int getBookingId() {
@@ -29,11 +29,11 @@ public class booking {
         this.bookingId = bookingId;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

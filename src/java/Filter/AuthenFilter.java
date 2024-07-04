@@ -124,7 +124,6 @@ public class AuthenFilter implements Filter {
 //                res.sendRedirect("EmployeesServlet");
 //            }
 //        }
-//        
         Throwable problem = null;
         try {
             chain.doFilter(request, response);

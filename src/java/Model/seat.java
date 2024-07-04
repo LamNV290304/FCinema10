@@ -11,16 +11,16 @@ package Model;
  */
 public class seat {
     private int seat_id;
-    private int room_id;
+    private room room;
     private char row;
     private int number;
 
     public seat() {
     }
 
-    public seat(int seat_id, int room_id, char row, int number) {
+    public seat(int seat_id, room room, char row, int number) {
         this.seat_id = seat_id;
-        this.room_id = room_id;
+        this.room = room;
         this.row = row;
         this.number = number;
     }
@@ -33,12 +33,8 @@ public class seat {
         this.seat_id = seat_id;
     }
 
-    public int getRoom_id() {
-        return room_id;
-    }
-
-    public void setRoom_id(int room_id) {
-        this.room_id = room_id;
+    public room getRoom() {
+        return room;
     }
 
     public char getRow() {
