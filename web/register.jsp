@@ -12,8 +12,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>REGISTER</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet" >
-        <link rel="stylesheet" href="css/login.css">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" >
+        <link rel="stylesheet" href="assets/css/login.css">
         <link href="assets/css/font-awesome.min.css" rel="stylesheet" >
         <link href="assets/css/global.css" rel="stylesheet">
         <link href="assets/css/about.css" rel="stylesheet">
@@ -27,7 +27,13 @@
         <section id="login">
             <div class="wrapper">
                 <form action="Register" method="post">
-                    <h2>Register</h2>
+                    <h2>Register</h2></br>
+                    
+                    <%
+                     
+                     String error = (String) request.getAttribute("error");
+                    %>
+                    
                     <div class="input-field">
                         <input type="text" name="fullname" required>
                         <label>Enter your full name *</label>
