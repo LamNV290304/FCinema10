@@ -113,28 +113,28 @@ create table Food (
 );
 
 -- INSERT DATA TO DATABASE
-INSERT INTO cinemas (cinema_name, cinema_address)
+INSERT INTO cinemas (cinema_id,cinema_name, cinema_address)
 VALUES
-    ('F Ha Noi', 'Ha Noi'),
-    ('F Ho Chi Minh', 'Ho Chi Minh City'),
-    ('F Da Nang', 'Da Nang'),
-    ('F Hai Phong', 'Hai Phong'),
-    ('F Can Tho', 'Can Tho'),
-    ('F Nha Trang', 'Nha Trang'),
-    ('F Hue', 'Hue'),
-    ('F Vung Tau', 'Vung Tau'),
-    ('F Quy Nhon', 'Quy Nhon'),
-    ('F Phan Thiet', 'Phan Thiet'),
-    ('F Pleiku', 'Pleiku'),
-    ('F Rach Gia', 'Rach Gia'),
-    ('F My Tho', 'My Tho'),
-    ('F Buon Ma Thuot', 'Buon Ma Thuot'),
-    ('F Thai Nguyen', 'Thai Nguyen'),
-    ('F Thanh Hoa', 'Thanh Hoa'),
-    ('F Vinh', 'Vinh'),
-    ('F Ha Long', 'Ha Long'),
-    ('F Ninh Binh', 'Ninh Binh'),
-    ('F Lao Cai', 'Lao Cai');
+    (1,'F Ha Noi', 'Ha Noi'),
+    (2,'F Ho Chi Minh', 'Ho Chi Minh City'),
+    (3,'F Da Nang', 'Da Nang'),
+    (4,'F Hai Phong', 'Hai Phong'),
+    (5,'F Can Tho', 'Can Tho'),
+    (6,'F Nha Trang', 'Nha Trang'),
+    (7,'F Hue', 'Hue'),
+    (8,'F Vung Tau', 'Vung Tau'),
+    (9,'F Quy Nhon', 'Quy Nhon'),
+    (10,'F Phan Thiet', 'Phan Thiet'),
+    (11,'F Pleiku', 'Pleiku'),
+    (12,'F Rach Gia', 'Rach Gia'),
+    (13,'F My Tho', 'My Tho'),
+    (14,'F Buon Ma Thuot', 'Buon Ma Thuot'),
+    (15,'F Thai Nguyen', 'Thai Nguyen'),
+    (16,'F Thanh Hoa', 'Thanh Hoa'),
+    (17,'F Vinh', 'Vinh'),
+    (18,'F Ha Long', 'Ha Long'),
+    (19,'F Ninh Binh', 'Ninh Binh'),
+    (20,'F Lao Cai', 'Lao Cai');
 --INSERT ADMIN
 INSERT INTO users(username,password,role)
 VALUES('admin1','root1','admin'),

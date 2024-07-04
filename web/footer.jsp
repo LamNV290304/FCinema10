@@ -13,10 +13,10 @@
         <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="css/bootstrap.min.css" rel="stylesheet" >
-	<link href="css/font-awesome.min.css" rel="stylesheet" >
-	<link href="css/global.css" rel="stylesheet">
-	<link href="css/about.css" rel="stylesheet">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" >
+        <link href="assets/css/font-awesome.min.css" rel="stylesheet" >
+        <link href="assets/css/global.css" rel="stylesheet">
+        <link href="assets/css/about.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
