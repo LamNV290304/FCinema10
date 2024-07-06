@@ -52,13 +52,17 @@
         </style>
     </head>
     <body>
+<<<<<<< HEAD
         <form action="ForgotPassword" method="POST">
+=======
+        <form action="CheckUsernameForgot" method="get">
+>>>>>>> 12eec60f0680c6f02f218de6e4dd72254461c213
             <h2>Forget Password</h2></br>
 
             <%
                 String error = (String) request.getAttribute("error");
             %>
-            <label for="question1">Security Question 1:</label>
+            <label for="question1">Security Question 1:</labđel>
             <!--        <select id="question1" name="question1" required>
                         <option value="" disabled selected>Select a question</option>
                         <option value="q1">What is your mother's maiden name?</option>
@@ -85,8 +89,8 @@
                         <option value="q8">What was the make of your first car?</option>
                         <option value="q9">Where did you go on your first vacation?</option>
                     </select>-->
-            <label for="question1">Where is your City?</label>
-            <input type="text" id="answer3" name="answer3" placeholder="Answer" required>
+            <label for="question1">What is your username?</label>
+            <input type="text" id="answer3" name="answer3" placeholder="username" required>
 
             <button type="submit">Submit</button>
         </form>
