@@ -20,6 +20,14 @@
         <servlet-name>ListMovie</servlet-name>
         <servlet-class>Controller.ListMovie</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ForgotPassword</servlet-name>
+        <servlet-class>Controller.CheckUsernameForgot</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckUsernameForgot</servlet-name>
+        <servlet-class>Controller.CheckUsernameForgot</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -31,5 +39,9 @@
     <servlet-mapping>
         <servlet-name>ListMovie</servlet-name>
         <url-pattern>/ListMovie</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckUsernameForgot</servlet-name>
+        <url-pattern>/CheckUsernameForgot</url-pattern>
     </servlet-mapping>
 </web-app>

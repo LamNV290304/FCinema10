@@ -97,7 +97,7 @@ public class Register extends HttpServlet {
             
             //birthday/ xử lí dữ liệu ngày sinh
             String birthDay = request.getParameter("birthday");
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
             Date birth = dateFormat.parse(birthDay);
             
             String gender = request.getParameter("r-gender");
@@ -106,20 +106,14 @@ public class Register extends HttpServlet {
             String phoneNumber = request.getParameter("phoneNumber");
             String role = "user"; // role mặc đinh là user
 
-            
+            if(!containSpace(username)){
+                error = "Username không được có khoảng trống";
+                request.setAttribute("error", error);
+                throw new Exception();
+            }
             //Kiểm tra xem người dùng nhập đúng chưa
             if (password.equals(rePassword)){ //xác nhận mật khẩu
                 error = "Mật khẩu không trùng khớp";
-                request.setAttribute("error", error);
-                throw new Exception();
-            }
-            if (containsInvalidCharacters(phoneNumber)){//kiểm tra số điện thoại
-                error = "Nhập không hợp lệ";
-                request.setAttribute("error", error);
-                throw new Exception();
-            }
-            if (isValidEmail(email)){//kiểm trả thư điện tử
-                error = "Email không hợp lệ";
                 request.setAttribute("error", error);
                 throw new Exception();
             }
@@ -136,29 +130,16 @@ public class Register extends HttpServlet {
 
     }
     
-    //Sử dụng biểu thức chính quy để kiểm tra định dạng email
-    public static boolean isValidEmail(String email) {
-        // Biểu thức chính quy để kiểm tra định dạng email
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
-        Pattern pattern = Pattern.compile(emailRegex);
-        if (email == null) {
-            return false;
-        }
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
-    }
-    
-    //kiểm tra xem trong chuối có kí tự hay không
-    public boolean containsInvalidCharacters(String phoneNumber) {
+    private boolean containSpace(String username){
         // Duyệt qua từng ký tự trong phoneNumber
-        for (int i = 0; i < phoneNumber.length(); i++) {
-            char ch = phoneNumber.charAt(i);
-            // Nếu ký tự không phải là số, trả về true
-            if (!Character.isDigit(ch)) {
+        for (int i = 0; i < username.length(); i++) {
+            char ch = username.charAt(i);
+            // Nếu ký tự có khoảng trống , trả về false
+            if (!Character.isSpaceChar(ch)) {
                 return false;
             }
         }
-        // Nếu tất cả ký tự đều là số, trả về false
+        // Nếu tất cả ký tự đều là số, trả về true
         return true;
     }
 

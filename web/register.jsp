@@ -30,7 +30,6 @@
                     <h2>Register</h2></br>
                     
                     <%
-                     
                      String error = (String) request.getAttribute("error");
                     %>
                     
@@ -40,11 +39,11 @@
                     </div>
 
                     <div class="input-field">
-                        <input type="text" name="phoneNumber" required>
+                        <input type="number" name="phoneNumber" required>
                         <label>Enter your phone number *</label>
                     </div>
                     <div class="input-field">
-                        <input type="text" name="email" required>
+                        <input type="email" name="email" required>
                         <label>Enter your email *</label>
                     </div>
 
@@ -63,9 +62,8 @@
                         <label>Re-type your password *</label>
                     </div>
                     <div class="input-field">
-                         <input type="text" name="birthday" required>
+                        <input type="date" name="birthday" required>
                         <label for="r-birthday">Date of Birth</label>
-                       
                     </div>
                     <div>
                     <label for="r-fname" class="gender-title">
