@@ -52,11 +52,9 @@
         </style>
     </head>
     <body>
-<<<<<<< HEAD
+
         <form action="ForgotPassword" method="POST">
-=======
-        <form action="CheckUsernameForgot" method="get">
->>>>>>> 12eec60f0680c6f02f218de6e4dd72254461c213
+
             <h2>Forget Password</h2></br>
 
             <%
