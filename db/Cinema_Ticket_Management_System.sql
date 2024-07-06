@@ -4,9 +4,9 @@ GO
 USE CINEMA_TICKET_MANAGEMENT_SYSTEM
 DROP DATABASE CINEMA_TICKET_MANAGEMENT_SYSTEM
 
+
+
 --CREATE TABLE 
-
-
 
 -- Table: cinemas
 CREATE TABLE cinemas (
@@ -27,14 +27,14 @@ CREATE TABLE room (
 CREATE TABLE movies (
     movie_id INT identity(1, 1) PRIMARY KEY,
 	movie_poster varchar(255),
-    movie_name VARCHAR(255) NOT NULL,
-    movie_description TEXT,
-    movie_trailer VARCHAR(255),
-    movie_actress VARCHAR(255),
-    movie_genres VARCHAR(255),
+    movie_name NVARCHAR(255) NOT NULL,
+    movie_description NVARCHAR(MAX),
+    movie_trailer NVARCHAR(255),
+    movie_actress NVARCHAR(255),
+    movie_genres NVARCHAR(255),
     movie_release DATE,
-    movie_length VARCHAR(255),
-    movie_director VARCHAR(255)
+    movie_length NVARCHAR(255),
+    movie_director NVARCHAR(255)
 );
 
 -- Table: schedule
@@ -138,6 +138,9 @@ VALUES('employee01','123456789','Employee')
 INSERT INTO users(username,password,role)
 VALUES('user1','123456789','user')
 
+
+
+SELECT * FROM movies
 
 	
 
