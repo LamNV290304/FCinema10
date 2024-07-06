@@ -52,8 +52,11 @@
         </style>
     </head>
     <body>
+
         <form action="ForgotPassword" method="POST">
-            <h2>Forget Password</h2><br>
+
+            <h2>Forget Password</h2></br>
+
             <%
                 String error = (String) request.getAttribute("error");
             %>
