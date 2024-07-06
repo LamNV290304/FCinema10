@@ -52,7 +52,7 @@
         </style>
     </head>
     <body>
-        <form action="resetpassword" method="POST">
+        <form action="ForgotPassword" method="POST">
             <h2>Forget Password</h2></br>
 
             <%
