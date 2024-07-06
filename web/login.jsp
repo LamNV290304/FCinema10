@@ -19,7 +19,7 @@
         <link href="css/font-awesome.min.css" rel="stylesheet" >
         <link href="https://fonts.googleapis.com/css2?family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-        <script>
+<!--        <script>
             function validateForgotPassword() {
                 var username = document.getElementsByName("username")[0].value.trim();
                 if (username === "") {
@@ -29,7 +29,7 @@
                 window.location.href = "ForgotPassword?username=" + encodeURIComponent(username);
                 return true;
             }
-        </script>
+        </script>-->
 
     </head>   
     <body>
@@ -54,7 +54,7 @@
                             <input type="checkbox" id="remember">
                             <p>Remember me</p>
                         </label>
-                        <a href="ForgotPassword" onclick="return validateForgotPassword()">Forgot password?</a>
+                        <a href="forgot_password.jsp" >Forgot password?</a>
                     </div>
                     <button type="submit">Log In</button>
                     <div class="register">

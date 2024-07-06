@@ -4,12 +4,19 @@
  */
 package Controller;
 
+import dal.UsersDAO;
+import Model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -34,7 +41,7 @@ public class ForgotPassword extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ForgotPassword</title>");            
+            out.println("<title>Servlet ForgotPassword</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ForgotPassword at " + request.getContextPath() + "</h1>");
@@ -42,6 +49,7 @@ public class ForgotPassword extends HttpServlet {
             out.println("</html>");
         }
     }
+
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -67,7 +75,46 @@ public class ForgotPassword extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
+        String error = null;
+        //Lấy giữ liệu từ JSP
+        String answer1 = request.getParameter("answer1");
+        String answer2 = request.getParameter("answer2");
+        String answer3 = request.getParameter("answer3");
+
+        try {
+
+            //chuyển đổi ngày text sang date
+            SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+            Date birth = dateFormat.parse(answer1);
+
+            //lấy người dùng từ Databse
+            UsersDAO loadUser = new UsersDAO();
+            User user = loadUser.getUserByUsername(answer3);
+
+            //kiểm tra xem người dùng tồn tại không
+            if (user == null) {
+                error = "Không tồn tại người dùng";
+                throw new Exception();
+            } else {
+                //kiểm tra các câu trả lời
+                if (user.getBirthday().compareTo(birth) != 0) {
+                    error = "Sai thông tin ngày sinh";
+                    throw new Exception();
+                }
+                if (!user.getEmail().equals(answer2)){
+                    error = "Sai thông tin email";
+                    throw new Exception();
+                }
+                
+                request.setAttribute("user", user);
+                request.getRequestDispatcher("forgot_password.jsp").forward(request, response);
+            }
+        } catch (Exception ex) {
+            request.setAttribute("error", error);
+            request.getRequestDispatcher("forgot_password.jsp").forward(request, response);
+        }
+
     }
 
     /**

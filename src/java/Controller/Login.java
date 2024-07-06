@@ -58,9 +58,7 @@ public class Login extends HttpServlet {
         if (userLoad.checkLogin(username, password) != null) {
             User customer = userLoad.getUserByUsername(username);//lấy customer theo username
             //gán các attribute vào trong session
-            session.setAttribute("username", username);
-            session.setAttribute("password", password);
-            session.setAttribute("role", customer.getRole());
+            session.setAttribute("user", customer);
 
             //gửi đến trang khác
             response.sendRedirect("ListMovie");

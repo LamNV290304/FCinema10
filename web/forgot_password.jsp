@@ -10,7 +10,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+
         <title>Forget Password</title>
         <style>
             body {
@@ -52,17 +52,12 @@
         </style>
     </head>
     <body>
-<<<<<<< HEAD
         <form action="ForgotPassword" method="POST">
-=======
-        <form action="CheckUsernameForgot" method="get">
->>>>>>> 12eec60f0680c6f02f218de6e4dd72254461c213
-            <h2>Forget Password</h2></br>
-
+            <h2>Forget Password</h2><br>
             <%
                 String error = (String) request.getAttribute("error");
             %>
-            <label for="question1">Security Question 1:</labđel>
+            <label for="question1">Security Question 1:</label>
             <!--        <select id="question1" name="question1" required>
                         <option value="" disabled selected>Select a question</option>
                         <option value="q1">What is your mother's maiden name?</option>
@@ -70,7 +65,7 @@
                         <option value="q3">What was the name of your elementary school?</option>
                     </select>-->
             <label for="question1">What is your Date of Birth?</label>
-            <input type="text" id="answer1" name="answer1" placeholder="Format Answer: dd-MM-yyyy" required>
+            <input type="date" id="answer1" name="answer1" placeholder="Format Answer: dd-MM-yyyy" required>
 
             <label for="question2">Security Question 2:</label>
             <!--        <select id="question2" name="question2" required>
