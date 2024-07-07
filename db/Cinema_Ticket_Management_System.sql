@@ -109,6 +109,7 @@ create table Food (
 	food_id int identity(1, 1) primary key,
 	food_name nvarchar(50) not null,
 	describe nvarchar(100) not null,
+	quantity INT DEFAULT 0,
 	price int not null
 );
 
