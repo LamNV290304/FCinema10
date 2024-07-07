@@ -13,18 +13,20 @@ public class Food {
     private int foodId;
     private String foodName;
     private String describe;
+    private int quantity;
     private int price;
 
     public Food() {
     }
 
-    public Food(int foodId, String foodName, String describe, int price) {
+    public Food(int foodId, String foodName, String describe, int quantity, int price) {
         this.foodId = foodId;
         this.foodName = foodName;
         this.describe = describe;
+        this.quantity = quantity;
         this.price = price;
     }
-
+    
     public int getFoodId() {
         return foodId;
     }
@@ -55,6 +57,14 @@ public class Food {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
     
     
