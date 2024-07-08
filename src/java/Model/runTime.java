@@ -11,14 +11,14 @@ package Model;
  */
 public class runTime {
     private int runTimeId;
-    private int scheduleId;
+    private schedule scheduleId;
     private int movieId;
     private int runTime;
 
     public runTime() {
     }
 
-    public runTime(int runTimeId, int scheduleId, int movieId, int runTime) {
+    public runTime(int runTimeId, schedule scheduleId, int movieId, int runTime) {
         this.runTimeId = runTimeId;
         this.scheduleId = scheduleId;
         this.movieId = movieId;
@@ -33,11 +33,11 @@ public class runTime {
         this.runTimeId = runTimeId;
     }
 
-    public int getScheduleId() {
+    public schedule getScheduleId() {
         return scheduleId;
     }
 
-    public void setScheduleId(int scheduleId) {
+    public void setScheduleId(schedule scheduleId) {
         this.scheduleId = scheduleId;
     }
 

@@ -9,51 +9,52 @@ package Model;
  *  Purpose: Model booking_detail
  */
 public class booking_detail {
-    private int bookingId;
-    private int scheduleId;
-    private int room_id;
-    private int seatId;
+    private booking bookingId;
+    private schedule scheduleId;
+    private room room_id;
+    private seat seatId;
 
     public booking_detail() {
     }
 
-    public booking_detail(int bookingId, int scheduleId, int room_id, int seatId) {
+    public booking_detail(booking bookingId, schedule scheduleId, room room_id, seat seatId) {
         this.bookingId = bookingId;
         this.scheduleId = scheduleId;
         this.room_id = room_id;
         this.seatId = seatId;
     }
 
-    public int getBookingId() {
+    public booking getBookingId() {
         return bookingId;
     }
 
-    public void setBookingId(int bookingId) {
+    public void setBookingId(booking bookingId) {
         this.bookingId = bookingId;
     }
 
-    public int getScheduleId() {
+    public schedule getScheduleId() {
         return scheduleId;
     }
 
-    public void setScheduleId(int scheduleId) {
+    public void setScheduleId(schedule scheduleId) {
         this.scheduleId = scheduleId;
     }
 
-    public int getRoom_id() {
+    public room getRoom_id() {
         return room_id;
     }
 
-    public void setRoom_id(int room_id) {
+    public void setRoom_id(room room_id) {
         this.room_id = room_id;
     }
 
-    public int getSeatId() {
+    public seat getSeatId() {
         return seatId;
     }
 
-    public void setSeatId(int seatId) {
+    public void setSeatId(seat seatId) {
         this.seatId = seatId;
     }
+
     
 }

@@ -13,17 +13,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *  Date: 02/07/2024
- *  Author: Nguyễn Việt Lâm
- *  Purpose: Load User
+ * Date: 02/07/2024 Author: Nguyễn Việt Lâm Purpose: Load User
  */
 public class UsersDAO extends DBContext {
 
     // Đăng kí người dùng mới vào trong database
-    public void addUser(User user){
+    public boolean addUser(User user) {
         try {
+            //dùng câu lệnh sql để update
             String sql = "Insert Into users(username, password, avatar, role, fullname, birthday, gender, email, city, phone) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
             try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+                //Đặt các giá trị vào vị trí
                 pstmt.setString(1, user.getUsername());
                 pstmt.setString(2, user.getPassword());
                 pstmt.setString(3, user.getAvatar());
@@ -34,25 +34,27 @@ public class UsersDAO extends DBContext {
                 pstmt.setString(8, user.getEmail());
                 pstmt.setString(9, user.getCity());
                 pstmt.setString(10, user.getPhone());
+            } catch (Exception e) {
+                System.out.println("Error update category: " + e.getMessage());
+                return false; //tất cả các lỗi đều trả về false, không update thành công
             }
-
-         catch (Exception e) {
-            System.out.println("Error update category: " + e.getMessage());
-        }
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            return false;//tất cả các lỗi đều trả về false, không update thành công
         }
+        return true;//thực hiện thành công trả về true
     }
-    
-    
+
     //lấy tất cả các thông tin của User và trả về một danh sách dạng MAP
     public Map<Integer, User> getAllUsers() {
         Map<Integer, User> list = new HashMap<>();
         try {
+            //dùng câu lệnh sql để truy vấn
             String sql = "Select * from users";
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
+                //Set các đặc tính vào trong người dùng
                 User u = new User();
                 u.setUser_id(rs.getInt("user_id"));
                 u.setUsername(rs.getString("username"));
@@ -64,15 +66,46 @@ public class UsersDAO extends DBContext {
                 u.setFullname(rs.getNString("fullname"));
                 u.setGender(rs.getString("gender"));
                 u.setPhone(rs.getString("phone"));
-//                u.setAvatar(rs.getString("avatar"));
+                u.setAvatar(rs.getString("avatar"));
+
+                //thêm vào trong danh sách
                 list.put(u.getUser_id(), u);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return list;
+        return list; //trả vè list
     }
-    
+
+    // Update người dùng trong datebase
+    public boolean updateUser(User user) {
+        try {
+            //dùng câu lệnh sql để update
+            String sql = "UPDATE users SET username = ?, password = ?, avatar = ?, role = ?, fullname = ?, birthday = ?, gender = ?, email = ?, city = ?, phone = ? WHERE user_id = ?";;
+            try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+                //Đặt các giá trị vào vị trí
+                pstmt.setString(1, user.getUsername());
+                pstmt.setString(2, user.getPassword());
+                pstmt.setString(3, user.getAvatar());
+                pstmt.setString(4, user.getRole());
+                pstmt.setString(5, user.getFullname());
+                pstmt.setDate(6, (Date) user.getBirthday());
+                pstmt.setString(7, user.getGender());
+                pstmt.setString(8, user.getEmail());
+                pstmt.setString(9, user.getCity());
+                pstmt.setString(10, user.getPhone());
+                pstmt.setInt(11, user.getUser_id());
+            } catch (Exception e) {
+                System.out.println("Error update category: " + e.getMessage());
+                return false; //tất cả các lỗi đều trả về false, không update thành công
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;//tất cả các lỗi đều trả về false, không update thành công
+        }
+        return true;//thực hiện thành công trả về true
+    }
+
     //kiểm tra  xem login có hợp lệ hay không
     public User checkLogin(String username, String password) {
         try {
@@ -89,9 +122,28 @@ public class UsersDAO extends DBContext {
         }
         return null;
     }
-    
+
+    //Xóa một người dùng
+    public boolean deleteUser(User user) {
+        try {
+            //dùng câu lệnh sql để delete
+            String sql = "DELETE FROM users WHERE user_id = ?";
+            try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+                //Đặt các giá trị vào vị trí
+                pstmt.setInt(1, user.getUser_id());
+            } catch (Exception e) {
+                System.out.println("Error update category: " + e.getMessage());
+                return false; //tất cả các lỗi đều trả về false, không update thành công
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;//tất cả các lỗi đều trả về false, không update thành công
+        }
+        return true;//thực hiện thành công trả về true
+    }
+
     //lấy data người dùng theo username
-    public User getUserByUsername(String username){
+    public User getUserByUsername(String username) {
         try {
             UsersDAO uDao = new UsersDAO();
             Map<Integer, User> userlist = uDao.getAllUsers();
@@ -106,7 +158,7 @@ public class UsersDAO extends DBContext {
         }
         return null;
     }
-    
+
     public static void main(String[] args) {
         UsersDAO uDao = new UsersDAO();
         Map<Integer, User> list = uDao.getAllUsers();

@@ -127,7 +127,6 @@ public class Register extends HttpServlet {
             //trả lỗi về trang đăng kí
             request.getRequestDispatcher("register.jsp").forward(request, response);
         }
-
     }
     
     private boolean containSpace(String username){

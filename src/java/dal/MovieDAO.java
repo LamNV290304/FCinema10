@@ -16,7 +16,11 @@ import java.util.Map;
  *  Author: Nguyễn Việt Lâm
  *  Purpose: Load Movie
  */
+
+
 public class MovieDAO extends DBContext{
+    
+    // Lấy hết thông tin phim từ database
     public Map<Integer, movies> getAllMovies() {
         Map<Integer, movies> listMovies = new HashMap<>();
         try {

@@ -43,7 +43,7 @@
                         <label>Enter your phone number *</label>
                     </div>
                     <div class="input-field">
-                        <input type="email" name="email" required>
+                        <input type="text" name="email" required>
                         <label>Enter your email *</label>
                     </div>
 
@@ -62,7 +62,7 @@
                         <label>Re-type your password *</label>
                     </div>
                     <div class="input-field">
-                        <input type="date" name="birthday" required>
+                        <input type="text" name="birthday" placeholder="dd-MM-yyyy" required>
                         <label for="r-birthday">Date of Birth</label>
                     </div>
                     <div>

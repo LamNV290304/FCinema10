@@ -61,7 +61,7 @@ public class Login extends HttpServlet {
             session.setAttribute("user", customer);
 
             //gửi đến trang khác
-            response.sendRedirect("ListMovie");
+            response.sendRedirect("index.html");
         } else {
             // Gửi lỗi nếu có lỗi, lấy lỗi ở bên kia đi bạn hiền
             error = "Sai tài khoản hoặc mật khẩu";
