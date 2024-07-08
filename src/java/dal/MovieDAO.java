@@ -4,12 +4,12 @@
  */
 package dal;
 
-import Model.User;
 import Model.movies;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
+import java.sql.PreparedStatement;
 
 /**
  *  Date: 02/07/2024
@@ -24,10 +24,12 @@ public class MovieDAO extends DBContext{
     public Map<Integer, movies> getAllMovies() {
         Map<Integer, movies> listMovies = new HashMap<>();
         try {
+            //dùng câu lệnh sql để truy vấn
             String sql = "Select * from movies";
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
+                //Set các đặc tính vào đối tượng
                 movies movie = new movies();
                 movie.setMovie_id(rs.getInt("movie_id"));
                 movie.setMoviePoster(rs.getString("movie_poster"));
@@ -39,14 +41,59 @@ public class MovieDAO extends DBContext{
                 movie.setMovieRelease(rs.getDate("movie_release"));
                 movie.setMovieLength(rs.getString("movie_length"));
                 movie.setMovieDirector(rs.getString("movie_director"));
+                
+                //thêm vào trong danh sách
                 listMovies.put(movie.getMovie_id(), movie);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            return null; //nếu có lỗi trả về null
         }
-        return listMovies;
+        return listMovies; //trả vè list
     }
     
+     // Hàm xóa một bộ phim theo movie_id
+    public boolean deleteMovie(int movieId) {
+        try {
+            //dùng câu lệnh sql để truy vấn
+            String sql = "DELETE FROM movies WHERE movie_id = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            
+            //Set các đặc tính vào vị trí trong câu truy vấn
+            ps.setInt(1, movieId);
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;//Trả về nếu không thành công
+        }
+        return true; //Trả về nếu thành công
+    }
+
+    // Hàm cập nhật thông tin phim
+    public boolean updateMovie(movies movie) {
+        try {
+            //dùng câu lệnh sql để truy vấn
+            String sql = "UPDATE movies SET movie_poster = ?, movie_name = ?, movie_description = ?, movie_trailer = ?, movie_actress = ?, movie_genres = ?, movie_release = ?, movie_length = ?, movie_director = ? WHERE movie_id = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            
+            //Set các đặc tính vào vị trí trong câu truy vấn
+            ps.setString(1, movie.getMoviePoster());
+            ps.setString(2, movie.getMovieName());
+            ps.setString(3, movie.getMovieDescription());
+            ps.setString(4, movie.getMovieTrailer());
+            ps.setString(5, movie.getMovieActress());
+            ps.setString(6, movie.getMovieGenres());
+            ps.setDate(7, new java.sql.Date(movie.getMovieRelease().getTime()));
+            ps.setString(8, movie.getMovieLength());
+            ps.setString(9, movie.getMovieDirector());
+            ps.setInt(10, movie.getMovie_id());
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;//Trả về nếu không thành công
+        }
+        return true; //Trả về nếu thành công
+    }
     
     public static void main(String[] args) {
         MovieDAO mDao = new MovieDAO();

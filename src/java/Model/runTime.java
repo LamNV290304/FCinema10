@@ -4,6 +4,13 @@
  */
 package Model;
 
+//////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
+///////////////////////Cần sửa gấp////////////////////////
+//////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
 /**
  *  Date: 14/06/2024
  *  Author: Nguyễn Việt Lâm
@@ -12,13 +19,13 @@ package Model;
 public class runTime {
     private int runTimeId;
     private schedule scheduleId;
-    private int movieId;
+    private movies movieId;
     private int runTime;
 
     public runTime() {
     }
 
-    public runTime(int runTimeId, schedule scheduleId, int movieId, int runTime) {
+    public runTime(int runTimeId, schedule scheduleId, movies movieId, int runTime) {
         this.runTimeId = runTimeId;
         this.scheduleId = scheduleId;
         this.movieId = movieId;
@@ -41,11 +48,11 @@ public class runTime {
         this.scheduleId = scheduleId;
     }
 
-    public int getMovieId() {
+    public movies getMovieId() {
         return movieId;
     }
 
-    public void setMovieId(int movieId) {
+    public void setMovieId(movies movieId) {
         this.movieId = movieId;
     }
 
