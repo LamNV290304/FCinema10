@@ -4,27 +4,18 @@
  */
 package Controller;
 
-import Model.movies;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import dal.MovieDAO;
-<<<<<<< HEAD
-import java.util.HashMap;
-import java.util.Map;
-=======
-import java.util.ArrayList;
-import java.util.HashMap;
->>>>>>> 329e2f10907b87d843cb509247d099564612d322
 
 /**
  *
- * Date: 02/07/2024 Author: Nguyễn Việt Lâm Purpose: Chức năng hiển thị Movie
+ * @author LAM
  */
-public class ListMovie extends HttpServlet {
+public class OrderTicket extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,14 +29,21 @@ public class ListMovie extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         MovieDAO loadMovie = new MovieDAO();
-        Map<Integer, movies> listMovies = loadMovie.getAllMovies();
-        
-        //gửi sang view
-        request.setAttribute("listMovies", listMovies);
-        request.getRequestDispatcher("listmovie.jsp").forward(request, response);
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet OrderTicket</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet OrderTicket at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -57,14 +55,7 @@ public class ListMovie extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        //lấy dữ liệu từ database
-        MovieDAO loadMovie = new MovieDAO();
-        ArrayList<movies> listMovies = loadMovie.getAllMovies();
-        
-        //gửi sang view
-        request.setAttribute("listMovies", listMovies);
-        request.getRequestDispatcher("listmovie.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**
