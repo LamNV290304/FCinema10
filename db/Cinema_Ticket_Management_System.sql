@@ -43,7 +43,7 @@ CREATE TABLE run_time(
 	movie_id INT NOT NULL,
 	run_time INT NOT NULL,
 	time_start TIME NOT NULL,
-   time_end TIME NOT NULL,
+	time_end TIME NOT NULL,
 );
 
 -- Table: schedule
