@@ -57,9 +57,13 @@
 
             <h2>Forget Password</h2></br>
 
-            <%
-                String error = (String) request.getAttribute("error");
-            %>
+             <div style="color: red">
+
+                
+                        <h3>
+                           ${requestScope.error == null ? "":requestScope.error }
+                        </h3>   
+                    </div>   
             <label for="question1">Security Question 1:</label>
             <!--        <select id="question1" name="question1" required>
                         <option value="" disabled selected>Select a question</option>

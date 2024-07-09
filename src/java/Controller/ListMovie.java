@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import dal.MovieDAO;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -32,18 +33,12 @@ public class ListMovie extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ListMovie</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ListMovie at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+         MovieDAO loadMovie = new MovieDAO();
+        Map<Integer, movies> listMovies = loadMovie.getAllMovies();
+        
+        //gửi sang view
+        request.setAttribute("listMovies", listMovies);
+        request.getRequestDispatcher("listmovie.jsp").forward(request, response);
     }
 
     /**
@@ -64,7 +59,7 @@ public class ListMovie extends HttpServlet {
         
         //gửi sang view
         request.setAttribute("listMovies", listMovies);
-        request.getRequestDispatcher(".......").forward(request, response);
+        request.getRequestDispatcher("listmovie.jsp").forward(request, response);
     }
 
     /**

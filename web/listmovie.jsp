@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,6 +25,34 @@
         <!--header -->     
         <jsp:include page="header.jsp" /></br>
 
+        
+        <!-- List movie -->
+        
+       <div class="col-sm-9">
+                    <div class="row">
+                        <c:forEach items="${listMovies}" var="o">
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="${o}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title show_txt"><a href="#" title="View Product">${o.name}</a></h4>
+                                        <p class="card-text show_txt">${o.title}</p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="btn btn-danger btn-block">${o.price} $</p>
+                                            </div>
+                                            <div class="col">
+                                                <a href="#" class="btn btn-success btn-block">Add to cart</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+        
+        
 
         <section id="footer">
             <div class="footer_m bg_backo p_3">

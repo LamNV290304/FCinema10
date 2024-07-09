@@ -100,7 +100,7 @@ public class MovieDAO extends DBContext{
         Map<Integer, movies> list = mDao.getAllMovies();
 
         for (int id : list.keySet()) {
-            System.out.println(list.get(id));
+            System.out.println(list.get(id).getMoviePoster());
         }
     }
     
