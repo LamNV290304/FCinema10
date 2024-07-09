@@ -5,54 +5,82 @@
 package dal;
 
 import Model.cinemas;
+import Model.room;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 import java.sql.PreparedStatement;
 
 /**
  *
- * Date: 08/07/2024 Author: Nguyễn Việt Lâm Purpose: Load Cinema
+ * Date: 10/07/2024 Author: Nguyễn Việt Lâm Purpose: Load Room
  */
-public class CinemasDAO extends DBContext {
+public class RoomDAO extends DBContext {
 
     // Lấy hết thông tin phim từ database
-    public Map<Integer, cinemas> getAllMovies() {
-        Map<Integer, cinemas> listCinema = new HashMap<>();
+    public ArrayList<room> getAllRoom() {
+        ArrayList<room> list = new ArrayList<>();
+        CinemasDAO loadCinema = new CinemasDAO();
         try {
 
             //dùng câu lệnh sql để truy vấn
-            String sql = "Select * from movies";
+            String sql = "Select * from room";
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
 
                 //Set các đặc tính vào đối tượng
-                cinemas cinema = new cinemas();
-                cinema.setCinemaID(rs.getInt("cinema_id"));
-                cinema.setCinemaName(rs.getNString("cinema_name"));
-                cinema.setCinemaAddress(rs.getNString("cinema_address"));
+                room room = new room();
+                room.setRoom_id(rs.getInt("room_id"));
+
+                cinemas cinema = loadCinema.getCinemaById(rs.getInt("cinema_id"));
+                room.setCinema(cinema);
+
+                room.setRoom_name(rs.getNString("room_name"));
 
                 //thêm vào trong danh sách
-                listCinema.put(cinema.getCinemaID(), cinema);
+                list.add(room);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null; //nếu có lỗi trả về null
         }
-        return listCinema; // trả về danh sách nếu không có lỗi
+        return list; // trả về danh sách nếu không có lỗi
     }
 
-    // Hàm thêm một rạp chiếu phim
-    public boolean addCinema(cinemas cinema) {
+    // Hàm thêm một phòng chiếu phim
+    public boolean addRoom(room room) {
         try {
-            // Dùng câu lệnh SQL để thêm một rạp chiếu phim
-            String sql = "INSERT INTO cinemas (cinema_name, cinema_address) VALUES (?, ?)";
+            // Dùng câu lệnh SQL để thêm một phòng chiếu phim
+            String sql = "INSERT INTO room (cinema_id, room_name) VALUES (?, ?)";
             PreparedStatement ps = connection.prepareStatement(sql);
+
             // Set các tham số vào câu lệnh SQL
-            ps.setNString(1, cinema.getCinemaName());
-            ps.setNString(2, cinema.getCinemaAddress());
+            ps.setInt(1, room.getCinema().getCinemaID());
+            ps.setNString(2, room.getRoom_name());
+
+            // Thực thi câu lệnh SQL và trả về kết quả
+            int affectedRows = ps.executeUpdate();
+            return affectedRows > 0;
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false; // Nếu có lỗi trả về false
+        }
+    }
+
+    // Hàm cập nhật thông tin phòng chiếu phim
+    public boolean updateRoom(room room) {
+        try {
+            // Dùng câu lệnh SQL để cập nhật thông tin phòng chiếu phim
+            String sql = "UPDATE room SET cinema_id = ?, room_name = ? WHERE room_id = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            // Set các tham số vào câu lệnh SQL
+            ps.setInt(1, room.getCinema().getCinemaID());
+            ps.setNString(2, room.getRoom_name());
+            ps.setInt(3, room.getRoom_id());
+
             // Thực thi câu lệnh SQL và trả về kết quả
             int affectedRows = ps.executeUpdate();
             return affectedRows > 0;
@@ -62,16 +90,16 @@ public class CinemasDAO extends DBContext {
         }
     }
 
-    // Hàm cập nhật thông tin rạp chiếu phim
-    public boolean updateCinema(cinemas cinema) {
+    // Hàm xóa một phòng chiếu phim theo room_id
+    public boolean deleteRoom(int roomId) {
         try {
-            // Dùng câu lệnh SQL để cập nhật thông tin rạp chiếu phim
-            String sql = "UPDATE cinemas SET cinema_name = ?, cinema_address = ? WHERE cinema_id = ?";
+            // Dùng câu lệnh SQL để xóa một phòng chiếu phim
+            String sql = "DELETE FROM room WHERE room_id = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
+
             // Set các tham số vào câu lệnh SQL
-            ps.setNString(1, cinema.getCinemaName());
-            ps.setNString(2, cinema.getCinemaAddress());
-            ps.setInt(3, cinema.getCinemaID());
+            ps.setInt(1, roomId);
+
             // Thực thi câu lệnh SQL và trả về kết quả
             int affectedRows = ps.executeUpdate();
             return affectedRows > 0;
@@ -81,39 +109,26 @@ public class CinemasDAO extends DBContext {
         }
     }
 
-    // Hàm xóa một rạp chiếu phim theo cinema_id
-    public boolean deleteCinema(int cinemaId) {
+    //Tìm phòng theo id
+    public room getRoomById(int id) {
+        CinemasDAO loadCinema = new CinemasDAO();
         try {
-            // Dùng câu lệnh SQL để xóa một rạp chiếu phim
-            String sql = "DELETE FROM cinemas WHERE cinema_id = ?";
-            PreparedStatement ps = connection.prepareStatement(sql);
-            // Set các tham số vào câu lệnh SQL
-            ps.setInt(1, cinemaId);
-            // Thực thi câu lệnh SQL và trả về kết quả
-            int affectedRows = ps.executeUpdate();
-            return affectedRows > 0;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return false; // Nếu có lỗi trả về false
-        }
-    }
-
-    //Hàm tìm rạp theo id
-    public cinemas getCinemaById(int id) {
-        try {
-            // Dùng câu lệnh SQL để lấy thông tin rạp chiếu phim theo id
-            String sql = "SELECT * FROM cinemas WHERE cinema_id = ?";
+            // Dùng câu lệnh SQL để lấy thông tin phòng chiếu phim theo id
+            String sql = "SELECT * FROM room WHERE room_id = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
             // Set tham số id vào câu lệnh SQL
             ps.setInt(1, id);
             // Thực thi câu lệnh SQL và lấy kết quả
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                cinemas cinema = new cinemas();
-                cinema.setCinemaID(rs.getInt("cinema_id"));
-                cinema.setCinemaName(rs.getNString("cinema_name"));
-                cinema.setCinemaAddress(rs.getNString("cinema_address"));
-                return cinema;
+                room room = new room();
+                room.setRoom_id(rs.getInt("room_id"));
+
+                cinemas cinema = loadCinema.getCinemaById(rs.getInt("cinema_id"));
+                room.setCinema(cinema);
+
+                room.setRoom_name(rs.getNString("room_name"));
+                return room;
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());

@@ -11,7 +11,6 @@ import java.sql.Time;
  */
 public class runTime {
     private int runTimeId;
-    private movies movieId;
     private int runTime;
     private Time timeStart;
     private Time timeEnd;
@@ -19,9 +18,8 @@ public class runTime {
     public runTime() {
     }
 
-    public runTime(int runTimeId, movies movieId, int runTime, Time timeStart, Time timeEnd) {
+    public runTime(int runTimeId, int runTime, Time timeStart, Time timeEnd) {
         this.runTimeId = runTimeId;
-        this.movieId = movieId;
         this.runTime = runTime;
         this.timeStart = timeStart;
         this.timeEnd = timeEnd;
@@ -33,14 +31,6 @@ public class runTime {
 
     public void setRunTimeId(int runTimeId) {
         this.runTimeId = runTimeId;
-    }
-
-    public movies getMovieId() {
-        return movieId;
-    }
-
-    public void setMovieId(movies movieId) {
-        this.movieId = movieId;
     }
 
     public int getRunTime() {

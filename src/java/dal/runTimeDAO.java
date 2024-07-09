@@ -4,55 +4,55 @@
  */
 package dal;
 
-import Model.cinemas;
+import Model.runTime;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.HashMap;
-import java.util.Map;
+import java.sql.Time;
+import java.util.ArrayList;
 import java.sql.PreparedStatement;
 
 /**
  *
- * Date: 08/07/2024 Author: Nguyễn Việt Lâm Purpose: Load Cinema
+ * Date: 08/07/2024 Author: Nguyễn Việt Lâm Purpose: Load Runtime
  */
-public class CinemasDAO extends DBContext {
+public class runTimeDAO extends DBContext {
 
     // Lấy hết thông tin phim từ database
-    public Map<Integer, cinemas> getAllMovies() {
-        Map<Integer, cinemas> listCinema = new HashMap<>();
+    public ArrayList<runTime> getAllRunTime() {
+        ArrayList<runTime> list = new ArrayList<>();
         try {
 
             //dùng câu lệnh sql để truy vấn
-            String sql = "Select * from movies";
+            String sql = "Select * from run_time";
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-
+                runTime runT = new runTime();
                 //Set các đặc tính vào đối tượng
-                cinemas cinema = new cinemas();
-                cinema.setCinemaID(rs.getInt("cinema_id"));
-                cinema.setCinemaName(rs.getNString("cinema_name"));
-                cinema.setCinemaAddress(rs.getNString("cinema_address"));
-
+                runT.setRunTime(rs.getInt("run_time_id"));
+                runT.setRunTime(rs.getInt("run_time"));
+                runT.setTimeStart(rs.getTime("time_start"));
+                runT.setTimeEnd(rs.getTime("time_end"));
                 //thêm vào trong danh sách
-                listCinema.put(cinema.getCinemaID(), cinema);
+                list.add(runT);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null; //nếu có lỗi trả về null
         }
-        return listCinema; // trả về danh sách nếu không có lỗi
+        return list; // trả về danh sách nếu không có lỗi
     }
 
-    // Hàm thêm một rạp chiếu phim
-    public boolean addCinema(cinemas cinema) {
+    // Hàm thêm một runtime mới
+    public boolean addRunTime(runTime runT) {
         try {
-            // Dùng câu lệnh SQL để thêm một rạp chiếu phim
-            String sql = "INSERT INTO cinemas (cinema_name, cinema_address) VALUES (?, ?)";
+            // Dùng câu lệnh SQL để thêm một runtime vào database
+            String sql = "INSERT INTO run_time (run_time, time_start, time_end) VALUES (?, ?, ?)";
             PreparedStatement ps = connection.prepareStatement(sql);
             // Set các tham số vào câu lệnh SQL
-            ps.setNString(1, cinema.getCinemaName());
-            ps.setNString(2, cinema.getCinemaAddress());
+            ps.setInt(1, runT.getRunTime());
+            ps.setTime(2, runT.getTimeStart());
+            ps.setTime(3, runT.getTimeEnd());
             // Thực thi câu lệnh SQL và trả về kết quả
             int affectedRows = ps.executeUpdate();
             return affectedRows > 0;
@@ -62,16 +62,17 @@ public class CinemasDAO extends DBContext {
         }
     }
 
-    // Hàm cập nhật thông tin rạp chiếu phim
-    public boolean updateCinema(cinemas cinema) {
+    // Hàm cập nhật thông tin runtime
+    public boolean updateRunTime(runTime runT) {
         try {
-            // Dùng câu lệnh SQL để cập nhật thông tin rạp chiếu phim
-            String sql = "UPDATE cinemas SET cinema_name = ?, cinema_address = ? WHERE cinema_id = ?";
+            // Dùng câu lệnh SQL để cập nhật thông tin runtime
+            String sql = "UPDATE run_time SET run_time = ?, time_start = ?, time_end = ? WHERE run_time_id = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
             // Set các tham số vào câu lệnh SQL
-            ps.setNString(1, cinema.getCinemaName());
-            ps.setNString(2, cinema.getCinemaAddress());
-            ps.setInt(3, cinema.getCinemaID());
+            ps.setInt(1, runT.getRunTime());
+            ps.setTime(2, runT.getTimeStart());
+            ps.setTime(3, runT.getTimeEnd());
+            ps.setInt(4, runT.getRunTimeId());
             // Thực thi câu lệnh SQL và trả về kết quả
             int affectedRows = ps.executeUpdate();
             return affectedRows > 0;
@@ -81,14 +82,14 @@ public class CinemasDAO extends DBContext {
         }
     }
 
-    // Hàm xóa một rạp chiếu phim theo cinema_id
-    public boolean deleteCinema(int cinemaId) {
+    // Hàm xóa một runtime theo run_time_id
+    public boolean deleteRunTime(int runTimeId) {
         try {
-            // Dùng câu lệnh SQL để xóa một rạp chiếu phim
-            String sql = "DELETE FROM cinemas WHERE cinema_id = ?";
+            // Dùng câu lệnh SQL để xóa một runtime
+            String sql = "DELETE FROM run_time WHERE run_time_id = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
-            // Set các tham số vào câu lệnh SQL
-            ps.setInt(1, cinemaId);
+            // Set tham số id vào câu lệnh SQL
+            ps.setInt(1, runTimeId);
             // Thực thi câu lệnh SQL và trả về kết quả
             int affectedRows = ps.executeUpdate();
             return affectedRows > 0;
@@ -98,22 +99,23 @@ public class CinemasDAO extends DBContext {
         }
     }
 
-    //Hàm tìm rạp theo id
-    public cinemas getCinemaById(int id) {
+    // Hàm tìm runtime theo id
+    public runTime getRunTimeById(int id) {
         try {
-            // Dùng câu lệnh SQL để lấy thông tin rạp chiếu phim theo id
-            String sql = "SELECT * FROM cinemas WHERE cinema_id = ?";
+            // Dùng câu lệnh SQL để lấy thông tin runtime theo id
+            String sql = "SELECT * FROM run_time WHERE run_time_id = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
             // Set tham số id vào câu lệnh SQL
             ps.setInt(1, id);
             // Thực thi câu lệnh SQL và lấy kết quả
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                cinemas cinema = new cinemas();
-                cinema.setCinemaID(rs.getInt("cinema_id"));
-                cinema.setCinemaName(rs.getNString("cinema_name"));
-                cinema.setCinemaAddress(rs.getNString("cinema_address"));
-                return cinema;
+                runTime runT = new runTime();
+                runT.setRunTimeId(rs.getInt("run_time_id"));
+                runT.setRunTime(rs.getInt("run_time"));
+                runT.setTimeStart(rs.getTime("time_start"));
+                runT.setTimeEnd(rs.getTime("time_end"));
+                return runT;
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
