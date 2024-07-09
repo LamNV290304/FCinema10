@@ -99,14 +99,6 @@ public class MovieDAO extends DBContext{
     public static void main(String[] args) {
         MovieDAO mDao = new MovieDAO();
         
-
-<<<<<<< HEAD
-        for (int id : list.keySet()) {
-            System.out.println(list.get(id).getMoviePoster());
-        }
-=======
-        
->>>>>>> 329e2f10907b87d843cb509247d099564612d322
     }
     
 }

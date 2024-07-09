@@ -6,19 +6,15 @@ package Controller;
 
 import Model.movies;
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import dal.MovieDAO;
-<<<<<<< HEAD
-import java.util.HashMap;
 import java.util.Map;
-=======
 import java.util.ArrayList;
-import java.util.HashMap;
->>>>>>> 329e2f10907b87d843cb509247d099564612d322
+
 
 /**
  *
@@ -39,7 +35,7 @@ public class ListMovie extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
          MovieDAO loadMovie = new MovieDAO();
-        Map<Integer, movies> listMovies = loadMovie.getAllMovies();
+        ArrayList<movies> listMovies = loadMovie.getAllMovies();
         
         //gửi sang view
         request.setAttribute("listMovies", listMovies);
