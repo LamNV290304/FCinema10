@@ -10,6 +10,7 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
 
 /**
  *  Date: 02/07/2024
@@ -21,8 +22,8 @@ import java.sql.PreparedStatement;
 public class MovieDAO extends DBContext{
     
     // Lấy hết thông tin phim từ database
-    public Map<Integer, movies> getAllMovies() {
-        Map<Integer, movies> listMovies = new HashMap<>();
+    public ArrayList<movies> getAllMovies() {
+        ArrayList<movies> listMovies = new ArrayList<>();
         try {
             //dùng câu lệnh sql để truy vấn
             String sql = "Select * from movies";
@@ -43,7 +44,7 @@ public class MovieDAO extends DBContext{
                 movie.setMovieDirector(rs.getString("movie_director"));
                 
                 //thêm vào trong danh sách
-                listMovies.put(movie.getMovie_id(), movie);
+                listMovies.add(movie);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -97,11 +98,9 @@ public class MovieDAO extends DBContext{
     
     public static void main(String[] args) {
         MovieDAO mDao = new MovieDAO();
-        Map<Integer, movies> list = mDao.getAllMovies();
+        
 
-        for (int id : list.keySet()) {
-            System.out.println(list.get(id));
-        }
+        
     }
     
 }

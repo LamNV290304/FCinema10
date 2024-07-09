@@ -4,22 +4,18 @@
  */
 package Controller;
 
-import Model.movies;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import dal.MovieDAO;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  *
- * Date: 02/07/2024 Author: Nguyễn Việt Lâm Purpose: Chức năng hiển thị Movie
+ * @author LAM
  */
-public class ListMovie extends HttpServlet {
+public class OrderTicket extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,15 +34,16 @@ public class ListMovie extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ListMovie</title>");            
+            out.println("<title>Servlet OrderTicket</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ListMovie at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet OrderTicket at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
 
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -58,14 +55,7 @@ public class ListMovie extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        //lấy dữ liệu từ database
-        MovieDAO loadMovie = new MovieDAO();
-        ArrayList<movies> listMovies = loadMovie.getAllMovies();
-        
-        //gửi sang view
-        request.setAttribute("listMovies", listMovies);
-        request.getRequestDispatcher(".......").forward(request, response);
+        processRequest(request, response);
     }
 
     /**
