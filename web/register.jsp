@@ -29,9 +29,12 @@
                 <form action="Register" method="post">
                     <h2>Register</h2></br>
                     
-                    <%
-                     String error = (String) request.getAttribute("error");
-                    %>
+                    <div style="color: red">
+                        
+                        <h3>
+                           ${requestScope.error == null ? "":requestScope.error }
+                        </h3>   
+                    </div>   
                     
                     <div class="input-field">
                         <input type="text" name="fullname" required>

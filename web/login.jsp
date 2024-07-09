@@ -37,10 +37,13 @@
             <div class="wrapper">
                 <form action="Login" method="post">
                     <h2>Login</h2>
+                    <div style="color: red">
 
-                    <%
-                         String error = (String) request.getAttribute("error");
-                    %>
+                
+                        <h3>
+                           ${requestScope.error == null ? "":requestScope.error }
+                        </h3>   
+                    </div>   
                     <div class="input-field">
                         <input type="text" name="username" required>
                         <label>Enter your email or username</label>
