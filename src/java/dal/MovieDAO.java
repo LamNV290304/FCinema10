@@ -17,8 +17,6 @@ import java.util.ArrayList;
  *  Author: Nguyễn Việt Lâm
  *  Purpose: Load Movie
  */
-
-
 public class MovieDAO extends DBContext{
     
     // Lấy hết thông tin phim từ database
