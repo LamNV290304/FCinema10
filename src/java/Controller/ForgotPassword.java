@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author LAM
+ * Date: 02/07/2024 Author: Nguyễn Việt Lâm Purpose: Chức năng Forgot Password
  */
 public class ForgotPassword extends HttpServlet {
 

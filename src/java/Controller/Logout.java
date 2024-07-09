@@ -4,21 +4,19 @@
  */
 package Controller;
 
-import Model.movies;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import dal.MovieDAO;
-import java.util.Map;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
- * Date: 09/07/2024 Author: Nguyễn Việt Lâm Purpose: Chức năng hiển thị Movie
+ * Date: 09/07/2024 Author: Nguyễn Việt Lâm Purpose: Chức năng đăng xuất
  */
-public class ListMovie extends HttpServlet {
+public class Logout extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,15 +35,16 @@ public class ListMovie extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ListMovie</title>");            
+            out.println("<title>Servlet Logout</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ListMovie at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Logout at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
 
+    
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -57,14 +56,15 @@ public class ListMovie extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //lấy session
+        HttpSession session = request.getSession();
         
-        //lấy dữ liệu từ database
-        MovieDAO loadMovie = new MovieDAO();
-        Map<Integer, movies> listMovies = loadMovie.getAllMovies();
+        //xóa session
+        session.invalidate();
         
-        //gửi sang view
-        request.setAttribute("listMovies", listMovies);
-        request.getRequestDispatcher(".......").forward(request, response);
+        //chuyển về trang chủ
+        response.sendRedirect("index.html");
+        
     }
 
     /**
