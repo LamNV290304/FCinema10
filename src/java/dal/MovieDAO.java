@@ -9,11 +9,11 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
-<<<<<<< HEAD
+
 import java.util.List;
-=======
+
 import java.sql.Date;
->>>>>>> a8e6bc226a5e94706ff08439582928762b5f0931
+
 
 /**
  * Date: 02/07/2024 Author: Nguyễn Việt Lâm Purpose: Load Movie
@@ -159,15 +159,14 @@ public class MovieDAO extends DBContext {
     
     public static void main(String[] args) {
         MovieDAO mDao = new MovieDAO();
-<<<<<<< HEAD
+
         List<movies> list = mDao.getAllMovies();
         for (movies id : list) {
             System.out.println(list);
         }
 
         
-=======
->>>>>>> a8e6bc226a5e94706ff08439582928762b5f0931
+
 
     }
 
