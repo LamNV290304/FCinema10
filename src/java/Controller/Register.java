@@ -21,9 +21,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- *  Date: 03/07/2024
- *  Author: Nguyễn Việt Lâm
- *  Purpose: Chức năng đăng kí
+ * Date: 03/07/2024 Author: Nguyễn Việt Lâm Purpose: Chức năng đăng kí
  */
 public class Register extends HttpServlet {
 
@@ -53,7 +51,6 @@ public class Register extends HttpServlet {
         }
     }
 
-   
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -76,9 +73,9 @@ public class Register extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
-      /**
-     * Ktra nếu email hoặc username đã tốn tại trong db thì làm cái alert để chuyển sang login hoặc hiện lỗi cx đc
+    /**
+     * Ktra nếu email hoặc username đã tốn tại trong db thì làm cái alert để
+     * chuyển sang login hoặc hiện lỗi cx đc
      *
      */
     @Override
@@ -87,49 +84,62 @@ public class Register extends HttpServlet {
         try {
             //khai báo chưa thông báo lỗi
             String error = null;
-            
+            int errorNumber = 0; //set lỗi mã là 0 nếu không có lỗi
+
             //lấy dữ liệu từ JSP
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             String rePassword = request.getParameter("re_password");
             String avatar = "";
             String fullName = request.getParameter("fullname");
-            
+
             //birthday/ xử lí dữ liệu ngày sinh
             String birthDay = request.getParameter("birthday");
             SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
             Date birth = dateFormat.parse(birthDay);
-            
+
             String gender = request.getParameter("r-gender");
             String email = request.getParameter("email");
             String city = request.getParameter("location");
             String phoneNumber = request.getParameter("phoneNumber");
             String role = "user"; // role mặc đinh là user
 
-            if(!containSpace(username)){
+            if (!containSpace(username)) {
                 error = "Username không được có khoảng trống";
+                errorNumber = 1;
+                request.setAttribute("errorNumber", errorNumber);
+                request.setAttribute("error", error);
+                throw new Exception();
+            }
+            if (checkNumber(phoneNumber)) {
+                error = "Số điện thoại không hợp lệ";
+                errorNumber = 2;
+                request.setAttribute("errorNumber", errorNumber);
                 request.setAttribute("error", error);
                 throw new Exception();
             }
             //Kiểm tra xem người dùng nhập đúng chưa
-            if (password.equals(rePassword)){ //xác nhận mật khẩu
+            if (password.equals(rePassword)) { //xác nhận mật khẩu
                 error = "Mật khẩu không trùng khớp";
                 request.setAttribute("error", error);
+                errorNumber = 3;
+                request.setAttribute("errorNumber", errorNumber);
                 throw new Exception();
             }
-            
+
             //Thêm người dùng vào cơ sở dữ liệu
             User user = new User(0, username, password, avatar, fullName, birth, gender, email, city, phoneNumber, role);
             UsersDAO loadUser = new UsersDAO();
             loadUser.addUser(user);
-            
+
         } catch (Exception ex) {
             //trả lỗi về trang đăng kí
             request.getRequestDispatcher("register.jsp").forward(request, response);
         }
     }
-    
-    private boolean containSpace(String username){
+
+    //kiểm tra có khoảng trống tồn tại trong username hay không
+    private boolean containSpace(String username) {
         // Duyệt qua từng ký tự trong phoneNumber
         for (int i = 0; i < username.length(); i++) {
             char ch = username.charAt(i);
@@ -140,6 +150,14 @@ public class Register extends HttpServlet {
         }
         // Nếu tất cả ký tự đều là số, trả về true
         return true;
+    }
+
+    //kiểm tra xem có nhập đúng đủ 10 chữ số không
+    private boolean checkNumber(String number) {
+        if (number.length() != 10) { // kiểm tra xem có đủ 10 chữ số không
+            return true; // trả về true
+        }
+        return false; // sai trả về false
     }
 
     /**

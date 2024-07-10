@@ -48,27 +48,6 @@ public class RoomDAO extends DBContext {
         return list; // trả về danh sách nếu không có lỗi
     }
 
-    // Hàm thêm một phòng chiếu phim
-    public boolean addRoom(room room) {
-        try {
-            // Dùng câu lệnh SQL để thêm một phòng chiếu phim
-            String sql = "INSERT INTO room (cinema_id, room_name) VALUES (?, ?)";
-            PreparedStatement ps = connection.prepareStatement(sql);
-
-            // Set các tham số vào câu lệnh SQL
-            ps.setInt(1, room.getCinema().getCinemaID());
-            ps.setNString(2, room.getRoom_name());
-
-            // Thực thi câu lệnh SQL và trả về kết quả
-            int affectedRows = ps.executeUpdate();
-            return affectedRows > 0;
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return false; // Nếu có lỗi trả về false
-        }
-    }
-
     // Hàm cập nhật thông tin phòng chiếu phim
     public boolean updateRoom(room room) {
         try {

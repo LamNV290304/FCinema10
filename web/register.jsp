@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="input-field">
-                        <input type="number" name="phoneNumber" required>
+                        <input type="number" name="phoneNumber" required min="0">
                         <label>Enter your phone number *</label>
                     </div>
                     <div class="input-field">
@@ -56,17 +56,18 @@
                     </div>
                     
                     <div class="input-field">
-                        <input type="password" name="password" required>
+                        <input type="password" name="password" required minlength="8">
                         <label>Enter your password *</label>
                     </div>
 
                     <div class="input-field">
-                        <input type="password" name="re_password" required>
+                        <input type="password" name="re_password" required minlength="8">
                         <label>Re-type your password *</label>
                     </div>
                     <div class="input-field">
-                        <input type="text" name="birthday" placeholder="dd-MM-yyyy" required>
-                        <label for="r-birthday">Date of Birth</label>
+                        <h6 style="color: white">Date of Birth</h6>
+                        <input type="date" name="birthday" placeholder="dd-MM-yyyy" required>
+                        <label for="r-birthday"></label>
                     </div>
                     <div>
                     <label for="r-fname" class="gender-title">
