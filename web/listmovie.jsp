@@ -44,7 +44,9 @@
                 <c:forEach items="${listMovies}" var="o">
                     <div class="col-12 col-md-6 col-lg-4" style="margin-bottom: 20px">
                         <div class="card">
-                            <img class="card-img-top" src="${o.getMoviePoster()}" style="width: auto;height: 500px" alt="Card image cap">
+                            <a href="./inforMovie?movieId=${o.getMovieId()}">
+                                <img class="card-img-top" src="${o.getMoviePoster()}" style="width: auto;height: 500px" alt="Card image cap">
+                            </a>
                             <div class="card-body" style="height: 200px">
                                 <h4 class="card-title show_txt"><a href="#" title="View Product">${o.getMovieName()}</a></h4>
                                 <p class="card-text show_txt">${o.getMovieDirector()}</p>
