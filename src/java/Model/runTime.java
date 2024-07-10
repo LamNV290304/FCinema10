@@ -3,14 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Model;
-
-//////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////
-///////////////////////Cần sửa gấp////////////////////////
-//////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////
+import java.sql.Time;
 /**
  *  Date: 14/06/2024
  *  Author: Nguyễn Việt Lâm
@@ -18,18 +11,18 @@ package Model;
  */
 public class runTime {
     private int runTimeId;
-    private schedule scheduleId;
-    private movies movieId;
     private int runTime;
-
+    private Time timeStart;
+    private Time timeEnd;
+    
     public runTime() {
     }
 
-    public runTime(int runTimeId, schedule scheduleId, movies movieId, int runTime) {
+    public runTime(int runTimeId, int runTime, Time timeStart, Time timeEnd) {
         this.runTimeId = runTimeId;
-        this.scheduleId = scheduleId;
-        this.movieId = movieId;
         this.runTime = runTime;
+        this.timeStart = timeStart;
+        this.timeEnd = timeEnd;
     }
 
     public int getRunTimeId() {
@@ -40,22 +33,6 @@ public class runTime {
         this.runTimeId = runTimeId;
     }
 
-    public schedule getScheduleId() {
-        return scheduleId;
-    }
-
-    public void setScheduleId(schedule scheduleId) {
-        this.scheduleId = scheduleId;
-    }
-
-    public movies getMovieId() {
-        return movieId;
-    }
-
-    public void setMovieId(movies movieId) {
-        this.movieId = movieId;
-    }
-
     public int getRunTime() {
         return runTime;
     }
@@ -63,6 +40,22 @@ public class runTime {
     public void setRunTime(int runTime) {
         this.runTime = runTime;
     }
-    
+
+    public Time getTimeStart() {
+        return timeStart;
+    }
+
+    public void setTimeStart(Time timeStart) {
+        this.timeStart = timeStart;
+    }
+
+    public Time getTimeEnd() {
+        return timeEnd;
+    }
+
+    public void setTimeEnd(Time timeEnd) {
+        this.timeEnd = timeEnd;
+    }
+
     
 }

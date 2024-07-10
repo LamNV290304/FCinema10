@@ -37,23 +37,24 @@ CREATE TABLE movies (
     movie_director VARCHAR(255)
 );
 
+
+CREATE TABLE run_time(
+	run_time_id INT PRIMARY KEY NOT NULL,
+	run_time INT NOT NULL,
+	time_start TIME NOT NULL,
+	time_end TIME NOT NULL,
+);
+
 -- Table: schedule
 CREATE TABLE schedule (
     schedule_id INT PRIMARY KEY,
     movie_id INT NOT NULL,
     room_id INT NOT NULL,  
 	schedule_date DATE NOT NULL,
-    schedule_start TIME NOT NULL,
-    schedule_end TIME NOT NULL,
+	run_time_id INT
+	FOREIGN KEY (run_time_id) REFERENCES run_time(run_time_id),
     FOREIGN KEY (movie_id) REFERENCES movies(movie_id),
     FOREIGN KEY (room_id) REFERENCES room(room_id)
-);
-CREATE TABLE run_time(
-	run_time_id INT PRIMARY KEY NOT NULL,
-	schedule_id INT,
-	movie_id INT NOT NULL,
-	run_time INT NOT NULL,
-	FOREIGN KEY (schedule_id) REFERENCES schedule(schedule_id)
 );
 
 
