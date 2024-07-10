@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *  Date: 02/07/2024
@@ -98,15 +99,13 @@ public class MovieDAO extends DBContext{
     
     public static void main(String[] args) {
         MovieDAO mDao = new MovieDAO();
+        List<movies> list = mDao.getAllMovies();
+        for (movies id : list) {
+            System.out.println(list);
+        }
+
         
 
-<<<<<<< HEAD
-        for (int id : list.keySet()) {
-            System.out.println(list.get(id).getMoviePoster());
-        }
-=======
-        
->>>>>>> 329e2f10907b87d843cb509247d099564612d322
     }
     
 }

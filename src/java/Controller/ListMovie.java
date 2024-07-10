@@ -12,18 +12,23 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import dal.MovieDAO;
-<<<<<<< HEAD
+import jakarta.servlet.annotation.WebServlet;
+
 import java.util.HashMap;
 import java.util.Map;
-=======
+
 import java.util.ArrayList;
 import java.util.HashMap;
->>>>>>> 329e2f10907b87d843cb509247d099564612d322
+
 
 /**
  *
- * Date: 02/07/2024 Author: Nguyễn Việt Lâm Purpose: Chức năng hiển thị Movie
+ * Date: 02/07/2024 
+ * Author: Nguyễn Việt Lâm 
+ * Purpose: Chức năng hiển thị Movie
  */
+
+
 public class ListMovie extends HttpServlet {
 
     /**
@@ -38,12 +43,7 @@ public class ListMovie extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         MovieDAO loadMovie = new MovieDAO();
-        Map<Integer, movies> listMovies = loadMovie.getAllMovies();
-        
-        //gửi sang view
-        request.setAttribute("listMovies", listMovies);
-        request.getRequestDispatcher("listmovie.jsp").forward(request, response);
+         
     }
 
     /**

@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,41 +19,51 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="assets/js/bootstrap.bundle.min.js"></script>
-    </head>
+        
+        <style>
+            .title-movie{
+                color: black;
+                font-weight: bold;
+                border-bottom: tomato solid 5px;
+                text-align: center;
+            }
+        </style>
     <body>
 
         <!--header -->     
+        
         <jsp:include page="header.jsp" /></br>
-
         
+        <div class="container-fluid title-movie">
+            <h1>ALL MOVIE </h1>
+        </div>
+            
         <!-- List movie -->
-        
-       <div class="col-sm-9">
-                    <div class="row">
-                        <c:forEach items="${listMovies}" var="o">
-                            <div class="col-12 col-md-6 col-lg-4">
-                                <div class="card">
-                                    <img class="card-img-top" src="${o}" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h4 class="card-title show_txt"><a href="#" title="View Product">${o.name}</a></h4>
-                                        <p class="card-text show_txt">${o.title}</p>
-                                        <div class="row">
-                                            <div class="col">
-                                                <p class="btn btn-danger btn-block">${o.price} $</p>
-                                            </div>
-                                            <div class="col">
-                                                <a href="#" class="btn btn-success btn-block">Add to cart</a>
-                                            </div>
-                                        </div>
+        <div class="col-sm-12 container" style="margin-bottom: 20px;margin-top: 20px">
+            <div class="row">
+                <c:forEach items="${listMovies}" var="o">
+                    <div class="col-12 col-md-6 col-lg-4" style="margin-bottom: 20px">
+                        <div class="card">
+                            <img class="card-img-top" src="${o.getMoviePoster()}" style="width: auto;height: 500px" alt="Card image cap">
+                            <div class="card-body" style="height: 200px">
+                                <h4 class="card-title show_txt"><a href="#" title="View Product">${o.getMovieName()}</a></h4>
+                                <p class="card-text show_txt">${o.getMovieDirector()}</p>
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="btn btn-danger btn-block">${o.getMovieLength()} </p>
+                                    </div>
+                                    <div class="col">
+                                        <a href="#" class="btn btn-success btn-block">${o.getMovieLength() == "N/A" ? "Coming Soon":"Booking"}</a>
                                     </div>
                                 </div>
                             </div>
-                        </c:forEach>
+                        </div>
                     </div>
-                </div>
-        
-        
+                </c:forEach>
+            </div>
+        </div>
 
+        <!-- footer -->
         <section id="footer">
             <div class="footer_m bg_backo p_3">
                 <div class="container-xl">
@@ -112,6 +122,9 @@
                 </div>
             </div>
         </section>
+
+<script src="assets/js/common.js"></script>
+
 
         <script src="assets/js/common.js"></script>
     </body>
