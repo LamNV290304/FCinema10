@@ -4,6 +4,8 @@
  */
 package Controller;
 
+import Model.movies;
+import dal.MovieDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -55,6 +57,14 @@ public class inforMovie extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Lấy id phim rồi đưa dữ liệu phim sang trang jsp
+        int movieId = Integer.parseInt(request.getParameter("movieId"));
+        MovieDAO mDao = new MovieDAO();
+        movies get_movie = mDao.getMovieById(movieId);
+        //gửi sang view
+        request.setAttribute("infor_movie", get_movie);
+        request.getRequestDispatcher("informovie.jsp").forward(request, response);
+        
         
     }
 
