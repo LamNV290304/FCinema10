@@ -98,6 +98,8 @@ CREATE TABLE booking_detail (
     schedule_id INT NOT NULL,
     seat_name varchar NOT NULL,
 	room_id INT NOT NULL,
+	FOREIGN KEY (room_id) REFERENCES room(room_id),
+	FOREIGN KEY (booking_id) REFERENCES booking(booking_id),
 	FOREIGN KEY (schedule_id) REFERENCES schedule(schedule_id)
 );
 
@@ -291,14 +293,14 @@ insert into room(cinema_id,room_id,room_name) values
 (1,11,'room1'),(1,12,'room2'),(1,13,'room3'),
 (2,21,'room1'),(2,22,'room2'),(2,23,'room3'),
 (3,31,'room1'),(3,32,'room2'),(3,33,'room3'),
-(4,41,'room1'),(3,42,'room2'),(3,43,'room3'),
-(5,51,'room1'),(3,52,'room2'),(3,53,'room3'),
-(6,61,'room1'),(3,62,'room2'),(3,63,'room3'),
-(7,71,'room1'),(3,72,'room2'),(3,73,'room3'),
-(8,81,'room1'),(3,82,'room2'),(3,83,'room3'),
-(9,91,'room1'),(3,92,'room2'),(3,93,'room3')
+(4,41,'room1'),(4,42,'room2'),(4,43,'room3'),
+(5,51,'room1'),(5,52,'room2'),(5,53,'room3'),
+(6,61,'room1'),(6,62,'room2'),(6,63,'room3'),
+(7,71,'room1'),(7,72,'room2'),(7,73,'room3'),
+(8,81,'room1'),(8,82,'room2'),(8,83,'room3'),
+(9,91,'room1'),(9,92,'room2'),(9,93,'room3')
 
-insert into seats(room_id,seat_id, seat_name ) values
+insert into seats(room_id,seat_id, seat_name) values
 (11, 1101, 'A01'),(11, 1102, 'A02'),(11, 1103, 'A03'),(11, 1104, 'A04'),(11, 1105, 'A05'),
 (11, 1106, 'B01'),(11, 1107, 'B02'),(11, 1108, 'B03'),(11, 1109, 'B04'),(11, 1110, 'B05'),
 (11, 1111, 'C01'),(11, 1112, 'C02'),(11, 1113, 'C03'),(11, 1114, 'C04'),(11, 1115, 'C05'),
