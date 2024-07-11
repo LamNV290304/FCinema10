@@ -48,7 +48,7 @@
                                 <img class="card-img-top" src="${o.getMoviePoster()}" style="width: auto;height: 500px" alt="Card image cap">
                             </a>
                             <div class="card-body" style="height: 200px">
-                                <h4 class="card-title show_txt"><a href="#" title="View Product">${o.getMovieName()}</a></h4>
+                                <h4 class="card-title show_txt"><a href="#" >${o.getMovieName()}</a></h4>
                                 <p class="card-text show_txt">${o.getMovieDirector()}</p>
                                 <div class="row">
                                     <div class="col">
