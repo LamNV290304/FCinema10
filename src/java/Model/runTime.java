@@ -11,16 +11,14 @@ import java.sql.Time;
  */
 public class runTime {
     private int runTimeId;
-    private int runTime;
     private Time timeStart;
     private Time timeEnd;
     
     public runTime() {
     }
 
-    public runTime(int runTimeId, int runTime, Time timeStart, Time timeEnd) {
+    public runTime(int runTimeId, Time timeStart, Time timeEnd) {
         this.runTimeId = runTimeId;
-        this.runTime = runTime;
         this.timeStart = timeStart;
         this.timeEnd = timeEnd;
     }
@@ -31,14 +29,6 @@ public class runTime {
 
     public void setRunTimeId(int runTimeId) {
         this.runTimeId = runTimeId;
-    }
-
-    public int getRunTime() {
-        return runTime;
-    }
-
-    public void setRunTime(int runTime) {
-        this.runTime = runTime;
     }
 
     public Time getTimeStart() {
