@@ -46,6 +46,7 @@
                                 <ul class="dropdown-menu drop_1" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="blog.html">Now Showing</a></li>
                                     <li><a class="dropdown-item border-0" href="blog_detail.html">Coming Soon</a></li>
+                                    <li><a class="dropdown-item border-0" href="./ListMovie">All Movies</a></li>
                                 </ul>
                             </li>
 

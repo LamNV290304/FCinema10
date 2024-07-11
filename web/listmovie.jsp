@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,33 +22,46 @@
         
         <style>
             .title-movie{
-                color: black;
+                color: white;
+                background: url("assets/img/text.jpg"), #000;
                 font-weight: bold;
                 border-bottom: tomato solid 5px;
+                border-top: tomato solid 5px;
+                border-left: tomato solid 5px;
+                border-right: tomato solid 5px;
+                
                 text-align: center;
+                padding: 15px;
             }
         </style>
+    </head>
+    
     <body>
 
         <!--header -->     
-        
+
         <jsp:include page="header.jsp" /></br>
-        
+
         <div class="container-fluid title-movie">
             <h1>ALL MOVIE </h1>
         </div>
-            
+
         <!-- List movie -->
-        <div class="col-sm-12 container" style="margin-bottom: 20px;margin-top: 20px">
+        <div class="col-sm-12 container-fluid" style="margin-bottom: 20px;margin-top: 20px;margin-right: 40px;" >
             <div class="row">
                 <c:forEach items="${listMovies}" var="o">
-                    <div class="col-12 col-md-6 col-lg-4" style="margin-bottom: 20px">
+                    <div class="col-12 col-md-6 col-lg-3" style="margin-bottom: 20px">
                         <div class="card">
-                            <a href="./inforMovie?movieId=${o.getMovieId()}">
-                                <img class="card-img-top" src="${o.getMoviePoster()}" style="width: auto;height: 500px" alt="Card image cap">
+                            <a href="./inforMovie?movieId=${o.getMovie_id()}">
+                                <img class="card-img-top" src="${o.getMoviePoster()}" style="width: 395px;height: 500px" alt="Card image cap">
                             </a>
                             <div class="card-body" style="height: 200px">
+<<<<<<< HEAD
                                 <h4 class="card-title show_txt"><a href="#" >${o.getMovieName()}</a></h4>
+=======
+                                
+                                <h4 class="card-title show_txt"><a href="#" title="View Product">${o.getMovieName()}</a></h4>
+>>>>>>> d474c0529b115788ca991db8cfb5c3c5ce37dcb8
                                 <p class="card-text show_txt">${o.getMovieDirector()}</p>
                                 <div class="row">
                                     <div class="col">
@@ -124,10 +137,6 @@
                 </div>
             </div>
         </section>
-
-<script src="assets/js/common.js"></script>
-
-
         <script src="assets/js/common.js"></script>
     </body>
 </html>

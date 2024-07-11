@@ -59,7 +59,12 @@ public class ListMovie extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+          MovieDAO loadMovie = new MovieDAO();
+        ArrayList<movies> listMovies = loadMovie.getAllMovies();
         
+        //gửi sang view
+        request.setAttribute("listMovies", listMovies);
+        request.getRequestDispatcher("listmovie.jsp").forward(request, response);
      
     }
 
