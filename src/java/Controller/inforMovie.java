@@ -19,15 +19,17 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 public class inforMovie extends HttpServlet {
 
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
-     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -63,14 +65,11 @@ public class inforMovie extends HttpServlet {
         movies get_movie = mDao.getMovieById(movieId);
         //gửi sang view
         request.setAttribute("infor_movie", get_movie);
-        request.getRequestDispatcher("informovie.jsp").forward(request, response);
-        
-        
+        request.getRequestDispatcher("informovie.jsp").forward(request, response);  
     }
 
     /**
      * Handles the HTTP <code>POST</code> method.
-     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs

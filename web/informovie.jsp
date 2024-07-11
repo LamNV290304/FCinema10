@@ -122,13 +122,17 @@
             <div class="detail" style="margin: 35px">
                 <div class="row">
                     <div class="col-md-6" style="margin-right: -150px">
-                        <img style="width: 65%;height: 85%;" src="${infor_movie.getMoviePoster()}" alt="${infor_movie.getMovieName()}"/>
+                        <img style="width: 60%;height: 80%;" src="${infor_movie.getMoviePoster()}" alt="${infor_movie.getMovieName()}"/>
                     </div>
                     <div class="col-md-6">
                         <h3 style="border-bottom: 1px gray solid">${infor_movie.getMovieName()}</h3>
                         <div style="margin-top: 60px">
-                            <ul>
-                                <li></li>
+                            <ul >
+                                <li >Director: ${infor_movie.getMovieDirector()}</li>
+                                <li>Cast: ${infor_movie.getMovieActress()}</li>
+                                <li>Genre: ${infor_movie.getMovieGenres()}</li>
+                                <li>Release Date: ${infor_movie.getMovieRelease()}</li>
+                                <li>Running time: ${infor_movie.getMovieLength()}</li>    
                             </ul>
                             
                         </div>
@@ -136,10 +140,28 @@
                     
                     
                 </div>
-                
+            </div>>
+        </div>>
+   <div style="border-top: 5px solid gray; margin: 20px ">
+       
+   </div>                         
+        <!-- Decription Part and Trailer -->        
+        <div class="container">  
+            <div class="row">
+                <div class="col-md-6" style="border-right: gray 3px solid">
+                    <h2>DESCRIPTION</h2>
+                    <p>${infor_movie.getMovieDescription()}</p>
+                </div>
+
+                <div class="col-md-6">
+                    <h2>Trailer</h2> 
+                    <iframe width="700px" height="400px" src="${infor_movie.getMovieTrailer()}"/>
+                </div>
+
             </div>
+        </div>
             
-        </div>    
+        
             
         
         
@@ -201,7 +223,6 @@
                 </div>
             </div>
         </section>
-        
-        
+  
     </body>
 </html>
