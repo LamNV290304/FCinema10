@@ -40,7 +40,6 @@ CREATE TABLE movies (
 
 CREATE TABLE run_time(
 	run_time_id INT PRIMARY KEY NOT NULL,
-	run_time INT NOT NULL,
 	time_start TIME NOT NULL,
 	time_end TIME NOT NULL,
 );
