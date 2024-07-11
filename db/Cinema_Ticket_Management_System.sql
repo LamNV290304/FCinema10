@@ -63,7 +63,6 @@ CREATE TABLE seats (
     seat_id INT PRIMARY KEY,    
     room_id INT NOT NULL,
     seat_name varchar(255),
-    
     FOREIGN KEY (room_id) REFERENCES room(room_id)
 );
 
@@ -88,11 +87,8 @@ CREATE TABLE users (
 CREATE TABLE booking (
     booking_id INT PRIMARY KEY,
     user_id INT NOT NULL,
-    schedule_id INT NOT NULL,
-    seat_id INT NOT NULL,
+	price DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id),
-    FOREIGN KEY (schedule_id) REFERENCES schedule(schedule_id),
-    FOREIGN KEY (seat_id) REFERENCES seats(seat_id)
 );
 
 --table: booking detail
@@ -100,9 +96,9 @@ CREATE TABLE booking_detail (
     booking__detail_id INT PRIMARY KEY,
     booking_id INT,
     schedule_id INT NOT NULL,
-    seat_id INT NOT NULL,
+    seat_name varchar NOT NULL,
 	room_id INT NOT NULL,
-    price DECIMAL(10, 2) NOT NULL,
+	FOREIGN KEY (schedule_id) REFERENCES schedule(schedule_id)
 );
 
 
