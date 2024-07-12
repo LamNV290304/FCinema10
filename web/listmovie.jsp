@@ -57,15 +57,10 @@
                             </a>
                             <div class="card-body" style="height: 200px">
 
-<<<<<<< HEAD
-                                <h4 class="card-title show_txt"><a href="#" >${o.getMovieName()}</a></h4>
 
-                                
-                                <h4 class="card-title show_txt"><a href="#" title="View Product">${o.getMovieName()}</a></h4>
-=======
                                 <h4 class="card-title show_txt"><a href="./inforMovie?movieId=${o.getMovie_id()}" >${o.getMovieName()}</a></h4>
 
->>>>>>> 2db07ee444ba5e1355cafe5d3d214ec17c48226d
+
                                 <p class="card-text show_txt">${o.getMovieDirector()}</p>
                                 <div class="row">
                                     <div class="col">
