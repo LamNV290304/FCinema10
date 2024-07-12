@@ -65,7 +65,7 @@
                                         <p class="btn btn-danger btn-block">${o.getMovieLength()} </p>
                                     </div>
                                     <div class="col">
-                                        <a href="#" class="btn btn-success btn-block">${o.getMovieLength() == "N/A" ? "Coming Soon":"Booking"}</a>
+                                        <a href="./schedulebooking?movieId=${o.getMovie_id()}" class="btn btn-success btn-block">${o.getMovieLength() == "N/A" ? "Coming Soon":"Booking"}</a>
                                     </div>
                                 </div>
                             </div>

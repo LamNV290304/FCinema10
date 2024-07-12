@@ -4,6 +4,7 @@
  */
 package dal;
 
+import Model.cinemas;
 import java.util.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -37,6 +38,11 @@ public class bookingDAO extends DBContext{
             System.out.println(e.getMessage());
         }
         return scheList;
+    }
+    
+    
+    public ArrayList<cinemas> findListCinemas(int room_Id){
+        ArrayList<cinemas> scheList = new ArrayList<>();
     }
     
     public static void main(String[] args) {

@@ -26,6 +26,13 @@
                 border: 3px gray solid;
                 border-radius: 15px;
                 margin: 10px;
+                width: 200px;
+                height: 50px;
+                align-content: center;
+                align-items: center;
+            }
+            .card-show:hover{
+                background-color: wheat;
             }
         </style>
     </head>
@@ -123,12 +130,16 @@
                 BOOKING INFORMATION
             </h1>
             
-            <div class = "list-schedule">
+            <div class = "list-schedule row">
                 <h1>List Schedule</h1>
                 <c:forEach items="${listSchedule}" var="list">
-                    <div class="card-show">
-                        <h4>${o}</h4>
-                    </div>
+                    <div class="col-md-2"> 
+                        <div class="card-show">
+                            <a href="">
+                                <h4>${list}</h4>
+                            </a>    
+                        </div>
+                    </div>        
                     
                 </c:forEach>
             </div>
@@ -137,11 +148,6 @@
             
             <div class="list-cinema">
                 
-                <ul>                   
-                    <li>
-                        
-                    </li>
-                </ul>
             </div>
             
             

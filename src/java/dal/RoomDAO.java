@@ -36,7 +36,7 @@ public class RoomDAO extends DBContext {
                 cinemas cinema = loadCinema.getCinemaById(rs.getInt("cinema_id"));
                 room.setCinema(cinema);
 
-                room.setRoom_name(rs.getNString("room_name"));
+                room.setRoom_name(rs.getString("room_name"));
 
                 //thêm vào trong danh sách
                 list.add(room);
@@ -57,7 +57,7 @@ public class RoomDAO extends DBContext {
 
             // Set các tham số vào câu lệnh SQL
             ps.setInt(1, room.getCinema().getCinemaID());
-            ps.setNString(2, room.getRoom_name());
+            ps.setString(2, room.getRoom_name());
             ps.setInt(3, room.getRoom_id());
 
             // Thực thi câu lệnh SQL và trả về kết quả
@@ -106,7 +106,7 @@ public class RoomDAO extends DBContext {
                 cinemas cinema = loadCinema.getCinemaById(rs.getInt("cinema_id"));
                 room.setCinema(cinema);
 
-                room.setRoom_name(rs.getNString("room_name"));
+                room.setRoom_name(rs.getString("room_name"));
                 return room;
             }
         } catch (Exception e) {
@@ -119,8 +119,9 @@ public class RoomDAO extends DBContext {
         RoomDAO rDao = new RoomDAO();
         ArrayList<room> listRoom = rDao.getAllRoom();
         for(room r : listRoom){
-            System.out.println(r.getRoom_id());
+            System.out.println(r);
         }
+        
     }
     
 }

@@ -65,7 +65,7 @@ public class ScheduleBooking extends HttpServlet {
         bookingDAO bDao = new bookingDAO();
         ArrayList<Date> listSchedule = bDao.getScheduleMovieById(movieId);
         
-        request.setAttribute("listtSchedule",listSchedule);
+        request.setAttribute("listSchedule",listSchedule);
         request.getRequestDispatcher("booking.jsp").forward(request, response);
         
     }
