@@ -19,6 +19,30 @@ public class booking {
     public booking() {
     }
 
+    public schedule getScheduleId() {
+        return scheduleId;
+    }
+
+    public void setScheduleId(schedule scheduleId) {
+        this.scheduleId = scheduleId;
+    }
+
+    public String getSeatName() {
+        return seatName;
+    }
+
+    public void setSeatName(String seatName) {
+        this.seatName = seatName;
+    }
+
+    public room getRoom_id() {
+        return room_id;
+    }
+
+    public void setRoom_id(room room_id) {
+        this.room_id = room_id;
+    }
+
     public booking(int bookingId, User user, schedule scheduleId, String seatName, room room_id) {
         this.bookingId = bookingId;
         this.user = user;
