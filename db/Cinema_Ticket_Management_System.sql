@@ -88,9 +88,8 @@ CREATE TABLE users (
 
 -- Table: booking
 CREATE TABLE booking (
-    booking_id INT PRIMARY KEY,
+    booking_id INT identity(100, 1) PRIMARY KEY,
     user_id INT NOT NULL,
-	price DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id),
 );
 

@@ -159,6 +159,39 @@ public class UsersDAO extends DBContext {
         return null;
     }
 
+    //Tìm User bằng Id
+    public User getUserById(int userId) {
+        User u = null;
+        try {
+            // Dùng câu lệnh SQL để lấy thông tin user theo user_id
+            String sql = "SELECT * FROM users WHERE user_id = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            // Set tham số user_id vào câu lệnh SQL
+            ps.setInt(1, userId);
+            // Thực thi câu lệnh SQL và lấy kết quả
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                // Tạo đối tượng user mới và gán các giá trị từ kết quả truy vấn
+                u = new User();
+                u.setUser_id(rs.getInt("user_id"));
+                u.setUsername(rs.getString("username"));
+                u.setPassword(rs.getString("password"));
+                u.setRole(rs.getString("role"));
+                u.setBirthday(rs.getDate("birthday"));
+                u.setCity(rs.getString("city"));
+                u.setEmail(rs.getString("email"));
+                u.setFullname(rs.getNString("fullname"));
+                u.setGender(rs.getString("gender"));
+                u.setPhone(rs.getString("phone"));
+                u.setAvatar(rs.getString("avatar"));
+                // Gán thêm các thuộc tính khác của user nếu có
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return u; // Trả về đối tượng user hoặc null nếu không tìm thấy
+    }
+
     public static void main(String[] args) {
         UsersDAO uDao = new UsersDAO();
         Map<Integer, User> list = uDao.getAllUsers();
