@@ -90,20 +90,14 @@ CREATE TABLE users (
 CREATE TABLE booking (
     booking_id INT identity(100, 1) PRIMARY KEY,
     user_id INT NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(user_id),
-);
-
---table: booking detail
-CREATE TABLE booking_detail (
-    booking__detail_id INT PRIMARY KEY,
-    booking_id INT,
-    schedule_id INT NOT NULL,
+	schedule_id INT NOT NULL,
     seat_name varchar NOT NULL,
 	room_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
 	FOREIGN KEY (room_id) REFERENCES room(room_id),
-	FOREIGN KEY (booking_id) REFERENCES booking(booking_id),
 	FOREIGN KEY (schedule_id) REFERENCES schedule(schedule_id)
 );
+
 
 
 create table Food (

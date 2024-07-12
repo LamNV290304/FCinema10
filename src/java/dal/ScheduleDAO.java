@@ -18,7 +18,7 @@ import java.sql.Date;
 public class ScheduleDAO extends DBContext {
 
     // Lấy hết thông tin phim từ database
-    public ArrayList<schedule> getAllMovies() {
+    public ArrayList<schedule> getAllSchedule() {
         ArrayList<schedule> list = new ArrayList<>();
         MovieDAO loadMovie = new MovieDAO();
         RoomDAO loadRoom = new RoomDAO();
@@ -110,18 +110,50 @@ public class ScheduleDAO extends DBContext {
             return false; // Nếu có lỗi trả về false
         }
     }
-    
-    
-    
+
+    public schedule getScheduleById(int scheduleId) {
+        MovieDAO loadMovie = new MovieDAO();
+        RoomDAO loadRoom = new RoomDAO();
+        runTimeDAO loadRunTime = new runTimeDAO();
+        schedule schedule = null;
+        try {
+            // Dùng câu lệnh SQL để lấy thông tin schedule theo schedule_id
+            String sql = "SELECT * FROM schedule WHERE schedule_id = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            // Set tham số schedule_id vào câu lệnh SQL
+            ps.setInt(1, scheduleId);
+            // Thực thi câu lệnh SQL và lấy kết quả
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                // Tạo đối tượng schedule mới và gán các giá trị từ kết quả truy vấn
+                schedule = new schedule();
+                schedule.setScheduleId(rs.getInt("schedule_id"));
+
+                movies movie = loadMovie.getMovieById(rs.getInt("movie_id"));
+                schedule.setMovieId(movie);
+
+                room room = loadRoom.getRoomById(rs.getInt("room_id"));
+                schedule.setRoomId(room);
+
+                schedule.setScheduleDate(rs.getDate("schedule_date"));
+
+                runTime runT = loadRunTime.getRunTimeById(rs.getInt("run_time_id"));
+                schedule.setRunTime(runT);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return schedule; // Trả về đối tượng schedule hoặc null nếu không tìm thấy
+    }
+
     public static void main(String[] args) {
         ScheduleDAO sDao = new ScheduleDAO();
-        ArrayList<schedule> listSchedule = sDao.getAllMovies();
-        
-        for(schedule r : listSchedule){
+        ArrayList<schedule> listSchedule = sDao.getAllSchedule();
+
+        for (schedule r : listSchedule) {
             System.out.println(r);
         }
 
-  
     }
 
 }

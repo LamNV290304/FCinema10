@@ -45,6 +45,8 @@ public class bookingDAO extends DBContext {
     // Tìm booking theo User
     public booking getBookingByUser(User user) {
         booking b = new booking();
+        ScheduleDAO loadS = new ScheduleDAO();
+        RoomDAO loadR = new RoomDAO();
         try {
             // Dùng câu lệnh SQL để lấy thông tin runtime theo id
             String sql = "SELECT * FROM booking WHERE user_id = ?";
@@ -56,6 +58,14 @@ public class bookingDAO extends DBContext {
             if (rs.next()) {
                 b.setBookingId(rs.getInt("booking_id"));
                 b.setUser(user);
+
+                schedule s = loadS.getScheduleById(rs.getInt("schedule_id"));
+                b.setScheduleId(s);
+                b.setSeatName(rs.getString("seat_name"));
+
+                room r = loadR.getRoomById(rs.getInt("room_id"));
+                b.setRoom_id(r);
+
                 return b;
             }
         } catch (Exception e) {
@@ -66,13 +76,17 @@ public class bookingDAO extends DBContext {
 
     // Thêm một booking mới vào cơ sở dữ liệu
     public boolean addBooking(booking booking) {
+
         try {
             // Dùng câu lệnh SQL để thêm một booking mới
-            String sql = "INSERT INTO booking (user_id) VALUES (?)";
+            String sql = "INSERT INTO booking (user_id, schedule_id, seat_name, room_id) VALUES (?, ?, ?, ?)";
             PreparedStatement ps = connection.prepareStatement(sql);
 
             // Set các tham số cho câu lệnh SQL từ đối tượng Booking
             ps.setInt(1, booking.getUser().getUser_id());
+            ps.setInt(2, booking.getScheduleId().getScheduleId());
+            ps.setString(3, booking.getSeatName());
+            ps.setInt(4, booking.getRoom_id().getRoom_id());
 
             // Thực thi câu lệnh SQL
             int rowsInserted = ps.executeUpdate();
@@ -113,6 +127,8 @@ public class bookingDAO extends DBContext {
     public booking getBookingById(int bookingId) {
         booking b = null;
         UsersDAO loadUser = new UsersDAO();
+        ScheduleDAO loadS = new ScheduleDAO();
+        RoomDAO loadR = new RoomDAO();
         try {
             // Dùng câu lệnh SQL để lấy thông tin booking theo booking_id
             String sql = "SELECT * FROM booking WHERE booking_id = ?";
@@ -125,9 +141,17 @@ public class bookingDAO extends DBContext {
                 // Tạo đối tượng booking mới và gán các giá trị từ kết quả truy vấn
                 b = new booking();
                 b.setBookingId(rs.getInt("booking_id"));
-                
+
                 User user = loadUser.getUserById(rs.getInt("user_id"));
                 b.setUser(user);
+                
+                schedule s = loadS.getScheduleById(rs.getInt("schedule_id"));
+                b.setScheduleId(s);
+                
+                b.setSeatName(rs.getString("seat_name"));
+
+                room r = loadR.getRoomById(rs.getInt("room_id"));
+                b.setRoom_id(r);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());

@@ -12,14 +12,20 @@ package Model;
 public class booking {
     private int bookingId;
     private User user;
+    private schedule scheduleId;
+    private String seatName;
+    private room room_id;
 
     public booking() {
     }
 
-    public booking(int bookingId, User user) {
+    public booking(int bookingId, User user, schedule scheduleId, String seatName, room room_id) {
         this.bookingId = bookingId;
         this.user = user;
-    }  
+        this.scheduleId = scheduleId;
+        this.seatName = seatName;
+        this.room_id = room_id;
+    }
 
     public int getBookingId() {
         return bookingId;
