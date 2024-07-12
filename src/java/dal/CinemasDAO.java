@@ -23,7 +23,7 @@ public class CinemasDAO extends DBContext {
         try {
 
             //dùng câu lệnh sql để truy vấn
-            String sql = "Select * from movies";
+            String sql = "Select * from cinemas";
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
@@ -31,8 +31,8 @@ public class CinemasDAO extends DBContext {
                 //Set các đặc tính vào đối tượng
                 cinemas cinema = new cinemas();
                 cinema.setCinemaID(rs.getInt("cinema_id"));
-                cinema.setCinemaName(rs.getNString("cinema_name"));
-                cinema.setCinemaAddress(rs.getNString("cinema_address"));
+                cinema.setCinemaName(rs.getString("cinema_name"));
+                cinema.setCinemaAddress(rs.getString("cinema_address"));
 
                 //thêm vào trong danh sách
                 listCinema.put(cinema.getCinemaID(), cinema);
@@ -111,8 +111,8 @@ public class CinemasDAO extends DBContext {
             if (rs.next()) {
                 cinemas cinema = new cinemas();
                 cinema.setCinemaID(rs.getInt("cinema_id"));
-                cinema.setCinemaName(rs.getNString("cinema_name"));
-                cinema.setCinemaAddress(rs.getNString("cinema_address"));
+                cinema.setCinemaName(rs.getString("cinema_name"));
+                cinema.setCinemaAddress(rs.getString("cinema_address"));
                 return cinema;
             }
         } catch (Exception e) {
