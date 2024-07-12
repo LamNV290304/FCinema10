@@ -12,19 +12,33 @@ package Model;
 public class seat {
     private int seat_id;
     private room room;
-    private char row;
-    private int number;
+    private String seatName;
+    private runTime runTime;
+    private boolean status;
 
     public seat() {
     }
 
-    public seat(int seat_id, room room, char row, int number) {
+    public seat(int seat_id, room room, String seatName, runTime runTime) {
         this.seat_id = seat_id;
         this.room = room;
-        this.row = row;
-        this.number = number;
+        this.seatName = seatName;
+        this.runTime = runTime;
     }
 
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public void setRoom(room room) {
+        this.room = room;
+    }
+
+    
     public int getSeat_id() {
         return seat_id;
     }
@@ -37,20 +51,22 @@ public class seat {
         return room;
     }
 
-    public char getRow() {
-        return row;
+    public String getSeatName() {
+        return seatName;
     }
 
-    public void setRow(char row) {
-        this.row = row;
+    public void setSeatName(String seatName) {
+        this.seatName = seatName;
     }
 
-    public int getNumber() {
-        return number;
+    public runTime getRunTime() {
+        return runTime;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setRunTime(runTime runTime) {
+        this.runTime = runTime;
     }
+    
+    
     
 }
