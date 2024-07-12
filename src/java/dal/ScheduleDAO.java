@@ -110,5 +110,18 @@ public class ScheduleDAO extends DBContext {
             return false; // Nếu có lỗi trả về false
         }
     }
+    
+    
+    
+    public static void main(String[] args) {
+        ScheduleDAO sDao = new ScheduleDAO();
+        ArrayList<schedule> listSchedule = sDao.getAllMovies();
+        
+        for(schedule r : listSchedule){
+            System.out.println(r);
+        }
+
+  
+    }
 
 }

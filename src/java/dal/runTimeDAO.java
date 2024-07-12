@@ -65,4 +65,12 @@ public class runTimeDAO extends DBContext {
         }
         return null; // Trả về null nếu không tìm thấy hoặc có lỗi
     }
+    
+    public static void main(String[] args) {
+        runTimeDAO rDao = new runTimeDAO();
+        ArrayList<runTime> listRuntime = rDao.getAllRunTime();
+        for(runTime r : listRuntime){
+            System.out.println(r);
+        }
+    }
 }
