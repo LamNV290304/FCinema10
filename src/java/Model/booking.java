@@ -15,6 +15,7 @@ public class booking {
     private schedule scheduleId;
     private String seatName;
     private room room_id;
+    private double price;
 
     public booking() {
     }
@@ -43,13 +44,24 @@ public class booking {
         this.room_id = room_id;
     }
 
-    public booking(int bookingId, User user, schedule scheduleId, String seatName, room room_id) {
+    public booking(int bookingId, User user, schedule scheduleId, String seatName, room room_id, double price) {
         this.bookingId = bookingId;
         this.user = user;
         this.scheduleId = scheduleId;
         this.seatName = seatName;
         this.room_id = room_id;
+        this.price = price;
     }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    
 
     public int getBookingId() {
         return bookingId;

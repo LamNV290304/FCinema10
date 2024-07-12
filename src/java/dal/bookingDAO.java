@@ -65,6 +65,7 @@ public class bookingDAO extends DBContext {
 
                 room r = loadR.getRoomById(rs.getInt("room_id"));
                 b.setRoom_id(r);
+                b.setPrice(rs.getDouble("price"));
 
                 return b;
             }
@@ -79,7 +80,7 @@ public class bookingDAO extends DBContext {
 
         try {
             // Dùng câu lệnh SQL để thêm một booking mới
-            String sql = "INSERT INTO booking (user_id, schedule_id, seat_name, room_id) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO booking (user_id, schedule_id, seat_name, room_id, price) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement ps = connection.prepareStatement(sql);
 
             // Set các tham số cho câu lệnh SQL từ đối tượng Booking
@@ -87,6 +88,8 @@ public class bookingDAO extends DBContext {
             ps.setInt(2, booking.getScheduleId().getScheduleId());
             ps.setString(3, booking.getSeatName());
             ps.setInt(4, booking.getRoom_id().getRoom_id());
+            ps.setDouble(5, booking.getPrice());
+            
 
             // Thực thi câu lệnh SQL
             int rowsInserted = ps.executeUpdate();
@@ -152,6 +155,8 @@ public class bookingDAO extends DBContext {
 
                 room r = loadR.getRoomById(rs.getInt("room_id"));
                 b.setRoom_id(r);
+                
+                b.setPrice(rs.getDouble("price"));
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
