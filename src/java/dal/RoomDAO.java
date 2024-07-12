@@ -114,4 +114,13 @@ public class RoomDAO extends DBContext {
         }
         return null; // Trả về null nếu không tìm thấy hoặc có lỗi
     }
+    
+    public static void main(String[] args) {
+        RoomDAO rDao = new RoomDAO();
+        ArrayList<room> listRoom = rDao.getAllRoom();
+        for(room r : listRoom){
+            System.out.println(r.getRoom_id());
+        }
+    }
+    
 }

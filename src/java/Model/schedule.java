@@ -68,4 +68,11 @@ public class schedule {
     public void setRunTime(runTime runTime) {
         this.runTime = runTime;
     }    
+
+    @Override
+    public String toString() {
+        return "schedule{" + "scheduleId=" + scheduleId + ", movieId=" + movieId + ", roomId=" + roomId + ", scheduleDate=" + scheduleDate + ", runTime=" + runTime + '}';
+    }
+    
+    
 }

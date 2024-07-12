@@ -157,6 +157,7 @@ public class MovieDAO extends DBContext {
         return null; // Trả về null nếu không tìm thấy phim hoặc có lỗi xảy ra
     }
     
+    
     public static void main(String[] args) {
         MovieDAO mDao = new MovieDAO();
 

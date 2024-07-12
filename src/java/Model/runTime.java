@@ -47,5 +47,11 @@ public class runTime {
         this.timeEnd = timeEnd;
     }
 
+    @Override
+    public String toString() {
+        return "runTime{" + "runTimeId=" + runTimeId + ", timeStart=" + timeStart + ", timeEnd=" + timeEnd + '}';
+    }
+    
+    
     
 }
