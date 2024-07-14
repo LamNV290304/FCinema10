@@ -1,29 +1,20 @@
 <%-- 
-    Document   : booking
-    Created on : Jul 12, 2024, 12:23:39 AM
+    Document   : cinemabooking
+    Created on : Jul 14, 2024, 2:18:23 PM
     Author     : Dokkuhai
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Booking</title>
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <title>CHOOSE THE CINEMA</title>
+         <link href="assets/css/bootstrap.min.css" rel="stylesheet">
         <link href="assets/css/font-awesome.min.css" rel="stylesheet">
         <link href="assets/css/global.css" rel="stylesheet">
         <link href="assets/css/index.css" rel="stylesheet">
         <style>
-            .list-schedule{
-                margin: 20px;
-                
-            }
-            .line-split{
-                border-bottom: red 5px dashed;
-            }
             .card-show{
                 border: 3px gray solid;
                 border-radius: 15px;
@@ -45,18 +36,14 @@
                 margin: 10px;
             }
             
-            .card-show.selected {
-                font-weight: bold;
-                /* Thêm các thuộc tính khác để làm nổi bật */
-                background-color: #f0f0f0;
-                border: 2px solid #000;
+            .list-schedule{
+                margin: 20px;
+                
             }
-        </style>
+        </style>    
     </head>
-    
-    
     <body>
-
+        
          <!-- Navigator Bar -->
         <section id="header">
             <nav class="navbar navbar-expand-md navbar-light p-0 bg-black" id="navbar_sticky">
@@ -140,20 +127,19 @@
         
         <!--End Navbar-->
         
-        
-        <!-- Content -->        
+        <!--Content-->
         <div class="container">
             <h1 style="border-bottom: solid 5px gray; margin: 20px 0px">
                 BOOKING INFORMATION
             </h1>
             <div class="booking-detail">  
                 <div class = "list-schedule row">
-                    <h3>LIST SCHEDULE</h3>
-                    <c:forEach items="${listDate}" var="list">
+                    <h3>LIST CINEMA VALID</h3>
+                    <c:forEach items="${listScheduleValid}" var="list">
                         <div class="col-md-2">
                             <a href="./CinemaBooking?movieId=${movieId}&scheduleDate=${list}">
                                 <div class="card-show">
-                                        <h4>${list}</h4>
+                                        <h4>${list.getRoomId().getCinema().getCinemaName()}</h4>
                                 </div>
                             </a>            
                         </div>        
@@ -161,11 +147,13 @@
                 </div>
             </div>
            </div>
-        <!-- End content -->
-        
-        
-        
-        <!-- Footer -->
+                        
+      <!-- End Content -->
+      
+      
+      
+      
+      <!-- Footer -->
             <section id="footer">
             <div class="footer_m bg_backo p_3">
                 <div class="container-xl">
@@ -225,6 +213,5 @@
             </div>
         </section>
         <!-- End footer -->
-        
     </body>
 </html>

@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.sql.PreparedStatement;
+import java.time.LocalDate;
 
 /**
  *
@@ -17,26 +18,7 @@ import java.sql.PreparedStatement;
  */
 public class bookingDAO extends DBContext {
 
-    public ArrayList<Date> getScheduleMovieById(int movieId) {
-        ArrayList<Date> scheList = new ArrayList<>();
-        try {
-            // Dùng câu lệnh SQL để lấy list lịch chiếu 
-            String sql = "SELECT * from schedule WHERE movie_id = " + movieId;
-            Statement st = connection.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) {
-
-                //Lấy Schedule rồi insert vào list
-                Date tmp = rs.getDate("schedule_date");
-                //thêm vào trong danh sách
-                scheList.add(tmp);
-            }
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        return scheList;
-    }
+    
 
 //    public ArrayList<cinemas> findListCinemas(int room_Id){
 //        ArrayList<cinemas> scheList = new ArrayList<>();
@@ -165,6 +147,12 @@ public class bookingDAO extends DBContext {
     }
 
     public static void main(String[] args) {
-        ArrayList<Date> scheList = new ArrayList<>();
+        LocalDate currDate = LocalDate.now();
+        ArrayList<LocalDate> generateListDate = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            generateListDate.add(currDate);
+            currDate = currDate.plusDays(1);
+        }
+        System.out.println(generateListDate);
     }
 }

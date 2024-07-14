@@ -11,6 +11,7 @@ import java.sql.Statement;
 import Model.*;
 import java.sql.PreparedStatement;
 import java.sql.Date;
+import java.time.LocalDate;
 
 /**
  * Date: 10/07/2024 Author: Nguyễn Việt Lâm Purpose: Load Schedule
@@ -145,11 +146,35 @@ public class ScheduleDAO extends DBContext {
         }
         return schedule; // Trả về đối tượng schedule hoặc null nếu không tìm thấy
     }
+    
+    //  Purpose: Get schedule of movie by movie_id
+    //  Author: Dokkuhai
+    //  Date: 13-07-2024
+    public ArrayList<schedule> getScheduleMovieById(int movieId) {
+        ArrayList<schedule> scheList = new ArrayList<>();
+        try {
+            // Dùng câu lệnh SQL để lấy list lịch chiếu 
+            String sql = "SELECT * from schedule WHERE movie_id = " + movieId;
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                schedule get = new schedule();
+                //Lấy Schedule rồi insert vào list
+                get.setScheduleId(rs.getInt("schedule_id"));
+                get.setScheduleDate(rs.getDate("schedule_date"));
+                //thêm vào trong danh sách
+                scheList.add(get);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return scheList;
+    }
 
     public static void main(String[] args) {
         ScheduleDAO sDao = new ScheduleDAO();
         ArrayList<schedule> listSchedule = sDao.getAllSchedule();
-
         for (schedule r : listSchedule) {
             System.out.println(r);
         }
