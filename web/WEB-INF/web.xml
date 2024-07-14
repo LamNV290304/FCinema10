@@ -29,10 +29,6 @@
         <servlet-class>Controller.Logout</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>OrderTicket</servlet-name>
-        <servlet-class>Controller.OrderTicket</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>inforMovie</servlet-name>
         <servlet-class>Controller.inforMovie</servlet-class>
     </servlet>
@@ -67,10 +63,6 @@
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
         <url-pattern>/Logout</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>OrderTicket</servlet-name>
-        <url-pattern>/OrderTicket</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>inforMovie</servlet-name>
