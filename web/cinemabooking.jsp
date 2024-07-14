@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -135,11 +136,11 @@
             <div class="booking-detail">  
                 <div class = "list-schedule row">
                     <h3>LIST CINEMA VALID</h3>
-                    <c:forEach items="${listScheduleValid}" var="list">
+                    <c:forEach items="${listCinema}" var="list">
                         <div class="col-md-2">
-                            <a href="./CinemaBooking?movieId=${movieId}&scheduleDate=${list}">
+                            <a href="./RoomBooking?movieId=${movieId}&scheduleDate=${get_date}&cinema_id=${list.getCinemaID()}">
                                 <div class="card-show">
-                                        <h4>${list.getRoomId().getCinema().getCinemaName()}</h4>
+                                        <h4>${list.getCinemaName()}</h4>
                                 </div>
                             </a>            
                         </div>        

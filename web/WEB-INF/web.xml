@@ -44,6 +44,10 @@
         <servlet-name>CinemaBooking</servlet-name>
         <servlet-class>Controller.CinemaBooking</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RoomBooking</servlet-name>
+        <servlet-class>Controller.RoomBooking</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ScheduleBooking</servlet-name>
         <url-pattern>/schedulebooking</url-pattern>
@@ -79,5 +83,9 @@
     <servlet-mapping>
         <servlet-name>CinemaBooking</servlet-name>
         <url-pattern>/CinemaBooking</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RoomBooking</servlet-name>
+        <url-pattern>/RoomBooking</url-pattern>
     </servlet-mapping>
 </web-app>

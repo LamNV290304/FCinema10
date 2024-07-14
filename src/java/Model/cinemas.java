@@ -46,5 +46,10 @@ public class cinemas {
     public void setCinemaAddress(String cinemaAddress) {
         this.cinemaAddress = cinemaAddress;
     }
+
+    @Override
+    public String toString() {
+        return "cinemas{" + "cinemaID=" + cinemaID + ", cinemaName=" + cinemaName + ", cinemaAddress=" + cinemaAddress + '}';
+    }
     
 }
