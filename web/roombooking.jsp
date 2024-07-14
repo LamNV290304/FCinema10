@@ -1,49 +1,53 @@
 <%-- 
-    Document   : informovie
-    Created on : Jul 11, 2024, 6:23:19 AM
+    Document   : roombooking
+    Created on : Jul 14, 2024, 3:45:21 PM
     Author     : Dokkuhai
 --%>
+
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
     <head>
-       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>${infor_movie.getMovieName()}</title>
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" >
-        <link href="assets/css/font-awesome.min.css" rel="stylesheet" >
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>CHOOSE THE ROOM</title>
+         <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/font-awesome.min.css" rel="stylesheet">
         <link href="assets/css/global.css" rel="stylesheet">
         <link href="assets/css/index.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <style>
+            .card-show{
+                border: 3px gray solid;
+                border-radius: 15px;
+                margin: 10px;
+                width: 200px;
+                height: 50px;
+                align-content: center;
+                align-items: center;
+                text-align: center;
+            }
+            .card-show:hover{
+                background-color: wheat;
+            }
+            
+            .booking-detail{
+                border: 3px gray solid;
+                border-radius: 15px;
+                background-color: #FDFCF0;
+                margin: 10px;
+            }
+            
+            .list-schedule{
+                margin: 20px;
+                
+            }
+        </style>    
     </head>
-    
-    <style>
-        .infor_movie{
-            border: 3px gray solid;
-            border-radius: 15px;
-            background-color: #FDFCF0;
-            margin: 20px;
-        }
-        
-        .content-body{
-            background-color: #FDFCF0;
-        }
-        
-        .button-click{
-            background-color: #DFD09B;
-        }
-        
-        .button_1:hover{
-            background-color : #DFD09B; 
-        }
-    </style>    
     <body>
         
-        <!-- Navigator Bar -->
+         <!-- Navigator Bar -->
         <section id="header">
             <nav class="navbar navbar-expand-md navbar-light p-0 bg-black" id="navbar_sticky">
                 <div class="container-xl">
@@ -86,19 +90,9 @@
                                     <li><a class="dropdown-item border-0" href="blog_detail.html">Special Cinemas</a></li>
                                 </ul>
                             </li>
-<!--                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Pages
-                                </a>
-                                <ul class="dropdown-menu drop_1" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="gallery.html"> Gallery</a></li>
-                                    <li><a class="dropdown-item border-0" href="login.jsp"> Login</a></li>
-                                </ul>
-                            </li>-->
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="contact.html">Contact</a>
-                            </li>
+
+                           
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle dropdown_search nav_hide" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -125,6 +119,7 @@
                                 <ul class="dropdown-menu drop_1" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="login.jsp"> Sign In</a></li>
                                     <li><a class="dropdown-item border-0" href="register.jsp"> Register</a></li>
+                                    <li><a class="dropdown-item" href="./Logout"> Sign Out</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -135,64 +130,34 @@
         
         <!--End Navbar-->
         
-        <!-- Information Movie -->
+        <!--Content-->
         <div class="container">
-            <h2 style="border-bottom: 5px gray solid">MOVIE INFORMATION</h2>
-            
-          
-            <div class="detail" style="margin: 35px">
-                <div class="row">
-                    <div class="col-md-6" style="margin-right: -150px">
-                        <img style="width: 60%;height: 80%;" src="${infor_movie.getMoviePoster()}" alt="${infor_movie.getMovieName()}"/>
-                    </div>
-                    <div class="col-md-6">
-                        <h3 style="border-bottom: 1px gray solid">${infor_movie.getMovieName()}</h3>
-                        <div style="margin-top: 60px">
-                            <div class="infor_movie"> 
-                            <ul>
-                                <li  style="margin-left: 20px ;margin-top: 20px;font-style: oblique">Director: ${infor_movie.getMovieDirector()}</li>
-                                <li style="margin-left: 20px ;font-style: oblique">Cast: ${infor_movie.getMovieActress()}</li>
-                                <li style="margin-left: 20px ;font-style: oblique">Genre: ${infor_movie.getMovieGenres()}</li>
-                                <li style="margin-left: 20px ;font-style: oblique">Release Date: ${infor_movie.getMovieRelease()}</li>
-                                <li style="margin-left: 20px ;font-style: oblique;margin-bottom: 20px">Running time: ${infor_movie.getMovieLength()}</li>    
-                            </ul>
-                           </div>
-                           <div class="button_1 button-click">
-                               <a href="./schedulebooking?movieId=${infor_movie.getMovie_id()}" class="button-click">${infor_movie.getMovieLength() == "N/A" ? "Coming Soon":"Booking"}</a>
-                           </div> 
-                        </div>
-                    </div>
-                    
-                    
+            <h1 style="border-bottom: solid 5px gray; margin: 20px 0px">
+                BOOKING INFORMATION
+            </h1>
+            <div class="booking-detail">  
+                <div class = "list-schedule row">
+                    <h3>LIST ROOM</h3>
+                    <c:forEach items="${listCinema}" var="list">
+                        <div class="col-md-2">
+                            <a href="./CinemaBooking?movieId=${movieId}&scheduleDate=${get_date}&cinema_id=${list.getCinemaID()}">
+                                <div class="card-show">
+                                        <h4>${list.getCinemaName()}</h4>
+                                </div>
+                            </a>            
+                        </div>        
+                    </c:forEach>
                 </div>
-            </div>>
-        </div>>
-   <div style="border-top: 5px solid gray; margin: 20px ">
-       
-   </div> 
-        
-        <!-- Decription Part and Trailer -->
-        <div class="content-body">        
-        <div class="container ">  
-            <div class="row">
-                <div class="col-md-6" style="border-right: gray 3px solid">
-                    <h2 style="background-color: #DFD09B;border: red solid 2px;border-radius: 10px;text-align: center">DESCRIPTION</h2>
-                    <p>${infor_movie.getMovieDescription()}</p>
-                </div>
-
-                <div class="col-md-6" >
-                    <h2 style="background-color: #DFD09B;border: red solid 2px;border-radius: 10px;text-align: center">Trailer</h2> 
-                    <iframe width="700px" height="400px" src="${infor_movie.getMovieTrailer()}"/>
-                </div>
-
             </div>
-        </div>
-        </div>
-        
-            
-        
-        
-         <section id="footer">
+           </div>
+                        
+      <!-- End Content -->
+      
+      
+      
+      
+      <!-- Footer -->
+            <section id="footer">
             <div class="footer_m bg_backo p_3">
                 <div class="container-xl">
                     <div class="footer_1 row">
@@ -250,6 +215,7 @@
                 </div>
             </div>
         </section>
-  
+        <!-- End footer -->
     </body>
 </html>
+

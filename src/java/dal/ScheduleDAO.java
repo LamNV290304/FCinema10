@@ -4,6 +4,7 @@
  */
 package dal;
 
+import Controller.ScheduleBooking;
 import Model.schedule;
 import java.util.ArrayList;
 import java.sql.ResultSet;
@@ -11,13 +12,18 @@ import java.sql.Statement;
 import Model.*;
 import java.sql.PreparedStatement;
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Date: 10/07/2024 Author: Nguyễn Việt Lâm Purpose: Load Schedule
  */
 public class ScheduleDAO extends DBContext {
-
+    
     // Lấy hết thông tin phim từ database
     public ArrayList<schedule> getAllSchedule() {
         ArrayList<schedule> list = new ArrayList<>();
@@ -157,11 +163,17 @@ public class ScheduleDAO extends DBContext {
             String sql = "SELECT * from schedule WHERE movie_id = " + movieId;
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(sql);
+            MovieDAO mDao = new MovieDAO();
+            RoomDAO rDao = new RoomDAO();
+            runTimeDAO rtDao = new runTimeDAO();
             while (rs.next()) {
                 schedule get = new schedule();
                 //Lấy Schedule rồi insert vào list
                 get.setScheduleId(rs.getInt("schedule_id"));
+                get.setMovieId(mDao.getMovieById(movieId));
+                get.setRoomId(rDao.getRoomById(rs.getInt("room_id")));
                 get.setScheduleDate(rs.getDate("schedule_date"));
+                get.setRunTime(rtDao.getRunTimeById(rs.getInt("run_time_id")));
                 //thêm vào trong danh sách
                 scheList.add(get);
             }
@@ -174,9 +186,28 @@ public class ScheduleDAO extends DBContext {
 
     public static void main(String[] args) {
         ScheduleDAO sDao = new ScheduleDAO();
-        ArrayList<schedule> listSchedule = sDao.getAllSchedule();
-        for (schedule r : listSchedule) {
-            System.out.println(r);
+//        ArrayList<schedule> listSchedule = sDao.getAllSchedule();
+//        for (schedule r : listSchedule) {
+//            System.out.println(r);
+//        }
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        String get_date = "2024-07-15";
+        ArrayList<schedule> listScheduleMovie = sDao.getScheduleMovieById(1);
+        ArrayList<schedule> listScheduleValid = new ArrayList<>();
+        java.util.Date get = null;
+        try {
+            get = df.parse(get_date);
+        } catch (ParseException ex) {
+            Logger.getLogger(ScheduleBooking.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        for (schedule sc : listScheduleMovie) {
+            if (sc.getScheduleDate().equals(get)) {
+                listScheduleValid.add(sc);
+                
+            }
+        }
+        for(schedule sc : listScheduleValid){
+            System.out.println(sc.getRoomId().getCinema().getCinemaName());
         }
 
     }

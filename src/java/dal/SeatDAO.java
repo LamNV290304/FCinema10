@@ -66,7 +66,7 @@ public class SeatDAO extends DBContext {
             // Câu lệnh SQL để lấy ghế dựa trên room_id, run_time_id và seat_id
             String sql = "SELECT * FROM seats WHERE room_id = ? AND run_time_id = ? AND seat_id = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
-
+            
             // Đặt các tham số cho PreparedStatement
             ps.setInt(1, room.getRoom_id());
             ps.setInt(2, runT.getRunTimeId());
@@ -116,5 +116,14 @@ public class SeatDAO extends DBContext {
             System.out.println("Lỗi: " + e.getMessage());
             return false;// Trả về false nếu cập nhật không thành công
         }
+    }
+    public static void main(String[] args) {
+        SeatDAO seDao = new SeatDAO();
+        RoomDAO rDao = new RoomDAO();
+        runTimeDAO rtDAO = new runTimeDAO();
+        runTime runTimeSelect = rtDAO.getRunTimeById(1);
+        room r = rDao.getRoomById(11);
+        ArrayList<seat> list = seDao.getListSeatOfRoom(r, runTimeSelect);
+        System.out.println(list);
     }
 }

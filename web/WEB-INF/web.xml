@@ -41,8 +41,13 @@
         <servlet-class>Controller.CinemaBooking</servlet-class>
     </servlet>
     <servlet>
+<<<<<<< HEAD
         <servlet-name>UpdateProfile</servlet-name>
         <servlet-class>Controller.UpdateProfile</servlet-class>
+=======
+        <servlet-name>RoomBooking</servlet-name>
+        <servlet-class>Controller.RoomBooking</servlet-class>
+>>>>>>> 45eb4aded9fb2f75f3a8b03151564404ecc5e45b
     </servlet>
     <servlet-mapping>
         <servlet-name>ScheduleBooking</servlet-name>
@@ -77,7 +82,12 @@
         <url-pattern>/CinemaBooking</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< HEAD
         <servlet-name>UpdateProfile</servlet-name>
         <url-pattern>/UpdateProfile</url-pattern>
+=======
+        <servlet-name>RoomBooking</servlet-name>
+        <url-pattern>/RoomBooking</url-pattern>
+>>>>>>> 45eb4aded9fb2f75f3a8b03151564404ecc5e45b
     </servlet-mapping>
 </web-app>

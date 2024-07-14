@@ -10,6 +10,7 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,8 +19,8 @@ import java.sql.PreparedStatement;
 public class CinemasDAO extends DBContext {
 
     // Lấy hết thông tin phim từ database
-    public Map<Integer, cinemas> getAllMovies() {
-        Map<Integer, cinemas> listCinema = new HashMap<>();
+    public ArrayList<cinemas> getAllCinemas() {
+        ArrayList<cinemas> listCinema = new ArrayList<>();
         try {
 
             //dùng câu lệnh sql để truy vấn
@@ -35,7 +36,7 @@ public class CinemasDAO extends DBContext {
                 cinema.setCinemaAddress(rs.getString("cinema_address"));
 
                 //thêm vào trong danh sách
-                listCinema.put(cinema.getCinemaID(), cinema);
+                listCinema.add( cinema);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -119,5 +120,13 @@ public class CinemasDAO extends DBContext {
             System.out.println(e.getMessage());
         }
         return null; // Trả về null nếu không tìm thấy hoặc có lỗi
+    }
+    
+    public static void main(String[] args) {
+        CinemasDAO cDao = new CinemasDAO();
+        ArrayList<cinemas> listCinema = cDao.getAllCinemas();
+        for(cinemas c : listCinema){
+            System.out.println(c);
+        }
     }
 }
