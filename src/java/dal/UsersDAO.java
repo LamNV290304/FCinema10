@@ -17,31 +17,45 @@ import java.util.Map;
  */
 public class UsersDAO extends DBContext {
 
-    // Đăng kí người dùng mới vào trong database
-    public boolean addUser(User user) {
+    public boolean insertCategory(int id, String name) {
         try {
-            //dùng câu lệnh sql để update
-            String sql = "Insert Into users(username, password, avatar, role, fullname, birthday, gender, email, city, phone) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
-            try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
-                //Đặt các giá trị vào vị trí
-                pstmt.setString(1, user.getUsername());
-                pstmt.setString(2, user.getPassword());
-                pstmt.setString(3, user.getAvatar());
-                pstmt.setString(4, user.getRole());
-                pstmt.setString(5, user.getFullname());
-                pstmt.setDate(6, (Date) user.getBirthday());
-                pstmt.setString(7, user.getGender());
-                pstmt.setString(8, user.getEmail());
-                pstmt.setString(9, user.getCity());
-                pstmt.setString(10, user.getPhone());
-            } catch (Exception e) {
-                System.out.println("Error update category: " + e.getMessage());
-                return false; //tất cả các lỗi đều trả về false, không update thành công
+            String sql = "insert into Categories(id,name) values (?,?)";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            st.setString(2, name);
+            if (st.executeUpdate() > 0) {
+                return true;
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return false;//tất cả các lỗi đều trả về false, không update thành công
         }
+        return false;
+    }
+
+    // Đăng kí người dùng mới vào trong database
+    public boolean addUser(User user) {
+        String sql = "Insert Into users(username, password, avatar, role, fullname, birthday, gender, email, city, phone) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+        try {
+            //dùng câu lệnh sql để update
+            
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            //Đặt các giá trị vào vị trí
+            pstmt.setString(1, user.getUsername());
+            pstmt.setString(2, user.getPassword());
+            pstmt.setString(3, user.getAvatar());
+            pstmt.setString(4, user.getRole());
+            pstmt.setString(5, user.getFullname());
+            pstmt.setDate(6, (Date) user.getBirthday());
+            pstmt.setString(7, user.getGender());
+            pstmt.setString(8, user.getEmail());
+            pstmt.setString(9, user.getCity());
+            pstmt.setString(10, user.getPhone());
+            pstmt.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Error update category: " + e.getMessage());
+            return false; //tất cả các lỗi đều trả về false, không update thành công
+        }
+
         return true;//thực hiện thành công trả về true
     }
 

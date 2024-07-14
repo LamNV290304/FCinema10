@@ -72,8 +72,8 @@
                     <div>
                     <label for="r-fname" class="gender-title">
                         <span class="sp-gender" style="color: white">Gender</span><span>*</span> 
-                        <input type="radio" name="r-gender" id="male-gender" value="Male" style=""> Male                     
-                        <input type="radio" name="r-gender" id="female-gender" value="Female" style="color: white"> Female
+                        <input type="radio" name="r-gender" id="male-gender" value="M" style=""> M                     
+                        <input type="radio" name="r-gender" id="female-gender" value="F" style="color: white"> F
                      </label>
                     </div>
                     <div class="input-field">

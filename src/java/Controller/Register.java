@@ -76,7 +76,6 @@ public class Register extends HttpServlet {
     /**
      * Ktra nếu email hoặc username đã tốn tại trong db thì làm cái alert để
      * chuyển sang login hoặc hiện lỗi cx đc
-     *
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -94,7 +93,7 @@ public class Register extends HttpServlet {
             String avatar = "";
             String fullName = request.getParameter("fullname");
 
-            //birthday/ xử lí dữ liệu ngày sinh
+            //birthday xử lí dữ liệu ngày sinh
             String birthDay = request.getParameter("birthday");
             SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
             Date birth = dateFormat.parse(birthDay);
@@ -114,7 +113,7 @@ public class Register extends HttpServlet {
                 throw new Exception();
             }
             //Kiểm tra xem người dùng nhập đúng chưa
-            if (password.equals(rePassword)) { //xác nhận mật khẩu
+            if (!password.equals(rePassword)) { //xác nhận mật khẩu
                 error = "Mật khẩu không trùng khớp";
                 request.setAttribute("error", error);
                 errorNumber = 3;
@@ -134,19 +133,6 @@ public class Register extends HttpServlet {
         }
     }
 
-    //kiểm tra có khoảng trống tồn tại trong username hay không
-    private boolean containSpace(String username) {
-        // Duyệt qua từng ký tự trong phoneNumber
-        for (int i = 0; i < username.length(); i++) {
-            char ch = username.charAt(i);
-            // Nếu ký tự có khoảng trống , trả về false
-            if (!Character.isSpaceChar(ch)) {
-                return false;
-            }
-        }
-        // Nếu tất cả ký tự đều là số, trả về true
-        return true;
-    }
 
     //kiểm tra xem có nhập đúng đủ 10 chữ số không
     private boolean checkNumber(String number) {

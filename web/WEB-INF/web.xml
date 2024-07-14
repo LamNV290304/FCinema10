@@ -40,6 +40,10 @@
         <servlet-name>CinemaBooking</servlet-name>
         <servlet-class>Controller.CinemaBooking</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateProfile</servlet-name>
+        <servlet-class>Controller.UpdateProfile</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ScheduleBooking</servlet-name>
         <url-pattern>/schedulebooking</url-pattern>
@@ -71,5 +75,9 @@
     <servlet-mapping>
         <servlet-name>CinemaBooking</servlet-name>
         <url-pattern>/CinemaBooking</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateProfile</servlet-name>
+        <url-pattern>/UpdateProfile</url-pattern>
     </servlet-mapping>
 </web-app>
