@@ -87,7 +87,8 @@ public class Register extends HttpServlet {
             int errorNumber = 0; //set lỗi mã là 0 nếu không có lỗi
 
             //lấy dữ liệu từ JSP
-            String username = request.getParameter("username");
+            String username = request.getParameter("username").trim();
+            
             String password = request.getParameter("password");
             String rePassword = request.getParameter("re_password");
             String avatar = "";
@@ -104,13 +105,7 @@ public class Register extends HttpServlet {
             String phoneNumber = request.getParameter("phoneNumber");
             String role = "user"; // role mặc đinh là user
 
-            if (!containSpace(username)) {
-                error = "Username không được có khoảng trống";
-                errorNumber = 1;
-                request.setAttribute("errorNumber", errorNumber);
-                request.setAttribute("error", error);
-                throw new Exception();
-            }
+
             if (checkNumber(phoneNumber)) {
                 error = "Số điện thoại không hợp lệ";
                 errorNumber = 2;
@@ -131,6 +126,7 @@ public class Register extends HttpServlet {
             User user = new User(0, username, password, avatar, fullName, birth, gender, email, city, phoneNumber, role);
             UsersDAO loadUser = new UsersDAO();
             loadUser.addUser(user);
+            response.sendRedirect("index.html");
 
         } catch (Exception ex) {
             //trả lỗi về trang đăng kí

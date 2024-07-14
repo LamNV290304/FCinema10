@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,7 +21,7 @@
         <script src="assets/js/bootstrap.bundle.min.js"></script>
     </head>
     <body>
-         <!-- HEADER  -->
+        <!-- HEADER  -->
         <!-- Navigator Bar -->
         <section id="header">
             <nav class="navbar navbar-expand-md navbar-light p-0 bg-black" id="navbar_sticky">
@@ -64,15 +65,15 @@
                                     <li><a class="dropdown-item border-0" href="blog_detail.html">Special Cinemas</a></li>
                                 </ul>
                             </li>
-<!--                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Pages
-                                </a>
-                                <ul class="dropdown-menu drop_1" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="gallery.html"> Gallery</a></li>
-                                    <li><a class="dropdown-item border-0" href="login.jsp"> Login</a></li>
-                                </ul>
-                            </li>-->
+                            <!--                            <li class="nav-item dropdown">
+                                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                Pages
+                                                            </a>
+                                                            <ul class="dropdown-menu drop_1" aria-labelledby="navbarDropdown">
+                                                                <li><a class="dropdown-item" href="gallery.html"> Gallery</a></li>
+                                                                <li><a class="dropdown-item border-0" href="login.jsp"> Login</a></li>
+                                                            </ul>
+                                                        </li>-->
 
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.html">Contact</a>
@@ -94,15 +95,23 @@
                                     </li>
                                 </ul>
                             </li>
-                            
-                            
+
+
                             <li class="nav-item dropdown ">
-                                
-                            <img  src="assets/img/user.svg" alt="user" style="width:40px;height:40px;margin-top: 15px;margin-left: 20px"/>
-                            
+
+                                <img  src="assets/img/user.svg" alt="user" style="width:40px;height:40px;margin-top: 15px;margin-left: 20px"/>
+
                                 <ul class="dropdown-menu drop_1" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="login.jsp"> Sign In</a></li>
-                                    <li><a class="dropdown-item border-0" href="register.jsp"> Register</a></li>
+                                    <c:choose>
+                                        <c:when test="${empty sessionScope.user}">
+                                            <li><a class="dropdown-item" href="login.jsp"> Sign In</a></li>
+                                            <li><a class="dropdown-item border-0" href="register.jsp"> Register</a></li>
+                                            </c:when>
+                                            <c:otherwise>
+                                            <li><a class="dropdown-item" href="profile.jsp">Profile</a></li>
+                                            <li><a class="dropdown-item border-0" href="Logout">Logout</a></li>
+                                            </c:otherwise>
+                                        </c:choose>
                                 </ul>
                             </li>
                         </ul>
@@ -110,10 +119,10 @@
                 </div>
             </nav>
         </section>
-        
+
         <!--End Navbar-->
 
-        
+
         <!-- Banners -->
         <section id="center" class="center_home">
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
