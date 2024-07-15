@@ -171,7 +171,7 @@
        
    </div> 
         
-        <!-- Decription Part and Trailer -->
+        <!-- Description Part and Trailer -->
         <div class="content-body">        
         <div class="container ">  
             <div class="row">
