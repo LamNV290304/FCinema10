@@ -1,0 +1,807 @@
+<!--
+ *  Date: 16/06/2024
+ *  Author: Vũ Đức Hải
+ *  Purpose: The Welcome Page index.html of FCINEMA project
+ */
+-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>FCINEMA - The Best Cinemas in the world</title>
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" >
+        <link href="assets/css/font-awesome.min.css" rel="stylesheet" >
+        <link href="assets/css/global.css" rel="stylesheet">
+        <link href="assets/css/index.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <style>
+            
+        </style>
+
+    </head>
+    
+    
+    <body>
+        <!-- HEADER  -->
+        <!-- Navigator Bar -->
+        <section id="header">
+            <nav class="navbar navbar-expand-md navbar-light p-0 bg-black" id="navbar_sticky">
+                <div class="container-xl">
+                    <a class="p-0 navbar-brand fw-bold text-white" href="index.html"> <span class="bg_brow p-1 px-2">F</span> cineflix</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mb-0 ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About </a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Movies
+                                </a>
+                                <ul class="dropdown-menu drop_1" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="blog.html">Now Showing</a></li>
+                                    <li><a class="dropdown-item border-0" href="blog_detail.html">Coming Soon</a></li>
+                                    <li><a class="dropdown-item border-0" href="./ListMovie">All Movies</a></li>
+                                </ul>
+                            </li>
+
+                          
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Theaters
+                                </a>
+                                <ul class="dropdown-menu drop_1" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="blog.html">All F-Cinemas</a></li>
+                                    <li><a class="dropdown-item border-0" href="blog_detail.html">3D Cinemas</a></li>
+                                    <li><a class="dropdown-item border-0" href="blog_detail.html">Special Cinemas</a></li>
+                                </ul>
+                            </li>
+
+
+                    
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle dropdown_search nav_hide" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                                <ul class="dropdown-menu drop_2 drop_1 p-3 bg_blue" aria-labelledby="navbarDropdown">
+                                    <li>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control rounded-0 font_14 border_1" placeholder="SEARCH HERE">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-primary bg_brow rounded-0 p-3 px-4 border-0 font_14" type="button">
+                                                    SEARCH </button>
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            
+                            <li class="nav-item dropdown ">
+                                
+                            <img  src="assets/img/user.svg" alt="user" style="width:40px;height:40px;margin-top: 15px;margin-left: 20px"/>
+                            
+                                <ul class="dropdown-menu drop_1" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="login.jsp"> Sign In</a></li>
+                                    <li><a class="dropdown-item border-0" href="register.jsp"> Register</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </section>
+        
+        <!--End Navbar-->
+
+        
+        <!-- Banners -->
+        <section id="center" class="center_home">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="assets/img/1.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-md-block">
+                            <h5 class="col_brow text-uppercase">DC Films</h5>
+                            <h1 class="text-uppercase text-white font_50 mt-3 mb-3">Black Adam</h1>
+                            <p class="text-light  mx-auto">Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods--and imprisoned just as quickly--Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.</p>
+                            <h6 class="mb-0 mt-4"><a class="button" href="#">Read More</a></h6>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/img/2.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-md-block">
+                            <h5 class="col_brow text-uppercase">ANIME HOTS</h5>
+                            <h1 class="text-uppercase text-white font_50 mt-3 mb-3">Doraemon <br> Nobita's Earth Symphony</h1>
+                            <p class="text-light mx-auto">Doraemon the Movie: Nobita's Earth Symphony (映画ドラえもん: のび太の地球交響楽シンフォニー, Eiga Doraemon: Nobita no chikyū shinfonī) is a 2024 Japanese animated musical fantasy science fiction adventure film. It is the 43rd film of Doraemon, created by Fujiko F. Fujio. Directed by Kazuaki Imai with a screenplay by Teruko Utsumi, it was released on March 1, 2024.</p>
+                            <h6 class="mb-0 mt-4"><a class="button" href="#">Read More</a></h6>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/img/ba.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-md-block">
+                            <h5 class="col_brow text-uppercase">NEW MOVIE</h5>
+                            <h1 class="text-uppercase text-white font_50 mt-3 mb-3">How to Make Millions <br> Before Grandma Dies </h1>
+                            <p class="text-light mx-auto">A man quits work to care for dying grandmother, motivated by her fortune. He schemes to win her favor before she passes.</p>
+                            <h6 class="mb-0 mt-4"><a class="button" href="#">Book Now!</a></h6>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+        <!<!-- End Banner -->
+        
+        
+        
+        <section id="about_h" class="p_3">
+            <div class="container-xl">
+                <div class="about_h1 row">
+                    <div class="col-md-6">
+                        <div class="about_h1l">
+                            <h5 class="col_brow1 text-uppercase">COMING SOON!</h5>
+                            <h1 class="font_50  mb-3">Totto-Chan <br> The Little Girl at the Window</h1>
+                            <p>This engaging series of childhood recollections tells about an ideal school in Tokyo during World War II that combined learning with fun, freedom, and love. This unusual school had old railroad cars for classrooms, and it was run by an extraordinary man--its founder and headmaster, Sosaku Kobayashi--who was a firm believer in freedom of expression and activity.</p>
+                            <h6 class="mb-0 mt-4"><a class="button_1" href="#">Book now!</a></h6>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="about_h1r">
+                            <div class="grid clearfix">
+                                <figure class="effect-jazz mb-0">
+                                    <a href="#"><img src="assets/img/4.png" class="w-100" alt="abc"></a>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="spec">
+            <div class="spec_m bg_back pt-5 pb-5">
+                <div class="container-xl">
+                    <div class="spec_1 row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="spec_1l text-center">
+                                <h1 class="text-white font_50">66+</h1>
+                                <h6 class="col_brow mb-0 text-uppercase">Years Experience</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="spec_1l text-center">
+                                <h1 class="text-white font_50">1882+</h1>
+                                <h6 class="col_brow mb-0 text-uppercase">Happy Clients</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="spec_1l text-center">
+                                <h1 class="text-white font_50">2236+</h1>
+                                <h6 class="col_brow mb-0 text-uppercase">Music Video</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="spec_1l text-center">
+                                <h1 class="text-white font_50">1991+</h1>
+                                <h6 class="col_brow mb-0 text-uppercase">Short Film</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="award" class="p_3 bg-black">
+            <div class="container-xl">
+                <div class="award_1 row text-center mb-4">
+                    <div class="col-md-12">
+                        <h5 class="col_brow">Awardness</h5>
+                        <h1 class="mt-3 text-white mb-3">The Best Achievement  We Got</h1>
+                        <p class="text-white-50 mb-0">Pros hope out it of the and is that degree has him,  those for of agreeable.  Sports. Name area<br> on then grant view of the with congress, of clues of the a there in his music.</p>
+                    </div>
+                </div>
+                <div class="award_2 row">
+                    <div class="col-md-4">
+                        <div class="award_2i text-center">
+                            <span class="col_brow lh-1"><i class="fa fa-trophy"></i></span>
+                            <h4 class="text-white mt-3 mb-3">Prestigious Achievement</h4>
+                            <h5 class="mb-0 col_brow">2017</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="award_2i text-center">
+                            <span class="col_brow lh-1"><i class="fa fa-trophy"></i></span>
+                            <h4 class="text-white mt-3 mb-3">Best Film Award</h4>
+                            <h5 class="mb-0 col_brow">2019</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="award_2i text-center">
+                            <span class="col_brow lh-1"><i class="fa fa-trophy"></i></span>
+                            <h4 class="text-white mt-3 mb-3">Best Director Award</h4>
+                            <h5 class="mb-0 col_brow">2022</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!--        <section id="serv" class="p_3 bg-dark">
+            <div class="container-xl">
+                <div class="award_1 row text-center mb-4">
+                    <div class="col-md-12">
+                        <h5 class="col_brow">Find Your Comfort</h5>
+                        <h1 class="mt-3 text-white mb-3">Explore The Services You  Need</h1>
+                        <p class="text-white-50 mb-0">Pros hope out it of the and is that degree has him,  those for of agreeable.  Sports. Name area<br> on then grant view of the with congress, of clues of the a there in his music.</p>
+                    </div>
+                </div>
+                <div class="serv_1 row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="serv_1i text-center">
+                            <span class="col_brow font_50 lh-1"><i class="fa fa-video-camera"></i></span>
+                            <h5 class="text-white mt-3 mb-3">Film Production</h5>
+                            <p class="mb-0 text-white-50">Sed cursus ante dapibus diam  Nulla quis sem at nibh elementum</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="serv_1i text-center">
+                            <span class="col_brow font_50 lh-1"><i class="fa fa-trophy"></i></span>
+                            <h5 class="text-white mt-3 mb-3">Best Story</h5>
+                            <p class="mb-0 text-white-50">Sed cursus ante dapibus diam  Nulla quis sem at nibh elementum</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="serv_1i text-center">
+                            <span class="col_brow font_50 lh-1"><i class="fa fa-university"></i></span>
+                            <h5 class="text-white mt-3 mb-3">Indoor Service</h5>
+                            <p class="mb-0 text-white-50">Sed cursus ante dapibus diam  Nulla quis sem at nibh elementum</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="serv_1i text-center">
+                            <span class="col_brow font_50 lh-1"><i class="fa fa-camera-retro"></i></span>
+                            <h5 class="text-white mt-3 mb-3">Array Equipment</h5>
+                            <p class="mb-0 text-white-50">Sed cursus ante dapibus diam  Nulla quis sem at nibh elementum</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="serv_1 row mt-4">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="serv_1i text-center">
+                            <span class="col_brow font_50 lh-1"><i class="fa fa-star-o"></i></span>
+                            <h5 class="text-white mt-3 mb-3">Best Actor</h5>
+                            <p class="mb-0 text-white-50">Sed cursus ante dapibus diam  Nulla quis sem at nibh elementum</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="serv_1i text-center">
+                            <span class="col_brow font_50 lh-1"><i class="fa fa-play-circle"></i></span>
+                            <h5 class="text-white mt-3 mb-3">Film Director</h5>
+                            <p class="mb-0 text-white-50">Sed cursus ante dapibus diam  Nulla quis sem at nibh elementum</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="serv_1i text-center">
+                            <span class="col_brow font_50 lh-1"><i class="fa fa-globe"></i></span>
+                            <h5 class="text-white mt-3 mb-3">Excent & Award</h5>
+                            <p class="mb-0 text-white-50">Sed cursus ante dapibus diam  Nulla quis sem at nibh elementum</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="serv_1i text-center">
+                            <span class="col_brow font_50 lh-1"><i class="fa fa-shekel"></i></span>
+                            <h5 class="text-white mt-3 mb-3">Custom Services</h5>
+                            <p class="mb-0 text-white-50">Sed cursus ante dapibus diam  Nulla quis sem at nibh elementum</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>-->
+
+        <section id="choose">
+            <div class="spec_m bg_back pt-5 pb-5">
+                <div class="container-xl">
+                    <div class="choose_1 row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="choose_1l">
+                                <h1 class="text-white">Choosen as The <br> Best Choice of The <br> Century</h1>
+                                <h6 class="mb-0 mt-4"><a class="button" href="#">Learn More</a></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="choose_1r text-center">
+                                <span class="lh-1"><a class="col_brow" href="#"><i class="fa fa-play-circle"></i></a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skill" class="p_3">
+            <div class="container-xl">
+                <div class="skill_1 row">
+                    <div class="col-md-5">
+                        <div class="skill_1l">
+                            <div class="grid clearfix">
+                                <figure class="effect-jazz mb-0">
+                                    <a href="#"><img src="assets/img/5.png" class="w-100" alt="abc"></a>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="skill_1r">
+                            <h5 class="col_brow1">Best Movie of Week!</h5>
+                            <h1 class="mt-3">Inside Out 2<br> Now showing in FCinema theaters!</h1> 
+                            <p class="mt-3">Joy, Sadness, Anger, Fear and Disgust have been running a successful operation by all accounts. However, when Anxiety shows up, they aren't sure how to feel.</p>
+                            <h6 class="mt-3">Educational Value<span class="pull-right">50 point</span></h6>
+                            <div class="progress-bar mt-3">
+                                <div class="progress" style="width:50%;">
+                                </div>
+                            </div>
+                            <h6 class="mt-3">Animation <span class="pull-right">77 point</span></h6>
+                            <div class="progress-bar mt-3">
+                                <div class="progress" style="width:77%;">
+                                </div>
+                            </div>
+                            <h6 class="mt-3">Soundtrack <span class="pull-right">88 point</span></h6>
+                            <div class="progress-bar mt-3">
+                                <div class="progress" style="width:88%;">
+                                </div>
+                            </div>
+                            <h6 class="mt-3">Story <span class="pull-right">93 point</span></h6>
+                            <div class="progress-bar mt-3">
+                                <div class="progress" style="width:93%;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team_h" class="p_3 bg_light">
+            <div class="container-xl">
+                <div class="team_h1 row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="team_h1i">
+                            <h1>Top Movie On Week</h1>
+                            <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.Duis sagittis ipsum.Praesent mauris.</p>
+                            <h6 class="mb-0 mt-4"><a class="button_1" href="#">Learn More</a></h6>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="team_1m text-center">
+                            <div class="team_1m1 position-relative">
+                                <div class="team_1m1i">
+                                    <div class="grid clearfix">
+                                        <figure class="effect-jazz mb-0">
+                                            <a href="#"><img src="assets/img/6.jpg" class="w-100" alt="abc"></a>
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="team_1m1i1 bg_back w-100 h-100 position-absolute bottom-0 p-4">
+                                    <h5 class="text-white mb-3">Despicable Me 4</h5>
+                                    <ul class="mb-0">
+                                        <li class="text-white d-inline-block"><a class="bg-white d-block rounded-circle text-center col_purp font_14" href="#"><i class="fa fa-facebook"></i></a>  </li>
+                                        <li class="text-white d-inline-block"><a class="bg-white d-block rounded-circle text-center col_purp font_14" href="#"><i class="fa fa-twitter"></i></a>  </li>
+                                        <li class="text-white d-inline-block"><a class="bg-white d-block rounded-circle text-center col_purp font_14" href="#"><i class="fa fa-linkedin"></i></a>  </li>
+                                        <li class="text-white d-inline-block"><a class="bg-white d-block rounded-circle text-center col_purp font_14" href="#"><i class="fa fa-youtube-play"></i></a>  </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="team_1m2 p-3 shadow_box bg-white">
+                                <h5><a href="#">Despicable Me 4</a></h5>
+                                <h6 class="mb-0 text-muted">TOP 1#</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="team_1m text-center">
+                            <div class="team_1m1 position-relative">
+                                <div class="team_1m1i">
+                                    <div class="grid clearfix">
+                                        <figure class="effect-jazz mb-0">
+                                            <a href="#"><img src="assets/img/7.png" class="w-100" alt="abc"></a>
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="team_1m1i1 bg_back w-100 h-100 position-absolute bottom-0 p-4">
+                                    <h5 class="text-white mb-3">A Quiet Place: Day One</h5>
+                                    <ul class="mb-0">
+                                        <li class="text-white d-inline-block"><a class="bg-white d-block rounded-circle text-center col_purp font_14" href="#"><i class="fa fa-facebook"></i></a>  </li>
+                                        <li class="text-white d-inline-block"><a class="bg-white d-block rounded-circle text-center col_purp font_14" href="#"><i class="fa fa-twitter"></i></a>  </li>
+                                        <li class="text-white d-inline-block"><a class="bg-white d-block rounded-circle text-center col_purp font_14" href="#"><i class="fa fa-linkedin"></i></a>  </li>
+                                        <li class="text-white d-inline-block"><a class="bg-white d-block rounded-circle text-center col_purp font_14" href="#"><i class="fa fa-youtube-play"></i></a>  </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="team_1m2 p-3 shadow_box bg-white">
+                                <h5><a href="#">A Quiet Place: Day One</a></h5>
+                                <h6 class="mb-0 text-muted">Top 2#</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="team_1m text-center">
+                            <div class="team_1m1 position-relative">
+                                <div class="team_1m1i">
+                                    <div class="grid clearfix">
+                                        <figure class="effect-jazz mb-0">
+                                            <a href="#"><img src="assets/img/8.png" class="w-100" alt="abc"></a>
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="team_1m1i1 bg_back w-100 h-100 position-absolute bottom-0 p-4">
+                                    <h5 class="text-white mb-3">Nulla Semper</h5>
+                                    <ul class="mb-0">
+                                        <li class="text-white d-inline-block"><a class="bg-white d-block rounded-circle text-center col_purp font_14" href="#"><i class="fa fa-facebook"></i></a>  </li>
+                                        <li class="text-white d-inline-block"><a class="bg-white d-block rounded-circle text-center col_purp font_14" href="#"><i class="fa fa-twitter"></i></a>  </li>
+                                        <li class="text-white d-inline-block"><a class="bg-white d-block rounded-circle text-center col_purp font_14" href="#"><i class="fa fa-linkedin"></i></a>  </li>
+                                        <li class="text-white d-inline-block"><a class="bg-white d-block rounded-circle text-center col_purp font_14" href="#"><i class="fa fa-youtube-play"></i></a>  </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="team_1m2 p-3 shadow_box bg-white">
+                                <h5><a href="#">TILL WE MEET AGAIN ON THE LILY HILL</a></h5>
+                                <h6 class="mb-0 text-muted">Top 3#</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="p_3 bg-black">
+            <div class="container-xl">
+                <div class="award_1 row text-center mb-4">
+                    <div class="col-md-12">
+                        <h5 class="col_brow">Our Best Film & Video</h5>
+                        <h1 class="mt-3 text-white mb-3">Featured Film & Video</h1>
+                        <p class="text-white-50 mb-0">Pros hope out it of the and is that degree has him,  those for of agreeable.  Sports. Name area<br> on then grant view of the with congress, of clues of the a there in his music.</p>
+                    </div>
+                </div>
+                <div class="gallery_1 row">
+                    <div class="col-md-6 p-0">
+                        <div class="gallery_1l">
+                            <div class="grid clearfix">
+                                <figure class="effect-jazz mb-0">
+                                    <a href="#"><img src="assets/img/9.png" class="w-100" alt="abc"></a>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 p-0">
+                        <div class="gallery_1l">
+                            <div class="grid clearfix">
+                                <figure class="effect-jazz mb-0">
+                                    <a href="#"><img src="assets/img/10.jpg" class="w-100" alt="abc"></a>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery_1 row">
+                    <div class="col-md-4 p-0">
+                        <div class="gallery_1l">
+                            <div class="grid clearfix">
+                                <figure class="effect-jazz mb-0">
+                                    <a href="#"><img src="assets/img/10.png" class="w-100" alt="abc"></a>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 p-0">
+                        <div class="gallery_1l">
+                            <div class="grid clearfix">
+                                <figure class="effect-jazz mb-0">
+                                    <a href="#"><img src="assets/img/12.jpg" class="w-100" alt="abc"></a>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 p-0">
+                        <div class="gallery_1l">
+                            <div class="grid clearfix">
+                                <figure class="effect-jazz mb-0">
+                                    <a href="#"><img src="assets/img/13.jpg" class="w-100" alt="abc"></a>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery_2 row mt-4">
+                    <div class="col-md-8">
+                        <div class="gallery_2l">
+                            <h5 class="col_brow">Did You</h5>
+                            <h1 class="mt-3 text-white mb-0">Need Quality Movie or <br>  Video?</h1>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="gallery_2r mt-5">
+                            <h6 class="mb-0"><a class="button" href="#">Hire Us Now!</a></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testim" class="p_3 carousel_p">
+            <div class="container-xl">
+                <div class="award_1 row text-center mb-4">
+                    <div class="col-md-12">
+                        <h5 class="col_brow1">Our Testimonials</h5>
+                        <h1 class="mt-3 mb-0">What They Say About Our Cineflix</h1>
+                    </div>
+                </div>
+                <div class="testim_1 row">
+                    <div id="carouselExampleCaptions1" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="testim_1i row">
+                                    <div class="col-md-4">
+                                        <div class="testim_1i1 bg_light p-4">
+                                            <span class="col_brow1 font_14">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </span>
+                                            <div class="testim_1i1i mt-3">
+                                                <span><img src="assets/img/6.jpg" alt="abc" class="rounded-circle me-3 float-start"></span>
+                                                <h6 class="mb-0 fw-bold text-uppercase lh-base"> Eget Nulla <br> <span class="col_blue font_14 text-capitalize  fw-normal">Happy Customer</span></h6>
+                                            </div>
+                                            <p class="mb-0 mt-3">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                        </div>  
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="testim_1i1 bg_light p-4">
+                                            <span class="col_brow1 font_14">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                            </span>
+                                            <div class="testim_1i1i mt-3">
+                                                <span><img src="assets/img/7.jpg" alt="abc" class="rounded-circle me-3 float-start"></span>
+                                                <h6 class="mb-0 fw-bold text-uppercase lh-base"> Lorem Porta <br> <span class="col_blue font_14 text-capitalize fw-normal">Happy Customer</span></h6>
+                                            </div>
+                                            <p class="mb-0 mt-3">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                        </div>  
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="testim_1i1 bg_light p-4">
+                                            <span class="col_brow1 font_14">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                            </span>
+                                            <div class="testim_1i1i mt-3">
+                                                <span><img src="assets/img/8.jpg" alt="abc" class="rounded-circle me-3 float-start"></span>
+                                                <h6 class="mb-0 fw-bold text-uppercase lh-base"> Dolor Quis <br> <span class="col_blue font_14 text-capitalize fw-normal">Happy Customer</span></h6>
+                                            </div>
+                                            <p class="mb-0 mt-3">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="testim_1i row">
+                                    <div class="col-md-4">
+                                        <div class="testim_1i1 bg_light p-4">
+                                            <span class="col_brow1 font_14">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </span>
+                                            <div class="testim_1i1i mt-3">
+                                                <span><img src="assets/img/6.jpg" alt="abc" class="rounded-circle me-3 float-start"></span>
+                                                <h6 class="mb-0 fw-bold text-uppercase lh-base"> Eget Nulla <br> <span class="col_blue font_14 text-capitalize  fw-normal">Happy Customer</span></h6>
+                                            </div>
+                                            <p class="mb-0 mt-3">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                        </div>  
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="testim_1i1 bg_light p-4">
+                                            <span class="col_brow1 font_14">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                            </span>
+                                            <div class="testim_1i1i mt-3">
+                                                <span><img src="assets/img/7.jpg" alt="abc" class="rounded-circle me-3 float-start"></span>
+                                                <h6 class="mb-0 fw-bold text-uppercase lh-base"> Lorem Porta <br> <span class="col_blue font_14 text-capitalize fw-normal">Happy Customer</span></h6>
+                                            </div>
+                                            <p class="mb-0 mt-3">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                        </div>  
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="testim_1i1 bg_light p-4">
+                                            <span class="col_brow1 font_14">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                            </span>
+                                            <div class="testim_1i1i mt-3">
+                                                <span><img src="assets/img/8.jpg" alt="abc" class="rounded-circle me-3 float-start"></span>
+                                                <h6 class="mb-0 fw-bold text-uppercase lh-base"> Dolor Quis <br> <span class="col_blue font_14 text-capitalize fw-normal">Happy Customer</span></h6>
+                                            </div>
+                                            <p class="mb-0 mt-3">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cont" class="p_3 pt-0">
+            <div class="container-xl">
+                <div class="cont_1 row">
+                    <div class="col-md-6">
+                        <div class="cont_1l">
+                            <h5 class="col_brow1">Come Join Us Now!</h5>
+                            <h1 class="mb-3">Send Us a Message</h1>
+                            <h6 class="fw-bold">Address</h6>
+                            <h6 class="font_14">Hoa Lac Hi-tech Park, km 29, Avenue, Thang Long, Hanoi, Vietnam</h6><hr>
+                            <h6 class="fw-bold">Contact</h6>
+                            <h6 class="font_14">Mobile: +8412 3456 789</h6>
+                            <h6 class="font_14">Hotline: +8423 4567 897</h6>
+                            <hr>
+                            <h6 class="fw-bold">Email</h6>
+                            <h6 class="font_14">info@gmail.com</h6>
+                            <ul class="social-network social-circle mb-0 mt-4">
+                                <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-skype"></i></a></li>
+                                <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="cont_1r">
+                            <div class="cont_1ri row">
+                                <div class="col-md-6">
+                                    <div class="cont_1ril">
+                                        <input class="form-control" placeholder="Your Name" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="cont_1ril">
+                                        <input class="form-control" placeholder="Your Email" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cont_1ri row mt-4">
+                                <div class="col-md-12">
+                                    <div class="cont_1ril">
+                                        <input class="form-control" placeholder="Your Subject" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cont_1ri row mt-4">
+                                <div class="col-md-12">
+                                    <div class="cont_1ril">
+                                        <textarea placeholder="Your Messsage" class="form-control form_text"></textarea>
+                                        <h6 class="mb-0 mt-4"><a class="button_1" href="#">Contact Us</a></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="footer">
+            <div class="footer_m bg_backo p_3">
+                <div class="container-xl">
+                    <div class="footer_1 row">
+                        <div class="col-md-3">
+                            <div class="footer_1i">
+                                <h3><a class="text-white" href="index.html"> <span class="bg_brow p-1 px-2">F</span> CineFlix</a></h3>
+                                <p class="text-light mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis sem at nibh elementum imperdiet.Duis sagittis ipsum.Praesent mauris.</p>
+                                <ul class="social-network social-circle mb-0 mt-4">
+                                    <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-skype"></i></a></li>
+                                    <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-pinterest"></i></a></li>
+                                    <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="footer_1i">
+                                <h5 class="col_light mb-4">Explore</h5>
+                                <div class="row footer_1ism">
+                                    <h6 class="fw-normal col-md-12 col-6 font_14"><a class="text-light" href="#"><i class="fa fa-caret-right col_brow me-1 font_12 align-middle"></i>  About</a></h6>
+                                    <h6 class="fw-normal mt-2 col-md-12 col-6 font_14"><a class="text-light" href="#"><i class="fa fa-caret-right col_brow me-1 font_12 align-middle"></i> Service</a></h6>
+                                    <h6 class="fw-normal mt-2 col-md-12 col-6 font_14"><a class="text-light" href="#"><i class="fa fa-caret-right col_brow me-1 font_12 align-middle"></i> Our  Team</a></h6>
+                                    <h6 class="fw-normal mt-2 col-md-12 col-6 mb-0 font_14"><a class="text-light" href="#"><i class="fa fa-caret-right col_brow me-1 font_12 align-middle"></i> Project</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="footer_1i">
+                                <h5 class="col_light mb-4">Our Services</h5>
+                                <div class="row footer_1ism">
+                                    <h6 class="fw-normal col-md-12 col-6 font_14"><a class="text-light" href="#"><i class="fa fa-caret-right col_brow me-1 font_12 align-middle"></i>  Privacy Policy</a></h6>
+                                    <h6 class="fw-normal mt-2 col-md-12 col-6 font_14"><a class="text-light" href="#"><i class="fa fa-caret-right col_brow me-1 font_12 align-middle"></i> Terms & Conditions</a></h6>
+                                    <h6 class="fw-normal mt-2 col-md-12 col-6 font_14"><a class="text-light" href="#"><i class="fa fa-caret-right col_brow me-1 font_12 align-middle"></i> Support</a></h6>
+                                    <h6 class="fw-normal mt-2 col-md-12 col-6 mb-0 font_14"><a class="text-light" href="#"><i class="fa fa-caret-right col_brow me-1 font_12 align-middle"></i> Disclaimer</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="footer_1i">
+                                <h5 class="col_light mb-4">CONTACT US TO BOOKING</h5>
+                                <h6 class="font_14 text-light">VIETNAM</h6>
+                                <h6 class="font_14"><a class="text-light" href="#">info@gmail.com</a></h6>
+                                <h6 class="mt-3 font_14"><a class="text-light" href="#">+123 4567 890</a></h6>
+                                <h6 class="mt-3 text-light font_14"><span class="text-white">Mon-Thu:</span> 9:30 am - 6:00 pm</h6>
+                                <h6 class="mt-3 text-light font_14"><span class="text-white">Fri:</span>  9:30 am - 5:00 pm</h6>
+                                <h6 class="mt-3 text-light mb-0 font_14"><span class="text-white">Sat:</span>  10:00 am - 3:00 pm</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_2 row mt-4 text-center pt-4">
+                        <div class="col-md-12">
+                            <p class="mb-0 text-light">© 2024 FCINEMA Project. All Rights Reserved | Design by <a class="col_brow fw-bold" href="#">Dokkuhai</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<script src="assets/js/common.js"></script>
+
+    </body>
+
+
+</html>
